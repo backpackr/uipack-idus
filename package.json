@@ -1,0 +1,42 @@
+{
+  "name": "uipack-idus",
+  "version": "0.0.1",
+  "description": "UI Pack for idus.com",
+  "main": "index.html",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "keywords": [
+    "CSS Framework",
+    "UI",
+    ""
+  ],
+  "author": "7ylee",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^8.2.5",
+    "browser-sync": "^2.24.5",
+    "del": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-prettier-standard": "^2.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-remove-logging": "^1.2.0",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "prettier": "^1.13.4",
+    "standard": "^11.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
