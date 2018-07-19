@@ -1,0 +1,80 @@
+// grid
+.grid {
+    // default
+    $marginTop: 16px;
+    $marginLeft: 16px;
+
+    position: relative;
+    overflow: hidden;
+
+    .grid-row {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .grid-item {
+        position: relative;
+        float: left;
+        width: 100%;
+
+        a.grid-inner {
+            display: block;
+        }
+    }
+
+    @include grid-spacing($marginTop, $marginLeft);
+
+    &.col2 {
+        .grid-item {
+            width: (100%/2);
+        }
+    }
+
+    &.col3 {
+        .grid-item {
+            width: (100%/3);
+        }
+
+        .col2 {
+            .grid-item {
+                width: (100%/2);
+            }
+        }
+    }
+
+    &.col4 {
+        .grid-item {
+            width: (100%/4);
+        }
+    }
+
+    &.col5 {
+        .grid-item {
+            width: (100%/5);
+        }
+    }
+
+    &.col6 {
+        .grid-item {
+            width: (100%/6);
+        }
+    }
+
+    &.no-spacing {
+        @include grid-spacing(0px, 0px);
+    }
+}
+
+@include mobile {
+    .grid-item {
+        width: 50% !important;
+
+        .m-col1 & {
+            width: 100% !important
+        }
+
+        .m-col3 & {
+            width: (100%/3) !important;
+        }
+    }
+}

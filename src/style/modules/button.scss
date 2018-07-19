@@ -83,7 +83,7 @@ $c-font-default: $c-font3;
 }
 
 // color-theme
-.btn {
+.nbtn {
     @extend %btn-common;
 
     &-white {

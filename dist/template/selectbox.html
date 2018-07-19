@@ -1,0 +1,78 @@
+<pre data-code="selectbox">
+    <code class="js">
+        // data-ui="selectbox" 선택자로 자동 init
+
+        // 비동기로 마크업 로드시
+        BPackr.events.emit('INIT_SELECTBOX');
+    </code>
+    <code class="html">
+        &lt;!-- properties --&gt;
+        &lt;div class="ui-selectbox"
+            data-ui="selectbox"
+            data-name="name"
+            data-use-placeholder="true"
+            data-disabled="false"
+        &gt;
+        ...
+
+        &lt;/div&gt;
+
+        /*
+
+        * required properties
+        * .ui-selectbox: required for css style
+        * data-ui="selectbox": required: for js init
+        *
+        * optional properties
+        * data-select-placeholder="PLACEHOLDER TEXT"
+        * data-disabled="false"
+        */
+    </code>
+</pre>
+
+<form action="#">
+    <div class="ui-selectbox m160" data-ui="selectbox">
+        <select name="selectbox1"></select>
+        <button type="button" class="ui-trigger">
+            <div class="ui-selected"></div>
+            <i class="ui-icon fa fa-chevron-down"></i>
+        </button>
+        <ul class="ui-select">
+            <li class="ui-option" value="option1">option1</li>
+            <li class="ui-option" value="option2">option2</li>
+            <li class="ui-option" value="option3">option3</li>
+        </ul>
+    </div>
+
+    <div class="ui-selectbox m160" data-ui="selectbox" data-select-placeholder="PLACEHOLDER OPTION">
+        <select name="selectbox2"></select>
+        <button type="button" class="ui-trigger">
+            <div class="ui-selected"></div>
+            <i class="ui-icon fa fa-chevron-down"></i>
+        </button>
+        <ul class="ui-select">
+            <li class="ui-option" value="option1">option1</li>
+            <li class="ui-option" value="option2">option2</li>
+            <li class="ui-option" value="option3">option3</li>
+        </ul>
+    </div>
+
+    <div class="ui-selectbox m160" data-ui="selectbox" data-state="disabled">
+        <select name="selectbox3"></select>
+        <button type="button" class="ui-trigger">
+            <div class="ui-selected"></div>
+            <i class="ui-icon fa fa-chevron-down"></i>
+        </button>
+        <ul class="ui-select">
+            <li class="ui-option" value="option1">disabled</li>
+            <li class="ui-option" value="option2">option2</li>
+            <li class="ui-option" value="option3">option3</li>
+        </ul>
+    </div>
+
+    <button type="submit" class="nbtn-red">SUBMIT</button>
+</form>
+
+<script>
+    uiPack.events.emit('INIT_SELECTBOX');
+</script>

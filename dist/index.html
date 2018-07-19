@@ -6,86 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UIPACK-IDUS</title>
+
+    <!-- uipack src -->
     <link rel="stylesheet" href="./css/uipack-idus.css">
     <script src="./js/uipack-idus.vendor.min.js"></script>
+
+    <!-- guide-page src -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/styles/github.min.css">
+    <style>
+        .thisPage {
+            --colorMain: #f8f8f8;
+            --colorDarker: #c9c9c9;
+        }
+
+        code {
+            font-size: 12px;
+            font-family: 'Menlo';
+        }
+
+        .thisPage .grid-inner {
+            background: var(--colorMain);
+            text-align: center;
+            border: 1px solid var(--colorDarker);
+        }
+
+        [data-code] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <div class="inner-w thisPage">
         <h1>UIPACK-IDUS</h1>
-        <fiedset class="btn-group">
-            <button type="button" class="btn-white--large" data-state="active">주문하기</button>
-            <button type="button" class="btn-white">주문하기</button>
-            <button type="button" class="btn-white--small">주문하기</button>
-            <button type="button" class="btn-white--mini">주문하기</button>
-        </fiedset>
-        <fiedset class="btn-group">
-            <button type="button" class="btn-red--large">주문하기</button>
-            <button type="button" class="btn-red">주문하기</button>
-            <button type="button" class="btn-red--small">주문하기</button>
-            <button type="button" class="btn-red--mini">주문하기</button>
-        </fiedset>
-        <fiedset class="btn-group">
-            <button type="button" class="btn-redline--large">주문하기</button>
-            <button type="button" class="btn-redline">주문하기</button>
-            <button type="button" class="btn-redline--small">주문하기</button>
-            <button type="button" class="btn-redline--mini">주문하기</button>
-        </fiedset>
 
-        <button type="button" class="nbtn-white" data-ui="fav-btn" data-state>
-            <svg class="icon-star" width="20" height="20" viewBox="0 0 20 20">
-                <path fill="none" stroke="#666" stroke-width="2" d="M5.79131669,18.3300805 L10.0016942,16.0221702 L14.2120718,18.3300805 C15.224136,18.8848415 15.704991,18.5447838 15.5169847,17.4018836 L14.7034168,12.4561589 L18.1084325,8.99556511 C18.9326992,8.15784446 18.7322534,7.54568461 17.5809506,7.37125717 L12.8998726,6.66205326 L10.7732472,2.16930513 C10.278792,1.1247099 9.72478589,1.12430969 9.23014125,2.16930513 L7.1035159,6.66205326 L2.42243788,7.37125717 C1.27004653,7.54584953 1.07000507,8.15714907 1.89495593,8.99556511 L5.29997172,12.4561589 L4.48640373,17.4018836 C4.2974141,18.550762 4.77345655,18.8880186 5.79131669,18.3300805 Z"
-                />
-            </svg>
-            <span>좋아요</span>
-        </button>
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">GRID</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="grid">RULES</button>
+            </span>
+        </div>
+        <div data-template="grid"></div>
 
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">BUTTONS</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="button">RULES</button>
+            </span>
+        </div>
+        <div data-template="button"></div>
 
-        <form action="#">
-            <div class="ui-selectbox m160" data-ui="selectbox">
-                <select name="selectbox1"></select>
-                <button type="button" class="ui-trigger">
-                    <div class="ui-selected"></div>
-                    <i class="ui-icon fa fa-chevron-down"></i>
-                </button>
-                <ul class="ui-select">
-                    <li class="ui-option" value="option1">option1</li>
-                    <li class="ui-option" value="option2">option2</li>
-                    <li class="ui-option" value="option3">option3</li>
-                </ul>
-            </div>
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">USER INPUTS</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="selectbox">RULES</button>
+            </span>
+        </div>
+        <div data-template="selectbox"></div>
 
-            <div class="ui-selectbox m160" data-ui="selectbox" data-select-placeholder="PLACEHOLDER OPTION">
-                <select name="selectbox2"></select>
-                <button type="button" class="ui-trigger">
-                    <div class="ui-selected"></div>
-                    <i class="ui-icon fa fa-chevron-down"></i>
-                </button>
-                <ul class="ui-select">
-                    <li class="ui-option" value="option1">option1</li>
-                    <li class="ui-option" value="option2">option2</li>
-                    <li class="ui-option" value="option3">option3</li>
-                </ul>
-            </div>
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">ICONS</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="icons">RULES</button>
+            </span>
+        </div>
+        <div data-template="icons"></div>
 
-            <div class="ui-selectbox m160" data-ui="selectbox" data-state="disabled">
-                <select name="selectbox3"></select>
-                <button type="button" class="ui-trigger">
-                    <div class="ui-selected"></div>
-                    <i class="ui-icon fa fa-chevron-down"></i>
-                </button>
-                <ul class="ui-select">
-                    <li class="ui-option" value="option1">disabled</li>
-                    <li class="ui-option" value="option2">option2</li>
-                    <li class="ui-option" value="option3">option3</li>
-                </ul>
-            </div>
-
-            <button type="submit" class="nbtn-red">SUBMIT</button>
-        </form>
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">TITLES</a>
+        </div>
+        <div data-template="titles"></div>
     </div>
 
+    <!-- uipack src -->
     <script src="./js/uipack-idus.js"></script>
+
+    <!-- guide-page src -->
+    <script>
+        hljs.initHighlightingOnLoad();
+
+        $('[data-template]').each(function () {
+            var id = $(this).data('template');
+
+            $.get('./template/' + id + '.html').done(function (markup) {
+                $('[data-template="' + id + '"]').append(markup);
+                $('[data-template="' + id + '"]').find('pre code').each(function (i, block) {
+                    hljs.highlightBlock(block);
+                });
+            })
+        });
+
+        $('[data-show]').each(function () {
+            var id = $(this).data('show');
+
+            $(this).on('click', function () {
+                $('[data-code="' + id + '"]').toggle();
+            });
+        });
+    </script>
 </body>
 
 </html>

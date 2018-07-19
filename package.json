@@ -2,7 +2,7 @@
   "name": "uipack-idus",
   "version": "0.0.3",
   "description": "UI Pack for idus.com",
-  "main": "index.html",
+  "main": "README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/backpackr/uipack-idus.git"
