@@ -3,7 +3,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var bs = require('browser-sync').create();
 var concat = require('gulp-concat');
 var del = require('del');
-var ghPages = require('gulp-gh-pages');
+var ghpages = require('gh-pages');
 var gulp = require('gulp');
 var removeLogging = require('gulp-remove-logging');
 var rename = require('gulp-rename');
@@ -138,9 +138,10 @@ function tmpToPublic() {
         .pipe(gulp.dest(projectPath.public));
 }
 
-
 function deployment() {
-    return gulp.src('./dist/**/*').pipe(ghPages())
+    return ghpages.publish('./dist', function (err) {
+        console.log(err)
+    });
 }
 
 gulp.task('deploy', deployment);
@@ -163,6 +164,3 @@ gulp.task('build', gulp.series(
     // move tmp to public
     tmpToPublic
 ));
-
-// // gh-pages
-// gulp.task('deploy', ghpages);
