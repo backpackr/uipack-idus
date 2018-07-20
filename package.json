@@ -9,8 +9,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp build",
-    "deploy": "gulp deploy"
+    "build": "gulp build"
   },
   "keywords": [
     "CSS Framework",
@@ -29,7 +28,6 @@
     "eslint-plugin-prettier": "^2.6.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
-    "gh-pages": "^1.2.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-concat": "^2.6.1",

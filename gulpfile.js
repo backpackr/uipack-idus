@@ -3,7 +3,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var bs = require('browser-sync').create();
 var concat = require('gulp-concat');
 var del = require('del');
-var ghpages = require('gh-pages');
 var gulp = require('gulp');
 var removeLogging = require('gulp-remove-logging');
 var rename = require('gulp-rename');
@@ -16,7 +15,7 @@ var uglify = require('gulp-uglify');
 var projectPath = {
     tmp: './.tmp',
     src: './src',
-    dev: './dist',
+    dev: './docs',
     public: './dist',
 };
 
@@ -48,7 +47,7 @@ var vendorCSS = [
 function development() {
     bs.init({
         server: {
-            baseDir: './dist',
+            baseDir: './docs',
         },
         notify: false
     });
@@ -137,14 +136,6 @@ function tmpToPublic() {
     return gulp.src(projectPath.tmp + '/**/*')
         .pipe(gulp.dest(projectPath.public));
 }
-
-function deployment() {
-    return ghpages.publish('./dist', function (err) {
-        console.log(err)
-    });
-}
-
-gulp.task('deploy', deployment);
 
 // development task
 gulp.task('default', gulp.series(
