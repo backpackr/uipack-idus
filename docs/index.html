@@ -5,11 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>UIPACK-IDUS</title>
+
+    <!-- uipack src -->
+    <link rel="stylesheet" href="./css/uipack-idus.css">
+    <script src="./js/uipack-idus.vendor.min.js"></script>
+
+    <!-- guide-page src -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/styles/github.min.css">
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .thisPage {
+            --colorMain: #f8f8f8;
+            --colorDarker: #c9c9c9;
+        }
+
+        code {
+            font-size: 12px;
+            font-family: 'Menlo';
+        }
+
+        .thisPage .grid-inner {
+            background: var(--colorMain);
+            text-align: center;
+            border: 1px solid var(--colorDarker);
+        }
+
+        [data-code] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    hello
+    <div class="inner-w thisPage">
+        <h1>UIPACK-IDUS</h1>
+
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">GRID</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="grid">RULES</button>
+            </span>
+        </div>
+        <div data-template="grid"></div>
+
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">BUTTONS</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="button">RULES</button>
+            </span>
+        </div>
+        <div data-template="button"></div>
+
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">USER INPUTS</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="selectbox">RULES</button>
+            </span>
+        </div>
+        <div data-template="selectbox"></div>
+
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">ICONS</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="icons">RULES</button>
+            </span>
+        </div>
+        <div data-template="icons"></div>
+
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">TITLES</a>
+        </div>
+        <div data-template="titles"></div>
+    </div>
+
+    <!-- uipack src -->
+    <script src="./js/uipack-idus.js"></script>
+
+    <!-- guide-page src -->
+    <script>
+        hljs.initHighlightingOnLoad();
+
+        $('[data-template]').each(function () {
+            var id = $(this).data('template');
+
+            $.get('./template/' + id + '.html').done(function (markup) {
+                $('[data-template="' + id + '"]').append(markup);
+                $('[data-template="' + id + '"]').find('pre code').each(function (i, block) {
+                    hljs.highlightBlock(block);
+                });
+            })
+        });
+
+        $('[data-show]').each(function () {
+            var id = $(this).data('show');
+
+            $(this).on('click', function () {
+                $('[data-code="' + id + '"]').toggle();
+            });
+        });
+    </script>
 </body>
 
 </html>
