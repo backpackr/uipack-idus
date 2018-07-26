@@ -1,0 +1,147 @@
+%styled-input-base {
+    padding: 1px 3px;
+    margin: 0;
+    -moz-appearance: none;
+    -ms-progress-appearance: none;
+    -webkit-appearance: none;
+
+    &:before {
+        content:'';
+        box-sizing: border-box;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #888;
+        background: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        line-height: 19px;
+        text-align: center;
+        transition: background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        border-radius: 2px;
+    }
+}
+
+%checkbox-style {
+    @extend %styled-input-base;
+    &:before {
+        border-radius: 2px;
+    }
+
+    &:checked:before {
+        content: '\2713';
+        background: $c-point;
+        border-color: $c-point;
+    }
+}
+
+%radio-style {
+    @extend %styled-input-base;
+    &:before {
+        border-radius: 50%;
+    }
+
+    &:checked:after {
+        content:'';
+        box-sizing: border-box;
+        position: absolute;
+        left: 2px;
+        top: 50%;
+        left: 50%;
+        margin-left: -5px;
+        margin-top: -5px;;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $c-point;
+    }
+}
+
+.userinput {
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 14px;
+
+    > * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: inherit;
+    }
+
+    &__input {
+        color: $c-font3;
+        transition: border-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        line-height: 30px;
+        padding: 0 12px;
+        position: relative;
+
+        &[type=text],
+        &[type=password],
+        &[type=phone] {
+            display: inline-block;
+            border: 1px solid #b4b4b4;
+        }
+
+        &[type=checkbox] {
+            @extend %checkbox-style;
+        }
+
+        &[type=radio] {
+            @extend %radio-style;
+
+
+        }
+
+        &:focus {
+            outline: 0 none;
+            border-color: $c-sub;
+
+            &:before {
+                border-color: $c-sub;
+            }
+
+            &:checked:before {
+                border-color: darken($c-point, 25%);
+            }
+        }
+
+        // mods force radiobox to checkbox style
+        &--checkbox {
+            @extend .userinput__input;
+            &[type=radio] {
+                @extend %checkbox-style;
+                &:before {
+                    border-radius: 2px;
+                }
+                &:after {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    &__label {
+        font-size: 14px;
+        color: $c-font3;
+    }
+
+    &--boxed {
+        @extend .userinput;
+        padding: 0 18px;
+        border: 1px solid #d9d9d9;
+        background: #fff;
+        text-align: left;
+
+        input {
+            margin-right: 8px;
+        }
+    }
+}

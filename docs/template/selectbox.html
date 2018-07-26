@@ -31,44 +31,119 @@
 </pre>
 
 <form action="#">
-    <div class="ui-selectbox m160" data-ui="selectbox">
-        <select name="selectbox1"></select>
-        <button type="button" class="ui-trigger">
-            <div class="ui-selected"></div>
-            <i class="ui-icon fa fa-chevron-down"></i>
-        </button>
-        <ul class="ui-select">
-            <li class="ui-option" value="option1">option1</li>
-            <li class="ui-option" value="option2">option2</li>
-            <li class="ui-option" value="option3">option3</li>
-        </ul>
-    </div>
+    <fieldset>
+        <legend>SELECTBOX</legend>
+        <div class="ui-selectbox m160" data-ui="selectbox">
+            <select name="selectbox1"></select>
+            <button type="button" class="ui-trigger">
+                <div class="ui-selected"></div>
+                <i class="ui-icon fa fa-chevron-down"></i>
+            </button>
+            <ul class="ui-select">
+                <li class="ui-option" value="option1">option1</li>
+                <li class="ui-option" value="option2">option2</li>
+                <li class="ui-option" value="option3">option3</li>
+            </ul>
+        </div>
 
-    <div class="ui-selectbox m160" data-ui="selectbox" data-select-placeholder="PLACEHOLDER OPTION">
-        <select name="selectbox2"></select>
-        <button type="button" class="ui-trigger">
-            <div class="ui-selected"></div>
-            <i class="ui-icon fa fa-chevron-down"></i>
-        </button>
-        <ul class="ui-select">
-            <li class="ui-option" value="option1">option1</li>
-            <li class="ui-option" value="option2">option2</li>
-            <li class="ui-option" value="option3">option3</li>
-        </ul>
-    </div>
+        <div class="ui-selectbox m160" data-ui="selectbox" data-select-placeholder="PLACEHOLDER OPTION">
+            <select name="selectbox2"></select>
+            <button type="button" class="ui-trigger">
+                <div class="ui-selected"></div>
+                <i class="ui-icon fa fa-chevron-down"></i>
+            </button>
+            <ul class="ui-select">
+                <li class="ui-option" value="option1">option1</li>
+                <li class="ui-option" value="option2">option2</li>
+                <li class="ui-option" value="option3">option3</li>
+            </ul>
+        </div>
 
-    <div class="ui-selectbox m160" data-ui="selectbox" data-state="disabled">
-        <select name="selectbox3"></select>
-        <button type="button" class="ui-trigger">
-            <div class="ui-selected"></div>
-            <i class="ui-icon fa fa-chevron-down"></i>
-        </button>
-        <ul class="ui-select">
-            <li class="ui-option" value="option1">disabled</li>
-            <li class="ui-option" value="option2">option2</li>
-            <li class="ui-option" value="option3">option3</li>
-        </ul>
-    </div>
+        <div class="ui-selectbox m160" data-ui="selectbox" data-state="disabled">
+            <select name="selectbox3"></select>
+            <button type="button" class="ui-trigger">
+                <div class="ui-selected"></div>
+                <i class="ui-icon fa fa-chevron-down"></i>
+            </button>
+            <ul class="ui-select">
+                <li class="ui-option" value="option1">disabled</li>
+                <li class="ui-option" value="option2">option2</li>
+                <li class="ui-option" value="option3">option3</li>
+            </ul>
+    </fieldset>
+    <!-- <fieldset>
+        <legend>NUMBER</legend>
+        <div class="input-number" data-ui="input-number">
+            <button type="button" data-type="decrement">-</button>
+            <div class="input-area">
+                <input class="prd-count" type="number" autocomplete="off" min="1" max="999" data-action="change_count" name="somename" value="1">
+            </div>
+            <button type="button" data-type="increment">+</button>
+        </div>
+    </fieldset> -->
+    <fieldset>
+        <legend>INPUTFIELD</legend>
+        <div class="userinput">
+            <label for="textinput2" class="userinput__label">textinput2</label>
+            <input class="userinput__input" type="text" name="textinput2" placeholder="Textinput2" autocomplete="off">
+        </div>
+        <label class="userinput">
+            <span class="userinput__label">textinput</span>
+            <input class="userinput__input" type="text" name="textinput" placeholder="Textinput" autocomplete="off">
+        </label>
+        <label class="userinput">
+            <span class="userinput__label">password</span>
+            <input class="userinput__input" type="password" name="password" placeholder="Password" autocomplete="off">
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>CHECKBOX</legend>
+        <label class="userinput">
+            <input class="userinput__input" type="checkbox" name="checkinput1">
+            <span class="userinput__label">checkinput1</span>
+        </label>
+        <label class="userinput">
+            <input class="userinput__input" type="checkbox" name="checkinput2">
+            <span class="userinput__label">checkinput2</span>
+        </label>
+        <label class="userinput">
+            <input class="userinput__input" type="checkbox" name="checkinput3">
+            <span class="userinput__label">checkinput3</span>
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>RADIO</legend>
+        <div>
+            <label class="userinput">
+                <input class="userinput__input" type="radio" name="radioinput" value="radio1" checked>
+                <span class="userinput__label">radio1</span>
+            </label>
+            <label class="userinput">
+                <input class="userinput__input" type="radio" name="radioinput" value="radio2">
+                <span class="userinput__label">radio2</span>
+            </label>
+            <label class="userinput">
+                <input class="userinput__input" type="radio" name="radioinput" value="radio3">
+                <span class="userinput__label">radio3</span>
+            </label>
+        </div>
+        <div>
+            <label class="userinput">
+                <input class="userinput__input--checkbox" type="radio" name="forceCheckbox" value="forceCheckbox1" checked>
+                <span class="userinput__label">checkbox style radio</span>
+            </label>
+            <label class="userinput">
+                <input class="userinput__input--checkbox" type="radio" name="forceCheckbox" value="forceCheckbox2">
+                <span class="userinput__label">checkbox style radio</span>
+            </label>
+            <label class="userinput">
+                <input class="userinput__input--checkbox" type="radio" name="forceCheckbox" value="forceCheckbox3">
+                <span class="userinput__label">checkbox style radio</span>
+            </label>
+        </div>
+    </fieldset>
 
     <button type="submit" class="nbtn-red">SUBMIT</button>
 </form>
