@@ -1,16 +1,23 @@
 %styled-input-base {
-    padding: 1px 3px;
-    margin: 0;
+    position: relative;
+    padding: 0;
+    margin: 0 3px;
+    display: inline-block;
+    width: 18px;
+
+    font-family: Arial, Helvetica, sans-serif;
     -moz-appearance: none;
     -ms-progress-appearance: none;
     -webkit-appearance: none;
 
     &:before {
         content:'';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -9px;
         box-sizing: border-box;
-        position: relative;
         display: inline-block;
-        vertical-align: middle;
         width: 18px;
         height: 18px;
         border: 1px solid #888;
@@ -18,10 +25,10 @@
         font-size: 16px;
         font-weight: bold;
         color: #fff;
-        line-height: 19px;
+        line-height: 18px;
         text-align: center;
         transition: background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-
+        cursor: pointer;
         border-radius: 2px;
     }
 }
@@ -33,6 +40,7 @@
     }
 
     &:checked:before {
+        cursor: pointer;
         content: '\2713';
         background: $c-point;
         border-color: $c-point;
@@ -46,6 +54,7 @@
     }
 
     &:checked:after {
+        cursor: pointer;
         content:'';
         box-sizing: border-box;
         position: absolute;
@@ -53,7 +62,7 @@
         top: 50%;
         left: 50%;
         margin-left: -5px;
-        margin-top: -5px;;
+        margin-top: -5px;
         display: inline-block;
         width: 10px;
         height: 10px;
@@ -64,28 +73,29 @@
 
 .userinput {
     display: inline-block;
-    box-sizing: border-box;
     font-size: 14px;
+    position: relative;
+    // height: 32px;
 
     > * {
-        box-sizing: border-box;
+        vertical-align: middle;
+        display: inline-block;
         margin: 0;
         padding: 0;
-        display: inline-block;
-        vertical-align: middle;
         font-size: inherit;
     }
 
     &__input {
         color: $c-font3;
         transition: border-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-        line-height: 30px;
         padding: 0 12px;
         position: relative;
+        min-height: 32px;
 
         &[type=text],
         &[type=password],
         &[type=phone] {
+            box-sizing: border-box;
             display: inline-block;
             border: 1px solid #b4b4b4;
         }
@@ -96,8 +106,6 @@
 
         &[type=radio] {
             @extend %radio-style;
-
-
         }
 
         &:focus {
@@ -131,6 +139,12 @@
     &__label {
         font-size: 14px;
         color: $c-font3;
+        cursor: pointer;
+
+        &--block {
+            @extend .userinput__label;
+            display: block;
+        }
     }
 
     &--boxed {
