@@ -49,10 +49,10 @@
     var customEvent = 'propChange';
 
     function toggleActive(e) {
-        var isDisabled = $(e.currentTarget).data('disabled') || $(e.currentTarget).data('state') === 'disabled';
-        var usePlaceholder = $(e.currentTarget).data('selectPlaceholder') !== undefined;
+        var isDisabled = $(e.currentTarget).data('state') === 'disabled';
+        var usePlaceholder = $(e.currentTarget).data('placeholder') !== undefined;
         var selectedIndex = $(e.currentTarget).data('selectedIndex') || 0;
-        var $selected = $(e.currentTarget).find('.ui-selected');
+        var $selected = $(e.currentTarget).find('.selectbox__trigger__text');
         var selectedText;
 
         if (isDisabled) {
@@ -60,12 +60,12 @@
         }
 
         // 열려있는 다른 셀렉트박스 닫기
-        $('[data-ui="selectbox"]').not($(this)).removeClass('active');
+        $('[data-ui="selectbox"]').not($(this)).removeAttr('data-state', 'active');
 
         // current selectbox toggle
-        $(e.currentTarget).toggleClass('active');
+        $(e.currentTarget).attr('data-state', 'active');
 
-        if (e.target.className === 'ui-option') {
+        if (e.target.className === 'selectbox__dropdown__option') {
             selectedIndex = $(e.target).index();
             selectedText = $(e.target).text();
 
@@ -95,36 +95,36 @@
         var selectedIndex = e.target.selectedIndex;
         var disabled = e.target.disabled ? 'disabled' : '';
         var $currentSS = $(e.target).closest('[data-ui="selectbox"]');
-        var selectedOption = $currentSS.find('.ui-select').find('.ui-option').eq(selectedIndex).text();
+        var selectedOption = $currentSS.find('.selectbox__dropdown').find('.selectbox__dropdown__option').eq(selectedIndex).text();
 
         $(e.target).closest('[data-ui="selectbox"]')
             .attr('data-state', disabled)
             .data('state', disabled);
 
         $(e.target).each(function () {
-            $(this).closest('[data-ui="selectbox"]').find('.ui-option').eq(selectedIndex).text();
+            $(this).closest('[data-ui="selectbox"]').find('.selectbox__dropdown__option').eq(selectedIndex).text();
         });
 
-        $currentSS.find('.ui-selected').text(selectedOption);
+        $currentSS.find('.selectbox__trigger__text').text(selectedOption);
     }
 
     function init() {
         $('[data-ui="selectbox"]').each(function (i) {
             var $selectForm = $(this).find('select');
-            var usePlaceholder = $(this).data('selectPlaceholder') !== undefined;
+            var usePlaceholder = $(this).data('placeholder') !== undefined;
             var hasScrollBar = $(this).find('[data-scrollbar]');
             var $option;
             var selectedIndex;
 
             // add placeholder to selectbox
             if (usePlaceholder) {
-                var $target = hasScrollBar.length ? $(this).find('.mCSB_container') : $(this).find('.ui-select');
+                var $target = hasScrollBar.length ? $(this).find('.mCSB_container') : $(this).find('.selectbox__dropdown');
 
-                $target.prepend('<li class="ui-option hide" value="">' + $(this).data('selectPlaceholder') + '</li>');
+                $target.prepend('<li class="selectbox__dropdown__option hidden" value="">' + $(this).data('placeholder') + '</li>');
             }
 
-            selectedIndex = $(this).find('.ui-option[selected]').length > 0 ? $(this).find('.ui-option[selected]').index() : 0;
-            $option = $(this).find('.ui-option');
+            selectedIndex = $(this).find('.selectbox__dropdown__option[selected]').length > 0 ? $(this).find('.selectbox__dropdown__option[selected]').index() : 0;
+            $option = $(this).find('.selectbox__dropdown__option');
 
             // create <option> for select form
             $option.each(function (i) {
@@ -147,12 +147,12 @@
             });
 
             // initial placeholder
-            if ($(this).find('.ui-selected').text().length === 0 || selectedIndex > 0) {
-                $(this).find('.ui-selected').text($option.eq(selectedIndex).text());
+            if ($(this).find('.selectbox__trigger__text').text().length === 0 || selectedIndex > 0) {
+                $(this).find('.selectbox__trigger__text').text($option.eq(selectedIndex).text());
             }
 
             if (selectedIndex === 0 && usePlaceholder) {
-                $(this).find('.ui-selected').addClass('placeholder');
+                $(this).find('.selectbox__trigger__text').addClass('placeholder');
             }
         });
     }

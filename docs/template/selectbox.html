@@ -31,19 +31,44 @@
 </pre>
 
 <form action="#">
-
-    <div class="selectbox" style="display:none">
-        <select class="selectbox__hidden" name="required"></select>
-        <div class="selectbox__trigger">
-            <div class="selectbox__trigger__text"></div>
+    <fieldset>
+        <legend>SELECTBOX REWRITE</legend>
+        <div class="selectbox" data-ui="selectbox">
+            <select class="selectbox__hidden" name="required"></select>
+            <div class="selectbox__trigger">
+                <div class="selectbox__trigger__text">meh</div>
+            </div>
+            <ul class="selectbox__dropdown">
+                <li class="selectbox__dropdown__option" value="option1">option1</li>
+                <li class="selectbox__dropdown__option" value="option2">option2</li>
+                <li class="selectbox__dropdown__option" value="option3">option3</li>
+            </ul>
         </div>
-        <ul class="selectbox__dropdown">
-            <li class="selectbox__dropdown__option" value="option1">option1</li>
-            <li class="selectbox__dropdown__option" value="option2">option2</li>
-            <li class="selectbox__dropdown__option" value="option3">option3</li>
-        </ul>
-    </div>
 
+        <div class="selectbox" data-ui="selectbox" data-state="disabled">
+            <select class="selectbox__hidden" name="required"></select>
+            <div class="selectbox__trigger">
+                <div class="selectbox__trigger__text">meh</div>
+            </div>
+            <ul class="selectbox__dropdown">
+                <li class="selectbox__dropdown__option" value="option1">option1</li>
+                <li class="selectbox__dropdown__option" value="option2">option2</li>
+                <li class="selectbox__dropdown__option" value="option3">option3</li>
+            </ul>
+        </div>
+
+        <div class="selectbox" data-ui="selectbox" data-placeholder="someplaceholder">
+            <select class="selectbox__hidden" name="required"></select>
+            <div class="selectbox__trigger">
+                <div class="selectbox__trigger__text"></div>
+            </div>
+            <ul class="selectbox__dropdown">
+                <li class="selectbox__dropdown__option" value="option1">option1</li>
+                <li class="selectbox__dropdown__option" value="option2">option2</li>
+                <li class="selectbox__dropdown__option" value="option3">option3</li>
+            </ul>
+        </div>
+    </fieldset>
     <fieldset>
         <legend>SELECTBOX</legend>
         <div class="ui-selectbox m160" data-ui="selectbox">
@@ -83,6 +108,7 @@
                 <li class="ui-option" value="option2">option2</li>
                 <li class="ui-option" value="option3">option3</li>
             </ul>
+        </div>
     </fieldset>
     <!-- <fieldset>
         <legend>NUMBER</legend>
