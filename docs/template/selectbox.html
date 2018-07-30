@@ -1,42 +1,68 @@
 <pre data-code="selectbox">
+    <h3>셀렉트 박스</h3>
+    <code class="html">
+        &lt;!--
+
+        * required properties
+        * .selectbox: required for css style
+        * data-ui="selectbox": ui활성화 (js 셀렉터)
+        *
+        * optional properties
+        *
+        * data-placeholder="PLACEHOLDER TEXT"
+        * data-state="disabled"
+        --&gt;
+
+        &lt;!-- properties --&gt;
+        &lt;div class="selectbox"
+            data-ui="selectbox"
+            data-state="disabled"
+            data-placeholder="placeholder text"
+        &gt;
+            &lt;!-- REQUIRED --&gt;
+            &lt;select hidden name="{}"&gt;&lt;/select&gt;
+        ...
+
+        &lt;/div&gt;
+    </code>
     <code class="js">
         // data-ui="selectbox" 선택자로 자동 init
 
         // 비동기로 마크업 로드시
-        BPackr.events.emit('INIT_SELECTBOX');
+        uiPack.events.emit('INIT_SELECTBOX');
     </code>
+    <h3>USERINPUT</h3>
     <code class="html">
-        &lt;!-- properties --&gt;
-        &lt;div class="ui-selectbox"
-            data-ui="selectbox"
-            data-name="name"
-            data-use-placeholder="true"
-            data-disabled="false"
-        &gt;
-        ...
+        &lt;!--
+        //  마트업은 동일
+        // .userinput__label 위치만 필요에따라 변경
 
-        &lt;/div&gt;
+        type=text
+        type=password
+        type=radio
+        type=checkbox
 
-        /*
+        --스타일 변형 옵션
+        * .userinput__label--block : 블록 스타일 레이블
+        * [type="radio"]인풋일시 .userinput__input--checkbox 모드 가능
 
-        * required properties
-        * .ui-selectbox: required for css style
-        * data-ui="selectbox": required: for js init
-        *
-        * optional properties
-        * data-select-placeholder="PLACEHOLDER TEXT"
-        * data-disabled="false"
-        */
+        --&gt;
+
+        &lt;label class="userinput"&gt;
+            &lt;input class="userinput__input" type="{}" name="{}" value="{}"&gt;
+            &lt;span class="userinput__label"&gt;{}&lt;/span&gt;
+        &lt;/label&gt;
     </code>
 </pre>
 
 <form action="#">
     <fieldset>
-        <legend>SELECTBOX REWRITE</legend>
+        <legend>SELECTBOX</legend>
         <div class="selectbox" data-ui="selectbox">
-            <select class="selectbox__hidden" name="required"></select>
+            <select hidden name="selectName1"></select>
             <div class="selectbox__trigger">
-                <div class="selectbox__trigger__text">meh</div>
+                <div class="selectbox__trigger__text"></div>
+                <i class="selectbox__trigger__icon"></i>
             </div>
             <ul class="selectbox__dropdown">
                 <li class="selectbox__dropdown__option" value="option1">option1</li>
@@ -46,21 +72,23 @@
         </div>
 
         <div class="selectbox" data-ui="selectbox" data-state="disabled">
-            <select class="selectbox__hidden" name="required"></select>
-            <div class="selectbox__trigger">
-                <div class="selectbox__trigger__text">meh</div>
-            </div>
-            <ul class="selectbox__dropdown">
-                <li class="selectbox__dropdown__option" value="option1">option1</li>
-                <li class="selectbox__dropdown__option" value="option2">option2</li>
-                <li class="selectbox__dropdown__option" value="option3">option3</li>
-            </ul>
-        </div>
-
-        <div class="selectbox" data-ui="selectbox" data-placeholder="someplaceholder">
-            <select class="selectbox__hidden" name="required"></select>
+            <select hidden name="selectName2"></select>
             <div class="selectbox__trigger">
                 <div class="selectbox__trigger__text"></div>
+                <i class="selectbox__trigger__icon"></i>
+            </div>
+            <ul class="selectbox__dropdown">
+                <li class="selectbox__dropdown__option" value="option1">option1</li>
+                <li class="selectbox__dropdown__option" value="option2">option2</li>
+                <li class="selectbox__dropdown__option" value="option3">option3</li>
+            </ul>
+        </div>
+
+        <div class="selectbox" data-ui="selectbox" data-placeholder="option-placeholder">
+            <select hidden name="selectName3"></select>
+            <div class="selectbox__trigger">
+                <div class="selectbox__trigger__text"></div>
+                <i class="selectbox__trigger__icon"></i>
             </div>
             <ul class="selectbox__dropdown">
                 <li class="selectbox__dropdown__option" value="option1">option1</li>
@@ -69,47 +97,7 @@
             </ul>
         </div>
     </fieldset>
-    <fieldset>
-        <legend>SELECTBOX</legend>
-        <div class="ui-selectbox m160" data-ui="selectbox">
-            <select name="selectbox1"></select>
-            <button type="button" class="ui-trigger">
-                <div class="ui-selected"></div>
-                <i class="ui-icon fa fa-chevron-down"></i>
-            </button>
-            <ul class="ui-select">
-                <li class="ui-option" value="option1">option1option1</li>
-                <li class="ui-option" value="option2">option2</li>
-                <li class="ui-option" value="option3">option3</li>
-            </ul>
-        </div>
 
-        <div class="ui-selectbox m160" data-ui="selectbox" data-select-placeholder="PLACEHOLDER OPTION">
-            <select name="selectbox2"></select>
-            <button type="button" class="ui-trigger">
-                <div class="ui-selected"></div>
-                <i class="ui-icon fa fa-chevron-down"></i>
-            </button>
-            <ul class="ui-select">
-                <li class="ui-option" value="option1">option1</li>
-                <li class="ui-option" value="option2">option2</li>
-                <li class="ui-option" value="option3">option3</li>
-            </ul>
-        </div>
-
-        <div class="ui-selectbox m160" data-ui="selectbox" data-state="disabled">
-            <select name="selectbox3"></select>
-            <button type="button" class="ui-trigger">
-                <div class="ui-selected"></div>
-                <i class="ui-icon fa fa-chevron-down"></i>
-            </button>
-            <ul class="ui-select">
-                <li class="ui-option" value="option1">disabled</li>
-                <li class="ui-option" value="option2">option2</li>
-                <li class="ui-option" value="option3">option3</li>
-            </ul>
-        </div>
-    </fieldset>
     <!-- <fieldset>
         <legend>NUMBER</legend>
         <div class="input-number" data-ui="input-number">

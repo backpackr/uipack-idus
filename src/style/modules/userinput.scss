@@ -88,9 +88,9 @@
     &__input {
         color: $c-font3;
         transition: border-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-        padding: 0 12px;
         position: relative;
         min-height: 32px;
+        border-radius: 2px;
 
         &[type=text],
         &[type=password],
@@ -98,6 +98,8 @@
             box-sizing: border-box;
             display: inline-block;
             border: 1px solid #b4b4b4;
+            text-indent: 12px;
+            min-width: 160px;
         }
 
         &[type=checkbox] {

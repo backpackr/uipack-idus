@@ -1,4 +1,8 @@
 @charset "UTF-8";
+[hidden] {
+  display: none;
+}
+
 /*
 * default browser scrollbar override
 * @include scrollbars(.5em, slategray);
@@ -796,15 +800,17 @@ button:disabled:focus,
 .userinput__input, .userinput__input--checkbox {
   color: #333;
   transition: border-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  padding: 0 12px;
   position: relative;
   min-height: 32px;
+  border-radius: 2px;
 }
 
 .userinput__input[type=text], .userinput__input--checkbox[type=text], .userinput__input[type=password], .userinput__input--checkbox[type=password], .userinput__input[type=phone], .userinput__input--checkbox[type=phone] {
   box-sizing: border-box;
   display: inline-block;
   border: 1px solid #b4b4b4;
+  text-indent: 12px;
+  min-width: 160px;
 }
 
 .userinput__input:focus, .userinput__input--checkbox:focus {
@@ -1617,7 +1623,7 @@ button:disabled:focus,
   }
 }
 
-.selectbox__trigger__text, .selectbox__dropdown__option, .ui-selectbox .ui-trigger .ui-selected, .ui-selectbox .ui-option {
+.selectbox__trigger__text, .selectbox__dropdown__option {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -1625,6 +1631,7 @@ button:disabled:focus,
 
 .selectbox {
   min-width: 160px;
+  box-sizing: border-box;
   font-size: 14px;
   position: relative;
   display: inline-block;
@@ -1645,11 +1652,8 @@ button:disabled:focus,
   list-style: none;
 }
 
-.selectbox__hidden {
-  display: none;
-}
-
 .selectbox__trigger {
+  box-sizing: border-box;
   padding: 0px 12px;
   line-height: 30px;
   margin: 0;
@@ -1657,7 +1661,7 @@ button:disabled:focus,
   position: relative;
   width: 100%;
   border: 1px solid #b4b4b4;
-  border-radius: 3px;
+  border-radius: 2px;
   transition: border 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   text-align: left;
   cursor: pointer;
@@ -1670,9 +1674,34 @@ button:disabled:focus,
 .selectbox__trigger__text {
   font-size: inherit;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   width: 90%;
   padding-right: 12px;
+}
+
+.selectbox__trigger__text[disabled] {
+  color: #cecece;
+}
+
+.selectbox__trigger__icon {
+  position: absolute;
+  overflow: hidden;
+  right: 13px;
+  top: 0px;
+  font-style: normal;
+}
+
+.selectbox__trigger__icon:before {
+  content: '';
+  box-sizing: border-box;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 3px solid #666;
+  transform: rotate(45deg) translate(-1px, -1px);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: 2px;
 }
 
 .selectbox__dropdown {
@@ -1690,8 +1719,8 @@ button:disabled:focus,
   border: 1px solid #dd5850;
   border-top: 0 none;
   border-bottom: 0 none;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
   cursor: pointer;
 }
 
@@ -1727,6 +1756,10 @@ button:disabled:focus,
   border-right-color: #dd5850;
 }
 
+.selectbox[data-state=active] .selectbox__trigger__icon {
+  transform: rotate(180deg) translate(-1px, -1px);
+}
+
 .selectbox[data-state=disabled] {
   opacity: 0.6;
   background: #f5f5f5;
@@ -1735,156 +1768,6 @@ button:disabled:focus,
 
 .selectbox[data-state=disabled] .selectbox__trigger {
   border-color: #b4b4b4;
-}
-
-.ui-selectbox {
-  -webkit-tap-highlight-color: transparent;
-  color: #333;
-  position: relative;
-  display: inline-block;
-  transition: opacity 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.ui-selectbox select {
-  display: none !important;
-}
-
-.ui-selectbox.s100 {
-  width: 100px;
-}
-
-.ui-selectbox.m160 {
-  min-width: 160px;
-}
-
-.ui-selectbox.full {
-  width: 100%;
-}
-
-.ui-selectbox > * {
-  font-size: inherit;
-  color: inherit;
-}
-
-.ui-selectbox .ui-trigger {
-  padding: 0px 12px;
-  line-height: 30px;
-  margin: 0;
-  display: block;
-  position: relative;
-  width: 100%;
-  border: 1px solid #b4b4b4;
-  border-radius: 3px;
-  transition: border 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-  text-align: left;
-  cursor: pointer;
-}
-
-.ui-selectbox .ui-trigger:focus {
-  outline: none;
-}
-
-.ui-selectbox .ui-trigger .ui-selected {
-  font-size: inherit;
-  display: inline-block;
-  vertical-align: middle;
-  width: 90%;
-  padding-right: 12px;
-}
-
-.ui-selectbox .ui-trigger .ui-icon {
-  transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-  position: absolute;
-  right: 12px;
-  top: 10px;
-  font-size: 12px;
-}
-
-.ui-selectbox .ui-select {
-  box-sizing: border-box;
-  z-index: 101;
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  max-height: 400px;
-  overflow-y: auto;
-  background: #fff;
-  padding: 0;
-  margin: 0;
-  border: 1px solid #dd5850;
-  border-top: 0 none;
-  border-bottom: 0 none;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  cursor: pointer;
-}
-
-.ui-selectbox .ui-option {
-  padding: 8px 12px;
-  border-bottom: 1px solid #d9d9d9;
-  transition: background-color 0.3s ease;
-  font-size: inherit;
-}
-
-.ui-selectbox .ui-option:last-child {
-  border-top: 0 none;
-}
-
-.ui-selectbox .ui-option[value=placeholder] {
-  display: none;
-}
-
-.ui-selectbox .ui-select-form,
-.ui-selectbox .ui-label {
-  display: none !important;
-}
-
-.ui-selectbox.active .ui-select {
-  height: auto;
-  border-bottom: 1px solid #dd5850;
-}
-
-.ui-selectbox.active .ui-selected {
-  transition: color 0.2s ease;
-}
-
-.ui-selectbox.active .ui-trigger {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-left-color: #dd5850;
-  border-top-color: #dd5850;
-  border-right-color: #dd5850;
-}
-
-.ui-selectbox.active .ui-icon {
-  -webkit-transform: rotate(180deg);
-  /* Chrome and other webkit browsers */
-  -moz-transform: rotate(180deg);
-  /* FF */
-  -o-transform: rotate(180deg);
-  /* Opera */
-  -ms-transform: rotate(180deg);
-  /* IE9 */
-  transform: rotate(180deg);
-}
-
-.ui-selectbox[data-disabled=true], .ui-selectbox[data-state="disabled"] {
-  opacity: 0.6;
-  background: #f5f5f5;
-  color: #acacac;
-}
-
-.ui-selectbox[data-disabled=true] .ui-trigger, .ui-selectbox[data-state="disabled"] .ui-trigger {
-  border-color: #b4b4b4;
-}
-
-.ui-selectbox .ui-selected.placeholder {
-  color: #cecece;
-}
-
-.options-select .ui-selectbox .ui-option:first-child {
-  color: #999;
 }
 
 /*# sourceMappingURL=uipack-idus.css.map */

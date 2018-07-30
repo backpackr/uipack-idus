@@ -60,7 +60,9 @@
         }
 
         // 열려있는 다른 셀렉트박스 닫기
-        $('[data-ui="selectbox"]').not($(this)).removeAttr('data-state', 'active');
+        $('[data-ui="selectbox"][data-state="active"]')
+            .not($(this))
+            .removeAttr('data-state');
 
         // current selectbox toggle
         $(e.currentTarget).attr('data-state', 'active');
@@ -78,9 +80,9 @@
             if (usePlaceholder) {
                 if (selectedIndex > 0) {
                     $selected.text(selectedText);
-                    $selected.removeClass('placeholder');
+                    $selected.removeAttr('disabled');
                 } else {
-                    $selected.addClass('placeholder');
+                    $selected.attr('disabled', true);
                 }
             }
 
@@ -120,7 +122,7 @@
             if (usePlaceholder) {
                 var $target = hasScrollBar.length ? $(this).find('.mCSB_container') : $(this).find('.selectbox__dropdown');
 
-                $target.prepend('<li class="selectbox__dropdown__option hidden" value="">' + $(this).data('placeholder') + '</li>');
+                $target.prepend('<li class="selectbox__dropdown__option" hidden value="">' + $(this).data('placeholder') + '</li>');
             }
 
             selectedIndex = $(this).find('.selectbox__dropdown__option[selected]').length > 0 ? $(this).find('.selectbox__dropdown__option[selected]').index() : 0;
@@ -152,7 +154,7 @@
             }
 
             if (selectedIndex === 0 && usePlaceholder) {
-                $(this).find('.selectbox__trigger__text').addClass('placeholder');
+                $(this).find('.selectbox__trigger__text').attr('disabled', true);
             }
         });
     }
