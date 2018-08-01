@@ -717,6 +717,17 @@ button:disabled:focus,
   opacity: 0.5;
 }
 
+/* userinput.scss */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .userinput__input[type=checkbox], .userinput__input--checkbox[type=checkbox], .userinput__input--checkbox[type=radio], .userinput__input[type=radio] {
   position: relative;
   padding: 0;
@@ -797,6 +808,16 @@ button:disabled:focus,
   font-size: inherit;
 }
 
+.userinput__label, .userinput__label--block {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.userinput__label--block {
+  display: block;
+}
+
 .userinput__input, .userinput__input--checkbox {
   color: #333;
   transition: border-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -811,6 +832,13 @@ button:disabled:focus,
   border: 1px solid #b4b4b4;
   text-indent: 12px;
   min-width: 160px;
+}
+
+.userinput__input[type=number], .userinput__input--checkbox[type=number] {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #b4b4b4;
+  text-align: center;
 }
 
 .userinput__input:focus, .userinput__input--checkbox:focus {
@@ -834,16 +862,6 @@ button:disabled:focus,
   display: none !important;
 }
 
-.userinput__label, .userinput__label--block {
-  font-size: 14px;
-  color: #333;
-  cursor: pointer;
-}
-
-.userinput__label--block {
-  display: block;
-}
-
 .userinput--boxed {
   padding: 0 18px;
   border: 1px solid #d9d9d9;
@@ -855,6 +873,46 @@ button:disabled:focus,
   margin-right: 8px;
 }
 
+.userinput[data-ui=numberinput], .userinput--boxed[data-ui=numberinput] {
+  font-size: 0;
+  vertical-align: middle;
+}
+
+.userinput[data-ui=numberinput] > *, .userinput--boxed[data-ui=numberinput] > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.userinput[data-ui=numberinput] button, .userinput--boxed[data-ui=numberinput] button {
+  font-size: 14px;
+  height: 24px;
+  width: 24px;
+  border-color: #b4b4b4;
+  line-height: 22px;
+}
+
+.userinput[data-ui=numberinput] button[data-action=decrement], .userinput--boxed[data-ui=numberinput] button[data-action=decrement] {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0 none;
+}
+
+.userinput[data-ui=numberinput] button[data-action=increment], .userinput--boxed[data-ui=numberinput] button[data-action=increment] {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0 none;
+}
+
+.userinput[data-ui=numberinput] input, .userinput--boxed[data-ui=numberinput] input {
+  vertical-align: top;
+  border-radius: 0;
+  min-height: 22px;
+  width: 36px;
+  font-size: 14px;
+  appearance: none;
+}
+
+/* userinput.scss end */
 /* titlebar start */
 .titlebar, .titlebar--sizedown, .titlebar--block {
   box-sizing: border-box;

@@ -1,3 +1,14 @@
+/* userinput.scss */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
 %styled-input-base {
     position: relative;
     padding: 0;
@@ -75,7 +86,6 @@
     display: inline-block;
     font-size: 14px;
     position: relative;
-    // height: 32px;
 
     > * {
         vertical-align: middle;
@@ -83,6 +93,17 @@
         margin: 0;
         padding: 0;
         font-size: inherit;
+    }
+
+    &__label {
+        font-size: 14px;
+        color: $c-font3;
+        cursor: pointer;
+
+        &--block {
+            @extend .userinput__label;
+            display: block;
+        }
     }
 
     &__input {
@@ -110,6 +131,16 @@
             @extend %radio-style;
         }
 
+        &[type=number] {
+            // line-height: 22px;
+            // min-height: 20px;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #b4b4b4;
+            text-align: center;
+        }
+
+        // ui state
         &:focus {
             outline: 0 none;
             border-color: $c-sub;
@@ -123,7 +154,8 @@
             }
         }
 
-        // mods force radiobox to checkbox style
+        // style modifiers
+        // override radiobox to checkbox style
         &--checkbox {
             @extend .userinput__input;
             &[type=radio] {
@@ -138,17 +170,8 @@
         }
     }
 
-    &__label {
-        font-size: 14px;
-        color: $c-font3;
-        cursor: pointer;
-
-        &--block {
-            @extend .userinput__label;
-            display: block;
-        }
-    }
-
+    // style modifiers
+    // add boxed background
     &--boxed {
         @extend .userinput;
         padding: 0 18px;
@@ -160,4 +183,43 @@
             margin-right: 8px;
         }
     }
+
+    &[data-ui=numberinput]  {
+        font-size: 0;
+        vertical-align: middle;
+
+        > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        button {
+            font-size: 14px;
+            height: 24px;
+            width: 24px;
+            border-color: #b4b4b4;
+            line-height: 22px;
+
+            &[data-action=decrement] {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-right: 0 none;
+            }
+            &[data-action=increment] {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-left: 0 none;
+            }
+        }
+
+        input {
+            vertical-align: top;
+            border-radius: 0;
+            min-height: 22px;
+            width: 36px;
+            font-size: 14px;
+            appearance: none;
+        }
+    }
 }
+/* userinput.scss end */

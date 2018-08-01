@@ -98,16 +98,16 @@
         </div>
     </fieldset>
 
-    <!-- <fieldset>
+    <fieldset>
         <legend>NUMBER</legend>
-        <div class="input-number" data-ui="input-number">
-            <button type="button" data-type="decrement">-</button>
-            <div class="input-area">
-                <input class="prd-count" type="number" autocomplete="off" min="1" max="999" data-action="change_count" name="somename" value="1">
-            </div>
-            <button type="button" data-type="increment">+</button>
-        </div>
-    </fieldset> -->
+        <label class="userinput" data-ui="numberinput">
+            <span class="userinput__label">counter</span>
+            <button type="button" class="nbtn-white" data-action="decrement">-</button>
+            <input class="userinput__input" name="count" type="number" value="0" min="0" max="999" autocomplete="off">
+            <button type="button" class="nbtn-white" data-action="increment">+</button>
+        </label>
+    </fieldset>
+
     <fieldset>
         <legend>INPUTFIELD</legend>
         <div class="userinput">
@@ -177,4 +177,5 @@
 
 <script>
     uiPack.events.emit('INIT_SELECTBOX');
+    uiPack.events.emit('INIT_INPUTNUMBER');
 </script>
