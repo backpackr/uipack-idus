@@ -1681,6 +1681,72 @@ input[type=number] {
   }
 }
 
+.imgloader {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.imgloader img {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.imgloader img[data-state] {
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+
+.imgloader img[data-state=loaded] {
+  opacity: 1;
+}
+
+.imgloader__thumbnail {
+  filter: blur(50px);
+  transform: scale(1);
+}
+
+.imgloader[data-ratio="1:1"] {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.imgloader[data-ratio="1:1"]:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.imgloader[data-ratio="1:1"] > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.imgloader[data-ratio="2:1"] {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.imgloader[data-ratio="2:1"]:after {
+  content: '';
+  display: block;
+  padding-bottom: 50%;
+}
+
+.imgloader[data-ratio="2:1"] > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .selectbox__trigger__text, .selectbox__dropdown__option {
   text-overflow: ellipsis;
   white-space: nowrap;

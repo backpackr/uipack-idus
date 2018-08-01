@@ -1,0 +1,34 @@
+.imgloader {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        &[data-state] {
+            opacity: 0;
+            transition: opacity 1s linear;
+        }
+
+        &[data-state=loaded] {
+            opacity: 1;
+        }
+    }
+
+    &__thumbnail {
+        filter: blur(50px);
+        transform: scale(1);
+    }
+
+    &[data-ratio="1:1"] {
+        @include box-ratio(1, 1);
+    }
+
+    &[data-ratio="2:1"] {
+        @include box-ratio(2, 1);
+    }
+}
