@@ -1,0 +1,24 @@
+<pre data-code="boxratio">
+    <code class="css">
+        /*
+        premade class
+
+        .square
+
+        - default width : x (inherit from parent element)
+        - including image: background-image: url(imgurl);
+        - including content: wrap an element
+        */
+
+        .square {
+            @include box-ratio(1, 1); /* x , y */
+            ...
+        }
+    </code>
+</pre>
+
+<div class="square" style="width:100px; background: #efefef">
+    <div class="inner">
+
+    </div>
+</div>

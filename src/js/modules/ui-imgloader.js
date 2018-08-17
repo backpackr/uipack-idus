@@ -1,58 +1,66 @@
-(function () {
-    var $ui = $('[data-ui="imgloader"]');
+function imgloader() {
+    console.log(this);
+    console.log(123)
+    return this
+}
 
-    function extractBgSrc(element) {
-        var style = element.currentStyle || window.getComputedStyle(element, false);
+export default imgloader;
 
-        return style.backgroundImage.slice(4, -1).replace(/"/g, '');
-    }
+// (function () {
+//     var $ui = $('[data-ui="imgloader"]');
 
-    function getImgSrc($elem) {
-        var $thumbnail = $elem.find('.imgloader__thumbnail');
-        var src;
+//     function extractBgSrc(element) {
+//         var style = element.currentStyle || window.getComputedStyle(element, false);
 
-        if ($thumbnail[0].nodeName === 'IMG') {
-            src = $thumbnail[0].src;
-        } else {
-            src = extractBgSrc($thumbnail[0]);
-        }
+//         return style.backgroundImage.slice(4, -1).replace(/"/g, '');
+//     }
 
-        return src;
-    }
+//     function getImgSrc($elem) {
+//         var $thumbnail = $elem.find('.imgloader__thumbnail');
+//         var src;
 
-    function loadImg($element) {
-        var img;
-        var imgLarge;
+//         if ($thumbnail[0].nodeName === 'IMG') {
+//             src = $thumbnail[0].src;
+//         } else {
+//             src = extractBgSrc($thumbnail[0]);
+//         }
 
-        img = new Image();
-        img.src = getImgSrc($element);
+//         return src;
+//     }
 
-        imgLarge = new Image();
-        imgLarge.src = $ui.attr('data-img');
+//     function loadImg($element) {
+//         var img;
+//         var imgLarge;
 
-        $(imgLarge).attr('data-state', 'loading');
+//         img = new Image();
+//         img.src = getImgSrc($element);
 
-        if (imgLarge.complete) {
-            $(imgLarge).removeAttr('data-state');
+//         imgLarge = new Image();
+//         imgLarge.src = $ui.attr('data-img');
 
-            $ui.append(imgLarge);
+//         $(imgLarge).attr('data-state', 'loading');
 
-            return;
-        }
+//         if (imgLarge.complete) {
+//             $(imgLarge).removeAttr('data-state');
 
-        img.onload = function () {
-            $element.find('.imgloader__thumbnail').attr('data-state', 'loaded');
-        }
+//             $ui.append(imgLarge);
 
-        imgLarge.onload = function () {
-            $(imgLarge).attr('data-state', 'loaded');
-        }
+//             return;
+//         }
 
-        $element.append(imgLarge);
-    }
+//         img.onload = function () {
+//             $element.find('.imgloader__thumbnail').attr('data-state', 'loaded');
+//         }
 
-    $ui.each(function () {
-        var $elem = $(this);
-        loadImg($elem);
-    });
-}());
+//         imgLarge.onload = function () {
+//             $(imgLarge).attr('data-state', 'loaded');
+//         }
+
+//         $element.append(imgLarge);
+//     }
+
+//     $ui.each(function () {
+//         var $elem = $(this);
+//         loadImg($elem);
+//     });
+// }());

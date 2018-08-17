@@ -10,7 +10,7 @@
     "parser": "babel-eslint",
     "parserOptions": {
         "ecmaVersion": 5,
-        "sourceType": "script"
+        "sourceType": "module"
     },
     "env": {
         "browser": true,
