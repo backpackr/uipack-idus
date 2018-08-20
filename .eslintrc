@@ -18,8 +18,7 @@
         "jquery": true
     },
     "globals": {
-        "uipack": true,
-        "uipackEvent": true
+        "uipack": true
     },
     "rules": {
         "indent": [

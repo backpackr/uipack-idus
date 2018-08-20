@@ -1,5 +1,8 @@
+import $ from 'jquery';
 import imgLoader from './modules/ui-imgloader';
 import numberinput from './modules/ui-numberinput';
+import selectbox from './modules/ui-selectbox';
+import { INIT_INPUTNUMBER, INIT_SELECTBOX } from './modules/events';
 
 // style
 import '../style/uipack';
@@ -8,6 +11,7 @@ import '../style/uipack';
 function defineUipack() {
     const uipack = window.uipack || {};
 
+    // event emitter
     uipack.events = {};
     uipack.on = function (eventName, fn) {
         this.events[eventName] = this.events[eventName] || [];
@@ -36,9 +40,38 @@ function defineUipack() {
     // add ui modules
     uipack.imgLoader = imgLoader;
     uipack.numberinput = numberinput;
+    uipack.selectbox = selectbox;
 
     return uipack;
 }
 
-// globals
+// define global object
 if (typeof (uipack) === 'undefined') window.uipack = defineUipack();
+
+// auto ui init via element attribute
+$(document).ready(function () {
+    // imgloader
+    $('[data-ui="imgloader"]').each(function () {
+        uipack.imgLoader($(this));
+    });
+
+    // selectbox
+    $('[data-ui="selectbox"]').each(function () {
+        uipack.selectbox($(this));
+    });
+    uipack.on(INIT_SELECTBOX, function () {
+        $('[data-ui="selectbox"]').each(function () {
+            uipack.selectbox($(this));
+        });
+    });
+
+    // numberinput
+    $('[data-ui="numberinput"]').each(function () {
+        uipack.numberinput($(this));
+    });
+    uipack.on(INIT_INPUTNUMBER, function () {
+        $('[data-ui="numberinput"]').each(function () {
+            uipack.numberinput($(this));
+        });
+    });
+})

@@ -27,22 +27,4 @@ $(document).ready(function () {
             $('[data-code="' + id + '"]').toggle();
         });
     });
-
-
-    // TODO - add to main script - init via attributeName
-    // element binding
-    $('[data-ui="imgloader"]').each(function () {
-        uipack.imgLoader($(this));
-    });
-
-    // input
-    $('[data-ui="numberinput"]').each(function () {
-        uipack.numberinput($(this));
-    });
-
-    uipack.on('INIT_INPUTNUMBER', function () {
-        $('[data-ui="numberinput"]').each(function () {
-            uipack.numberinput($(this));
-        });
-    });
 });
