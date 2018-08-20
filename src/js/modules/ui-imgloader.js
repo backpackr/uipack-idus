@@ -1,7 +1,5 @@
 function imgloader() {
-    console.log(this);
     console.log(123)
-    return this
 }
 
 export default imgloader;

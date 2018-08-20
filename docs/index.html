@@ -7,57 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UIPACK-IDUS</title>
 
-    <!-- uipack src -->
-    <link rel="stylesheet" href="./css/uipack-idus.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/uipack-idus.vendor.min.js"></script>
-
     <!-- guide-page src -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/styles/github.min.css">
-    <style>
-        body {
-            margin: 0;
-            overflow-x: hidden;
-            font-family: Arial, Helvetica, sans-serif;
-        }
 
-        .thisPage {
-            --colorMain: #f8f8f8;
-            --colorDarker: #c9c9c9;
-        }
-
-        code {
-            font-size: 12px;
-            font-family: 'Menlo';
-        }
-
-        .thisPage .grid-inner {
-            background: var(--colorMain);
-            text-align: center;
-            border: 1px solid var(--colorDarker);
-        }
-
-        [data-code] {
-            display: none;
-        }
-
-        fieldset {
-            border: 0 none;
-            padding: 0;
-            margin: 0;
-        }
-
-        fieldset legend {
-            color: var(--colorDarker);
-            padding: 20px 0 5px;
-        }
-    </style>
-</head>
+    <!-- uipack src -->
+    <script src="/uipack.6b4bbac2.js"></script>
+<link rel="stylesheet" href="/uipack.6b4bbac2.css"><link rel="stylesheet" href="/docs.3b4ddbab.css"></head>
 
 <body>
     <div class="inner-w thisPage">
         <h1>UIPACK-IDUS</h1>
+        <div class="img-loader">123123123</div>
 
         <div class="grid col2">
             <div class="grid-row">
@@ -67,11 +28,6 @@
                         <img class="imgloader__thumbnail" src="https://image.idus.com/image/files/b5d7101ae1be4548bd84362d5cf7830f_320.jpg" alt="">
                     </div>
                 </div>
-                <!-- <div class="grid-item">
-                    <div class="imgloader" data-ui="imgloader" data-ratio="1:1" data-img="https://image.idus.com/image/files/1b11503be64341f7ad668d7dc63a36ea_1440.jpg">
-                        <div class="imgloader__thumbnail" style="background-image: url(https://image.idus.com/image/files/1b11503be64341f7ad668d7dc63a36ea_320.jpg)"></div>
-                    </div>
-                </div> -->
             </div>
         </div>
 
@@ -81,6 +37,7 @@
                 <button type="button" class="nbtn-white--small" data-show="button">RULES</button>
             </span>
         </div>
+        <a href="/template/button.html" hidden=""></a>
         <div data-template="button"></div>
 
         <div class="titlebar">
@@ -89,6 +46,7 @@
                 <button type="button" class="nbtn-white--small" data-show="selectbox">RULES</button>
             </span>
         </div>
+        <a href="/template/selectbox.html" hidden=""></a>
         <div data-template="selectbox"></div>
 
         <div class="titlebar">
@@ -97,6 +55,7 @@
                 <button type="button" class="nbtn-white--small" data-show="icons">RULES</button>
             </span>
         </div>
+        <a href="/template/icons.html" hidden=""></a>
         <div data-template="icons"></div>
 
         <div class="titlebar">
@@ -106,39 +65,16 @@
             </span>
         </div>
         <div data-template="grid"></div>
+        <a href="/template/grid.html" hidden=""></a>
 
         <div class="titlebar">
             <a href="#" class="titlebar__txtmain">TITLES</a>
         </div>
         <div data-template="titles"></div>
+        <a href="/template/titles.html" hidden=""></a>
     </div>
 
-    <!-- uipack src -->
-    <script src="./js/uipack-idus.js"></script>
-
-    <!-- guide-page src -->
-    <script>
-        hljs.initHighlightingOnLoad();
-
-        $('[data-template]').each(function () {
-            var id = $(this).data('template');
-
-            $.get('./template/' + id + '.html').done(function (markup) {
-                $('[data-template="' + id + '"]').append(markup);
-                $('[data-template="' + id + '"]').find('pre code').each(function (i, block) {
-                    hljs.highlightBlock(block);
-                });
-            })
-        });
-
-        $('[data-show]').each(function () {
-            var id = $(this).data('show');
-
-            $(this).on('click', function () {
-                $('[data-code="' + id + '"]').toggle();
-            });
-        });
-    </script>
+    <script src="/docs.3b4ddbab.js"></script>
 </body>
 
 </html>

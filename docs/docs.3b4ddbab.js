@@ -10659,20 +10659,95 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{"process":"../node_modules/process/browser.js"}],"js/dev.js":[function(require,module,exports) {
+},{"process":"../node_modules/process/browser.js"}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+  newLink.onload = function () {
+    link.remove();
+  };
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel/src/builtins/bundle-url.js"}],"style/docs.scss":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"js/docs.js":[function(require,module,exports) {
 'use strict';
 
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+require('../style/docs.scss');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var $template = (0, _jquery2.default)('[data-template]');
+
 (0, _jquery2.default)(document).ready(function () {
-    (0, _jquery2.default)('[data-template]').each(function () {
+    $template.each(function () {
         var id = (0, _jquery2.default)(this).data('template');
 
+        if ((0, _jquery2.default)('[data-template="' + id + '"]').children().length > 0) {
+            return;
+        }
+
         _jquery2.default.get('./template/' + id + '.html').done(function (markup) {
+
             (0, _jquery2.default)('[data-template="' + id + '"]').append(markup);
             (0, _jquery2.default)('[data-template="' + id + '"]').find('pre code').each(function (i, block) {
                 hljs.highlightBlock(block);
@@ -10688,9 +10763,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         });
     });
 });
-
-(0, _jquery2.default)('.img-loader').imgLoader().fadeIn();
-},{"jquery":"../node_modules/jquery/dist/jquery.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"jquery":"../node_modules/jquery/dist/jquery.js","../style/docs.scss":"style/docs.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -10719,7 +10792,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55739' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65213' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -10860,5 +10933,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../node_modules/parcel/src/builtins/hmr-runtime.js","js/dev.js"], null)
-//# sourceMappingURL=/dev.fa90f093.map
+},{}]},{},["../node_modules/parcel/src/builtins/hmr-runtime.js","js/docs.js"], null)
+//# sourceMappingURL=/docs.3b4ddbab.map

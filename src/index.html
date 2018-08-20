@@ -10,46 +10,9 @@
     <!-- guide-page src -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/styles/github.min.css">
+
     <!-- uipack src -->
     <script src="./js/uipack.js"></script>
-    <style>
-        body {
-            margin: 0;
-            overflow-x: hidden;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .thisPage {
-            --colorMain: #f8f8f8;
-            --colorDarker: #c9c9c9;
-        }
-
-        code {
-            font-size: 12px;
-            font-family: 'Menlo';
-        }
-
-        .thisPage .grid-inner {
-            background: var(--colorMain);
-            text-align: center;
-            border: 1px solid var(--colorDarker);
-        }
-
-        [data-code] {
-            display: none;
-        }
-
-        fieldset {
-            border: 0 none;
-            padding: 0;
-            margin: 0;
-        }
-
-        fieldset legend {
-            color: var(--colorDarker);
-            padding: 20px 0 5px;
-        }
-    </style>
 </head>
 
 <body>
@@ -74,6 +37,7 @@
                 <button type="button" class="nbtn-white--small" data-show="button">RULES</button>
             </span>
         </div>
+        <a href="./template/button.html" hidden></a>
         <div data-template="button"></div>
 
         <div class="titlebar">
@@ -82,6 +46,7 @@
                 <button type="button" class="nbtn-white--small" data-show="selectbox">RULES</button>
             </span>
         </div>
+        <a href="./template/selectbox.html" hidden></a>
         <div data-template="selectbox"></div>
 
         <div class="titlebar">
@@ -90,6 +55,7 @@
                 <button type="button" class="nbtn-white--small" data-show="icons">RULES</button>
             </span>
         </div>
+        <a href="./template/icons.html" hidden></a>
         <div data-template="icons"></div>
 
         <div class="titlebar">
@@ -99,14 +65,16 @@
             </span>
         </div>
         <div data-template="grid"></div>
+        <a href="./template/grid.html" hidden></a>
 
         <div class="titlebar">
             <a href="#" class="titlebar__txtmain">TITLES</a>
         </div>
         <div data-template="titles"></div>
+        <a href="./template/titles.html" hidden></a>
     </div>
 
-    <script src="./js/dev.js"></script>
+    <script src="./js/docs.js"></script>
 </body>
 
 </html>

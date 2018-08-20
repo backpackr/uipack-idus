@@ -5,7 +5,3 @@
 ```
 npm i uipack-idus
 ```
-
-## todo
-* gulp -> parcel
-* es5 -> es6
