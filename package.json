@@ -8,8 +8,9 @@
     "url": "https://github.com/backpackr/uipack-idus.git"
   },
   "scripts": {
-    "start": "parcel src/index.html --open --out-dir docs",
-    "build": "eslint src && parcel build src/js/uipack.js --no-source-maps"
+    "start": "parcel src/index.html --open --out-dir dev",
+    "build": "eslint src && parcel build src/js/uipack.js --no-source-maps",
+    "docs": "parcel build src/index.html --out-dir docs --no-source-maps --no-cache --public-url '/uipack-idus/'"
   },
   "keywords": [
     "CSS Framework",
