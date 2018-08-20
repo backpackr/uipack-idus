@@ -12,9 +12,9 @@ $(document).ready(function () {
         }
 
         $.get('./template/' + id + '.html').done(function (markup) {
-
             $('[data-template="' + id + '"]').append(markup);
             $('[data-template="' + id + '"]').find('pre code').each(function (i, block) {
+                /* eslint-disable */
                 hljs.highlightBlock(block);
             });
         });
@@ -25,6 +25,24 @@ $(document).ready(function () {
 
         $(this).on('click', function () {
             $('[data-code="' + id + '"]').toggle();
+        });
+    });
+
+
+    // TODO - add to main script - init via attributeName
+    // element binding
+    $('[data-ui="imgloader"]').each(function () {
+        uipack.imgLoader($(this));
+    });
+
+    // input
+    $('[data-ui="numberinput"]').each(function () {
+        uipack.numberinput($(this));
+    });
+
+    uipack.on('INIT_INPUTNUMBER', function () {
+        $('[data-ui="numberinput"]').each(function () {
+            uipack.numberinput($(this));
         });
     });
 });

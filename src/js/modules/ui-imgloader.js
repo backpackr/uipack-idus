@@ -1,64 +1,50 @@
-function imgloader() {
-    console.log(123)
+import $ from 'jquery';
+
+function extractBgSrc(element) {
+    var style = element.currentStyle || window.getComputedStyle(element, false);
+
+    return style.backgroundImage.slice(4, -1).replace(/"/g, '');
 }
 
-export default imgloader;
+function getImgSrc($elem) {
+    var $thumbnail = $elem.find('.imgloader__thumbnail');
+    var src;
 
-// (function () {
-//     var $ui = $('[data-ui="imgloader"]');
+    if ($thumbnail[0].nodeName === 'IMG') {
+        src = $thumbnail[0].src;
+    } else {
+        src = extractBgSrc($thumbnail[0]);
+    }
 
-//     function extractBgSrc(element) {
-//         var style = element.currentStyle || window.getComputedStyle(element, false);
+    return src;
+}
 
-//         return style.backgroundImage.slice(4, -1).replace(/"/g, '');
-//     }
+export default function imgloader($element) {
+    var img;
+    var imgLarge;
+    img = new Image();
+    img.src = getImgSrc($element);
 
-//     function getImgSrc($elem) {
-//         var $thumbnail = $elem.find('.imgloader__thumbnail');
-//         var src;
+    imgLarge = new Image();
+    imgLarge.src = $element.attr('data-img');
 
-//         if ($thumbnail[0].nodeName === 'IMG') {
-//             src = $thumbnail[0].src;
-//         } else {
-//             src = extractBgSrc($thumbnail[0]);
-//         }
+    $(imgLarge).attr('data-state', 'loading');
 
-//         return src;
-//     }
+    if (imgLarge.complete) {
+        $(imgLarge).removeAttr('data-state');
 
-//     function loadImg($element) {
-//         var img;
-//         var imgLarge;
+        $element.append(imgLarge);
 
-//         img = new Image();
-//         img.src = getImgSrc($element);
+        return;
+    }
 
-//         imgLarge = new Image();
-//         imgLarge.src = $ui.attr('data-img');
+    img.onload = function () {
+        $element.find('.imgloader__thumbnail').attr('data-state', 'loaded');
+    }
 
-//         $(imgLarge).attr('data-state', 'loading');
+    imgLarge.onload = function () {
+        $(imgLarge).attr('data-state', 'loaded');
+    }
 
-//         if (imgLarge.complete) {
-//             $(imgLarge).removeAttr('data-state');
-
-//             $ui.append(imgLarge);
-
-//             return;
-//         }
-
-//         img.onload = function () {
-//             $element.find('.imgloader__thumbnail').attr('data-state', 'loaded');
-//         }
-
-//         imgLarge.onload = function () {
-//             $(imgLarge).attr('data-state', 'loaded');
-//         }
-
-//         $element.append(imgLarge);
-//     }
-
-//     $ui.each(function () {
-//         var $elem = $(this);
-//         loadImg($elem);
-//     });
-// }());
+    $element.append(imgLarge);
+};

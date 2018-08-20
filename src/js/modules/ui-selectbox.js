@@ -5,7 +5,7 @@
 * data-select-placeholder="placeholder text"
 */
 
-(function ($, uiPack) {
+(function ($) {
     var $ui = $('[data-ui="selectbox"]');
     var customEvent = 'propChange';
 
@@ -128,9 +128,9 @@
     }
 
     // init from other modules
-    uiPack.events.on('INIT_SELECTBOX', function () {
-        init();
-        $('[data-ui="selectbox"]').on('click', toggleActive);
-        $('[data-ui="selectbox"]').find('select').on(customEvent, handleCustomEvents);
-    });
-}(jQuery, uiPack));
+    // uiPack.events.on('INIT_SELECTBOX', function () {
+    //     init();
+    //     $('[data-ui="selectbox"]').on('click', toggleActive);
+    //     $('[data-ui="selectbox"]').find('select').on(customEvent, handleCustomEvents);
+    // });
+}(jQuery));

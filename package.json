@@ -9,8 +9,7 @@
   },
   "scripts": {
     "start": "parcel src/index.html --open --out-dir docs",
-    "build": "parcel build src/js/uipack.js --no-source-maps",
-    "lint": "eslint src"
+    "build": "eslint src && parcel build src/js/uipack.js --no-source-maps"
   },
   "keywords": [
     "CSS Framework",

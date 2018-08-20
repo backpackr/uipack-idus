@@ -10747,9 +10747,9 @@ var $template = (0, _jquery2.default)('[data-template]');
         }
 
         _jquery2.default.get('./template/' + id + '.html').done(function (markup) {
-
             (0, _jquery2.default)('[data-template="' + id + '"]').append(markup);
             (0, _jquery2.default)('[data-template="' + id + '"]').find('pre code').each(function (i, block) {
+                /* eslint-disable */
                 hljs.highlightBlock(block);
             });
         });
@@ -10760,6 +10760,23 @@ var $template = (0, _jquery2.default)('[data-template]');
 
         (0, _jquery2.default)(this).on('click', function () {
             (0, _jquery2.default)('[data-code="' + id + '"]').toggle();
+        });
+    });
+
+    // TODO - add to main script - init via attributeName
+    // element binding
+    (0, _jquery2.default)('[data-ui="imgloader"]').each(function () {
+        uipack.imgLoader((0, _jquery2.default)(this));
+    });
+
+    // input
+    (0, _jquery2.default)('[data-ui="numberinput"]').each(function () {
+        uipack.numberinput((0, _jquery2.default)(this));
+    });
+
+    uipack.on('INIT_INPUTNUMBER', function () {
+        (0, _jquery2.default)('[data-ui="numberinput"]').each(function () {
+            uipack.numberinput((0, _jquery2.default)(this));
         });
     });
 });
@@ -10792,7 +10809,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65213' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56554' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
