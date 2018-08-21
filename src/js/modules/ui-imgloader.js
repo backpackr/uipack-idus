@@ -1,10 +1,5 @@
 import $ from 'jquery';
-
-function extractBgSrc(element) {
-    var style = element.currentStyle || window.getComputedStyle(element, false);
-
-    return style.backgroundImage.slice(4, -1).replace(/"/g, '');
-}
+import { extractBg } from './util';
 
 function getImgSrc($elem) {
     var $thumbnail = $elem.find('.imgloader__thumbnail');
@@ -13,7 +8,7 @@ function getImgSrc($elem) {
     if ($thumbnail[0].nodeName === 'IMG') {
         src = $thumbnail[0].src;
     } else {
-        src = extractBgSrc($thumbnail[0]);
+        src = extractBg($thumbnail[0]);
     }
 
     return src;

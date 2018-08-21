@@ -64,61 +64,56 @@ function handleCustomEvents(e) {
     $currentSS.find('.selectbox__trigger__text').text(selectedOption);
 }
 
-function init() {
-    $('[data-ui="selectbox"]').each(function (i) {
-        var $selectForm = $(this).find('select');
-        var usePlaceholder = $(this).data('placeholder') !== undefined;
-        var hasScrollBar = $(this).find('[data-scrollbar]');
-        var $option;
-        var selectedIndex;
+function init($element) {
+    var $selectForm = $element.find('select');
+    var usePlaceholder = $element.data('placeholder') !== undefined;
+    var hasScrollBar = $element.find('[data-scrollbar]');
+    var $option;
+    var selectedIndex;
 
-        // add placeholder to selectbox
-        if (usePlaceholder) {
-            var $target = hasScrollBar.length ? $(this).find('.mCSB_container') : $(this).find('.selectbox__dropdown');
+    // add placeholder to selectbox
+    if (usePlaceholder) {
+        var $target = hasScrollBar.length ? $element.find('.mCSB_container') : $element.find('.selectbox__dropdown');
 
-            $target.prepend('<li class="selectbox__dropdown__option" hidden value="">' + $(this).data('placeholder') + '</li>');
-        }
+        $target.prepend('<li class="selectbox__dropdown__option" hidden value="">' + $element.data('placeholder') + '</li>');
+    }
 
-        selectedIndex = $(this).find('.selectbox__dropdown__option[selected]').length > 0 ? $(this).find('.selectbox__dropdown__option[selected]').index() : 0;
-        $option = $(this).find('.selectbox__dropdown__option');
+    selectedIndex = $element.find('.selectbox__dropdown__option[selected]').length > 0 ? $element.find('.selectbox__dropdown__option[selected]').index() : 0;
+    $option = $element.find('.selectbox__dropdown__option');
 
-        // create <option> for select form
-        $option.each(function (i) {
-            var attributes = $(this).prop('attributes');
+    // create <option> for select form
+    $option.each(function (i) {
+        var attributes = $element.prop('attributes');
 
-            var $data = $('<option>');
+        var $data = $('<option>');
 
-            $.each(attributes, function (i) {
-                $data.attr(this.name, this.value);
-            });
-
-            $data.text($(this).text());
-            $selectForm.append($data);
+        $.each(attributes, function (i) {
+            $data.attr(this.name, this.value);
         });
 
-        // set <select> properties
-        $selectForm.prop({
-            'selectedIndex': selectedIndex,
-            'disabled': $(this).data('state') === 'disabled'
-        });
-
-        // initial placeholder
-        if ($(this).find('.selectbox__trigger__text').text().length === 0 || selectedIndex > 0) {
-            $(this).find('.selectbox__trigger__text').text($option.eq(selectedIndex).text());
-        }
-
-        if (selectedIndex === 0 && usePlaceholder) {
-            $(this).find('.selectbox__trigger__text').attr('disabled', true);
-        }
+        $data.text($element.text());
+        $selectForm.append($data);
     });
+
+    // set <select> properties
+    $selectForm.prop({
+        'selectedIndex': selectedIndex,
+        'disabled': $element.data('state') === 'disabled'
+    });
+
+    // initial placeholder
+    if ($element.find('.selectbox__trigger__text').text().length === 0 || selectedIndex > 0) {
+        $element.find('.selectbox__trigger__text').text($option.eq(selectedIndex).text());
+    }
+
+    if (selectedIndex === 0 && usePlaceholder) {
+        $element.find('.selectbox__trigger__text').attr('disabled', true);
+    }
 }
 
 export default function selectbox($element) {
-    init();
-
-    $element.each(function () {
-        $(this).on('click', toggleActive);
-        // use custom event to avoid multiple change event on select;
-        $(this).find('select').on(customEvent, handleCustomEvents);
-    });
+    init($element);
+    $element.on('click', toggleActive);
+    // use custom event to avoid multiple change event on select;
+    $element.find('select').on(customEvent, handleCustomEvents);
 }
