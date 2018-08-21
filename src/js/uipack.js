@@ -1,11 +1,20 @@
 import $ from 'jquery';
-import imgLoader from './modules/ui-imgloader';
+import imgloader from './modules/ui-imgloader';
 import numberinput from './modules/ui-numberinput';
 import selectbox from './modules/ui-selectbox';
 import { INIT_INPUTNUMBER, INIT_SELECTBOX } from './modules/events';
 
 // style
 import '../style/uipack';
+
+// uipack es6 module
+const uipackIdus = {
+    imgloader,
+    selectbox,
+    numberinput
+}
+
+export default uipackIdus;
 
 // uipack global object
 function defineUipack() {
@@ -38,7 +47,7 @@ function defineUipack() {
     }
 
     // add ui modules
-    uipack.imgLoader = imgLoader;
+    uipack.imgloader = imgloader;
     uipack.numberinput = numberinput;
     uipack.selectbox = selectbox;
 
@@ -52,7 +61,7 @@ if (typeof (uipack) === 'undefined') window.uipack = defineUipack();
 $(document).ready(function () {
     // imgloader
     $('[data-ui="imgloader"]').each(function () {
-        uipack.imgLoader($(this));
+        uipack.imgloader($(this));
     });
 
     // selectbox
@@ -74,4 +83,4 @@ $(document).ready(function () {
             uipack.numberinput($(this));
         });
     });
-})
+});
