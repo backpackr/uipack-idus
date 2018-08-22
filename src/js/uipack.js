@@ -3,7 +3,7 @@ import { INIT_INPUTNUMBER, INIT_SELECTBOX } from './modules/events';
 import imgloader from './modules/ui-imgloader';
 import numberinput from './modules/ui-numberinput';
 import selectbox from './modules/ui-selectbox';
-import { modalAlert, modalConfirm } from './modules/ui-modal';
+import { alert, confirm } from './modules/ui-modal';
 
 // style
 import '../style/uipack';
@@ -13,8 +13,8 @@ const ui = {
     imgloader,
     selectbox,
     numberinput,
-    modalConfirm,
-    modalAlert
+    confirm,
+    alert
 }
 
 // uipack global object
@@ -82,9 +82,7 @@ if (typeof window === 'undefined') {
             uipack.selectbox($('[data-uipack="selectbox"]'));
         });
 
-
-        // uipack.modalConfirm({ message: 'Are You Sure? 😳' }).show();
-        // uipack.modalAlert({ message: 123123 }).show();
+        // uipack.alert({ title: 'Greetings 👋', message: 'How u doing?' });
     });
 }
 

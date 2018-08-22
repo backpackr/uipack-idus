@@ -1,0 +1,38 @@
+<pre data-code="modal">
+    <code class="javascript">
+        uipack.alert({
+            // options
+        });
+    </code>
+</pre>
+
+<fieldset>
+    <button class="nbtn-white" data-uipack="trigger" data-action="alert">open alert</button>
+    <button class="nbtn-red" data-uipack="trigger" data-action="confirm">open confirm</button>
+</fieldset>
+
+<script>
+    $('[data-uipack="trigger"]').each(function () {
+        $(this).on('click', function () {
+            var type = $(this).attr('data-action');
+            switch (type) {
+                case 'alert':
+                    uipack.alert({
+                        title: 'Greetings! 👋',
+                        message: 'All good?'
+                    });
+                    break;
+
+                case 'confirm':
+                    uipack.confirm({
+                        title: 'Are you sure? 😳',
+                        message: 'ARE YOU SURE??? 😳😳😳😳'
+                    });
+                    break;
+
+                default:
+                    break;
+            }
+        });
+    });
+</script>

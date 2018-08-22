@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UIPACK-IDUS</title>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <!-- guide-page src -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/styles/github.min.css">
@@ -18,7 +19,7 @@
 <body>
     <div class="inner-w thisPage">
         <div class="titlebar">
-            <a href="https://github.com/backpackr/uipack-idus" class="titlebar__txtmain" target="blank" >UIPACK-IDUS</a>
+            <a href="https://github.com/backpackr/uipack-idus" class="titlebar__txtmain" target="blank">UIPACK-IDUS</a>
             <span class="titlebar__txtright">
                 <a class="nbtn-white--small" href="https://github.com/backpackr/uipack-idus" target="blank">GITHUB</a>
             </span>
@@ -35,6 +36,17 @@
             </div>
         </div>
 
+        <!-- modal -->
+        <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">MODAL</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="modal">RULES</button>
+            </span>
+        </div>
+        <a href="./template/modal.html" hidden></a>
+        <div data-template="modal"></div>
+
+        <!-- buttons -->
         <div class="titlebar">
             <a href="#" class="titlebar__txtmain">BUTTONS</a>
             <span class="titlebar__txtright">
@@ -44,6 +56,7 @@
         <a href="./template/button.html" hidden></a>
         <div data-template="button"></div>
 
+        <!-- selectbox -->
         <div class="titlebar">
             <a href="#" class="titlebar__txtmain">USER INPUTS</a>
             <span class="titlebar__txtright">
@@ -53,15 +66,7 @@
         <a href="./template/selectbox.html" hidden></a>
         <div data-template="selectbox"></div>
 
-        <!-- <div class="titlebar">
-            <a href="#" class="titlebar__txtmain">ICONS</a>
-            <span class="titlebar__txtright">
-                <button type="button" class="nbtn-white--small" data-show="icons">RULES</button>
-            </span>
-        </div>
-        <a href="./template/icons.html" hidden></a>
-        <div data-template="icons"></div> -->
-
+        <!-- grid -->
         <div class="titlebar">
             <a href="#" class="titlebar__txtmain">GRID</a>
             <span class="titlebar__txtright">
@@ -71,11 +76,21 @@
         <div data-template="grid"></div>
         <a href="./template/grid.html" hidden></a>
 
+        <!-- titlebar -->
         <div class="titlebar">
             <a href="#" class="titlebar__txtmain">TITLES</a>
         </div>
         <div data-template="titles"></div>
         <a href="./template/titles.html" hidden></a>
+
+        <!-- <div class="titlebar">
+            <a href="#" class="titlebar__txtmain">ICONS</a>
+            <span class="titlebar__txtright">
+                <button type="button" class="nbtn-white--small" data-show="icons">RULES</button>
+            </span>
+        </div>
+        <a href="./template/icons.html" hidden></a>
+        <div data-template="icons"></div> -->
     </div>
 
     <script src="./js/docs.js"></script>
