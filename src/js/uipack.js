@@ -68,7 +68,7 @@ if (typeof window === 'undefined') {
     // auto ui init via element attribute
     $(document).ready(function () {
         // img-loader
-        uipack.imgloader($('[data-uipack="imgloader"]'));
+        // uipack.imgloader($('[data-uipack="imgloader"]'));
 
         // numberinput
         uipack.numberinput($('[data-uipack="numberinput"]'));

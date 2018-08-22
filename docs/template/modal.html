@@ -1,7 +1,29 @@
 <pre data-code="modal">
     <code class="javascript">
+        options = {
+            btnText: '', // default '확인';
+            buttonMod: '--modifier-class', // default undefined
+            callback: fn(), // undefined
+            href: 'www.url-link.com', // undefined ok 버튼
+            href0: 'www.url-link.com', // undefined 취소 버튼
+            html: '', // undefined
+            message: '',
+            title: ''
+        }
+
+        // using preset modal - alert, confirm
         uipack.alert({
             // options
+            title: 'Greetings! 👋',
+            message: 'All good?',
         });
+
+        // creating new modal
+        const someModal = new uipack.Modal({
+            // options
+        });
+
+        // someModal.show();
+        // someModal.hide();
     </code>
-</pre><fieldset> <button class="nbtn-white" data-uipack="trigger" data-action="alert">open alert</button> <button class="nbtn-red" data-uipack="trigger" data-action="confirm">open confirm</button> </fieldset><script>$('[data-uipack="trigger"]').each(function(){$(this).on("click",function(){switch($(this).attr("data-action")){case"alert":uipack.alert({title:"Greetings! 👋",message:"All good?"});break;case"confirm":uipack.confirm({title:"Are you sure? 😳",message:"ARE YOU SURE??? 😳😳😳😳"})}})});</script>
+</pre><fieldset> <button class="trigger nbtn-white" data-action="alert">open alert</button> <button class="trigger nbtn-red" data-action="confirm">open confirm</button> </fieldset><script>var trigger=document.getElementsByClassName("trigger");function eventHandler(e){switch(e.target.dataset.action){case"alert":uipack.alert({title:"Greetings! 👋",message:"All good?"});break;case"confirm":uipack.confirm({title:"Are you sure? 😳",message:"ARE YOU SURE??? 😳😳😳😳"})}}for(var i=0;i<trigger.length;i++)trigger[i].addEventListener("click",eventHandler);</script>
