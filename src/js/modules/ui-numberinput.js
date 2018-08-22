@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 function handleBtnEvent(event) {
-    var $currentUi = $(event.currentTarget).parents('[data-ui="numberinput"]');
+    var $currentUi = $(event.currentTarget).parents('[data-uipack="numberinput"]');
     var $input = $currentUi.find('input[type="number"]');
     var min = parseInt($input.attr('min'));
     var max = parseInt($input.attr('max'));
@@ -35,7 +35,15 @@ function handleKeyupEvent(event) {
     }
 }
 
-export default function numberinput($element) {
-    $element.find('button').on('click', handleBtnEvent);
-    $element.find('input[type="number"]').on('keyup', handleKeyupEvent);
+function numberinput($element) {
+    // prevent multiple event binding
+    if ($element.data('isListening')) return;
+
+    $element.each(function () {
+        $(this).find('button').on('click', handleBtnEvent);
+        $(this).find('input[type="number"]').on('keyup', handleKeyupEvent);
+        $(this).data('isListening', true);
+    });
 }
+
+export default numberinput;

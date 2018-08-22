@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import { extractBg } from './util';
 
-function getImgSrc($elem) {
-    var $thumbnail = $elem.find('.imgloader__thumbnail');
-    var src;
+const getImgSrc = $element => {
+    const $thumbnail = $element.find('.imgloader__thumbnail');
+    let src;
 
     if ($thumbnail[0].nodeName === 'IMG') {
         src = $thumbnail[0].src;
@@ -14,9 +14,9 @@ function getImgSrc($elem) {
     return src;
 }
 
-export default function imgloader($element) {
-    var img;
-    var imgLarge;
+function imgloader($element) {
+    let img;
+    let imgLarge;
     img = new Image();
     img.src = getImgSrc($element);
 
@@ -43,3 +43,5 @@ export default function imgloader($element) {
 
     $element.append(imgLarge);
 };
+
+export default imgloader;

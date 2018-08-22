@@ -1,23 +1,24 @@
 import $ from 'jquery';
+import { INIT_INPUTNUMBER, INIT_SELECTBOX } from './modules/events';
 import imgloader from './modules/ui-imgloader';
 import numberinput from './modules/ui-numberinput';
 import selectbox from './modules/ui-selectbox';
-import { INIT_INPUTNUMBER, INIT_SELECTBOX } from './modules/events';
+import { modalAlert, modalConfirm } from './modules/ui-modal';
 
 // style
 import '../style/uipack';
 
-// uipack es6 module
-const uipackIdus = {
+// ui modules
+const ui = {
     imgloader,
     selectbox,
-    numberinput
+    numberinput,
+    modalConfirm,
+    modalAlert
 }
 
-export default uipackIdus;
-
 // uipack global object
-function defineUipack() {
+const defineUipack = () => {
     const uipack = window.uipack || {};
 
     // event emitter
@@ -47,40 +48,43 @@ function defineUipack() {
     }
 
     // add ui modules
-    uipack.imgloader = imgloader;
-    uipack.numberinput = numberinput;
-    uipack.selectbox = selectbox;
+    for (let x in ui) {
+        uipack[x] = ui[x];
+    }
 
     return uipack;
 }
 
-// define global object
-if (typeof (uipack) === 'undefined') window.uipack = defineUipack();
+// check environment
+if (typeof window === 'undefined') {
+    // node envrironment
+    module.exports = ui;
+} else {
+    // browser
+    if (typeof (window.uipack) === 'undefined') {
+        window.uipack = defineUipack();
+    }
 
-// auto ui init via element attribute
-$(document).ready(function () {
-    // imgloader
-    $('[data-ui="imgloader"]').each(function () {
-        uipack.imgloader($(this));
-    });
+    // auto ui init via element attribute
+    $(document).ready(function () {
+        // img-loader
+        uipack.imgloader($('[data-uipack="imgloader"]'));
 
-    // selectbox
-    $('[data-ui="selectbox"]').each(function () {
-        uipack.selectbox($(this));
-    });
-    uipack.on(INIT_SELECTBOX, function () {
-        $('[data-ui="selectbox"]').each(function () {
-            uipack.selectbox($(this));
+        // numberinput
+        uipack.numberinput($('[data-uipack="numberinput"]'));
+        uipack.on(INIT_INPUTNUMBER, function () {
+            uipack.numberinput($('[data-uipack="numberinput"]'));
         });
-    });
 
-    // numberinput
-    $('[data-ui="numberinput"]').each(function () {
-        uipack.numberinput($(this));
-    });
-    uipack.on(INIT_INPUTNUMBER, function () {
-        $('[data-ui="numberinput"]').each(function () {
-            uipack.numberinput($(this));
+        // selectbox
+        uipack.selectbox($('[data-uipack="selectbox"]'));
+        uipack.on(INIT_SELECTBOX, function () {
+            uipack.selectbox($('[data-uipack="selectbox"]'));
         });
+
+
+        // uipack.modalConfirm({ message: 'Are You Sure? 😳' }).show();
+        // uipack.modalAlert({ message: 123123 }).show();
     });
-});
+}
+

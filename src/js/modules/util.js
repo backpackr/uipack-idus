@@ -1,6 +1,5 @@
 
 /**
-* extractBg
 * extract background-img from style
 *
 * @param {Element} element
@@ -11,3 +10,18 @@ export const extractBg = element => {
 
     return style.backgroundImage.slice(4, -1).replace(/"/g, '');
 };
+
+/**
+ * returns random hash (5chars)
+ *
+ * @returns string
+ */
+export const randomHash = () => {
+    let text = '';
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (let i = 0; i < 5; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
