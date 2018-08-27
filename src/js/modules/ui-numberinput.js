@@ -1,20 +1,20 @@
 import $ from 'jquery';
 
 function handleBtnEvent(event) {
-    var $currentUi = $(event.currentTarget).parents('[data-uipack="numberinput"]');
-    var $input = $currentUi.find('input[type="number"]');
-    var min = parseInt($input.attr('min'));
-    var max = parseInt($input.attr('max'));
-    var val = $input.val() === '' ? 0 : parseInt($input.val());
-    var type = $(event.target).data('action');
-    var isDisabled = $input.attr('disabled');
-    var result;
+    const $currentUi = $(event.currentTarget).parents('[data-uipack="numberinput"]');
+    const $input = $currentUi.find('input[type="number"]');
+    const min = parseInt($input.attr('min'), 10);
+    const max = parseInt($input.attr('max'), 10);
+    const val = $input.val() === '' ? 0 : parseInt($input.val(), 10);
+    const type = $(event.target).data('action');
+    const isDisabled = $input.attr('disabled');
+    let result;
 
     if (!isDisabled) {
         if (type === 'increment' && val < max) {
-            result = val += 1;
+            result = val + 1;
         } else if (type === 'decrement' && val > min) {
-            result = val -= 1;
+            result = val - 1;
         } else {
             return;
         }
@@ -24,14 +24,15 @@ function handleBtnEvent(event) {
 }
 
 function handleKeyupEvent(event) {
-    var val = parseInt(event.target.value);
+    const eventTarget = event.target;
+    const val = parseInt(eventTarget.value, 10);
 
     if (isNaN(val)) {
-        event.target.value = '';
+        eventTarget.value = '';
     }
 
-    if (val > event.target.max) {
-        event.target.value = event.target.max;
+    if (val > eventTarget.max) {
+        eventTarget.value = eventTarget.max;
     }
 }
 
@@ -39,10 +40,10 @@ function numberinput($element) {
     // prevent multiple event binding
     if ($element.data('isListening')) return;
 
-    $element.each(function () {
-        $(this).find('button').on('click', handleBtnEvent);
-        $(this).find('input[type="number"]').on('keyup', handleKeyupEvent);
-        $(this).data('isListening', true);
+    $element.each((index, element) => {
+        $(element).find('button').on('click', handleBtnEvent);
+        $(element).find('input[type="number"]').on('keyup', handleKeyupEvent);
+        $(element).data('isListening', true);
     });
 }
 

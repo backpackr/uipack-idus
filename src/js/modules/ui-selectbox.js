@@ -3,11 +3,11 @@ import $ from 'jquery';
 const customEvent = 'propChange';
 
 function toggleActive(e) {
-    var isDisabled = $(e.currentTarget).data('state') === 'disabled';
-    var usePlaceholder = $(e.currentTarget).data('placeholder') !== undefined;
-    var selectedIndex = $(e.currentTarget).data('selectedIndex') || 0;
-    var $selected = $(e.currentTarget).find('.selectbox__trigger__text');
-    var selectedText;
+    const isDisabled = $(e.currentTarget).data('state') === 'disabled';
+    const usePlaceholder = $(e.currentTarget).data('placeholder') !== undefined;
+    let selectedIndex = $(e.currentTarget).data('selectedIndex') || 0;
+    const $selected = $(e.currentTarget).find('.selectbox__trigger__text');
+    let selectedText;
 
     if (isDisabled) {
         return;
@@ -48,82 +48,76 @@ function toggleActive(e) {
 }
 
 function handleCustomEvents(e) {
-    var selectedIndex = e.target.selectedIndex;
-    var disabled = e.target.disabled ? 'disabled' : '';
-    var $currentSS = $(e.target).closest('[data-uipack="selectbox"]');
-    var selectedOption = $currentSS.find('.selectbox__dropdown').find('.selectbox__dropdown__option').eq(selectedIndex).text();
+    const selectedIndex = e.target.selectedIndex;
+    const disabled = e.target.disabled ? 'disabled' : '';
+    const $currentSS = $(e.target).closest('[data-uipack="selectbox"]');
+    const selectedOption = $currentSS.find('.selectbox__dropdown').find('.selectbox__dropdown__option').eq(selectedIndex).text();
 
     $(e.target).closest('[data-uipack="selectbox"]')
         .attr('data-state', disabled)
         .data('state', disabled);
 
-    $(e.target).each(function () {
-        $(this).closest('[data-uipack="selectbox"]').find('.selectbox__dropdown__option').eq(selectedIndex).text();
+    $(e.target).each((index, element) => {
+        $(element).closest('[data-uipack="selectbox"]').find('.selectbox__dropdown__option').eq(selectedIndex).text();
     });
 
     $currentSS.find('.selectbox__trigger__text').text(selectedOption);
 }
 
 function init() {
-    $('[data-uipack="selectbox"]').each(function (i) {
-        var $selectForm = $(this).find('select');
-        var usePlaceholder = $(this).data('placeholder') !== undefined;
-        var hasScrollBar = $(this).find('[data-scrollbar]');
-        var $option;
-        var selectedIndex;
-
+    $('[data-uipack="selectbox"]').each((index, element) => {
+        const $selectForm = $(element).find('select');
+        const usePlaceholder = $(element).data('placeholder') !== undefined;
+        const hasScrollBar = $(element).find('[data-scrollbar]');
+        const selectedIndex = $(element).find('.selectbox__dropdown__option[selected]').length > 0 ? $(element).find('.selectbox__dropdown__option[selected]').index() : 0;
+        const $option = $(element).find('.selectbox__dropdown__option');
         // add placeholder to selectbox
         if (usePlaceholder) {
-            var $target = hasScrollBar.length ? $(this).find('.mCSB_container') : $(this).find('.selectbox__dropdown');
+            const $target = hasScrollBar.length ? $(element).find('.mCSB_container') : $(element).find('.selectbox__dropdown');
 
-            $target.prepend('<li class="selectbox__dropdown__option" hidden value="">' + $(this).data('placeholder') + '</li>');
+            $target.prepend(`<li class="selectbox__dropdown__option" hidden value="">${$(element).data('placeholder')}</li>`);
         }
 
-        selectedIndex = $(this).find('.selectbox__dropdown__option[selected]').length > 0 ? $(this).find('.selectbox__dropdown__option[selected]').index() : 0;
-        $option = $(this).find('.selectbox__dropdown__option');
+        $option.each((i, item) => {
+            const attributes = $(item).prop('attributes');
 
-        // create <option> for select form
-        $option.each(function (i) {
-            var attributes = $(this).prop('attributes');
+            const $data = $('<option>');
 
-            var $data = $('<option>');
-
-            $.each(attributes, function (i) {
-                $data.attr(this.name, this.value);
+            $.each(attributes, () => {
+                $data.attr(item.name, item.value);
             });
 
-            $data.text($(this).text());
+            $data.text($(item).text());
             $selectForm.append($data);
         });
 
         // set <select> properties
         $selectForm.prop({
             'selectedIndex': selectedIndex,
-            'disabled': $(this).data('state') === 'disabled'
+            'disabled': $(element).data('state') === 'disabled'
         });
 
         // initial placeholder
-        if ($(this).find('.selectbox__trigger__text').text().length === 0 || selectedIndex > 0) {
-            $(this).find('.selectbox__trigger__text').text($option.eq(selectedIndex).text());
+        if ($(element).find('.selectbox__trigger__text').text().length === 0 || selectedIndex > 0) {
+            $(element).find('.selectbox__trigger__text').text($option.eq(selectedIndex).text());
         }
 
         if (selectedIndex === 0 && usePlaceholder) {
-            $(this).find('.selectbox__trigger__text').attr('disabled', true);
+            $(element).find('.selectbox__trigger__text').attr('disabled', true);
         }
-    });
+    })
 }
 
 function selectbox($element) {
     init();
 
-    $element.each(function () {
-        // prevent multiple event binding
-        if ($(this).data('isListening')) return;
+    $element.each((index, element) => {
+        if ($(element).data('isListening')) return;
 
-        $(this).on('click', toggleActive);
-        $(this).find('select').on(customEvent, handleCustomEvents);
-        $(this).data('isListening', true);
-    });
+        $(element).on('click', toggleActive);
+        $(element).find('select').on(customEvent, handleCustomEvents);
+        $(element).data('isListening', true);
+    })
 }
 
 export default selectbox;

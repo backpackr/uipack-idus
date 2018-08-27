@@ -15,12 +15,10 @@ const getImgSrc = $element => {
 }
 
 function imgloader($element) {
-    let img;
-    let imgLarge;
-    img = new Image();
-    img.src = getImgSrc($element);
+    const img = new Image();
+    const imgLarge = new Image();
 
-    imgLarge = new Image();
+    img.src = getImgSrc($element);
     imgLarge.src = $element.attr('data-img');
 
     $(imgLarge).attr('data-state', 'loading');
@@ -33,11 +31,11 @@ function imgloader($element) {
         return;
     }
 
-    img.onload = function () {
+    img.onload = () => {
         $element.find('.imgloader__thumbnail').attr('data-state', 'loaded');
     }
 
-    imgLarge.onload = function () {
+    imgLarge.onload = () => {
         $(imgLarge).attr('data-state', 'loaded');
     }
 

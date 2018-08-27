@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "parcel src/index.html --open --out-dir dev",
-    "build": "eslint src && parcel build src/js/uipack.js --no-source-maps",
+    "lint": "eslint src",
+    "build": "npm run lint && parcel build src/js/uipack.js --no-source-maps",
     "docs": "parcel build src/index.html --no-source-maps --out-dir docs --public-url '/uipack-idus/'"
   },
   "keywords": [
@@ -19,20 +20,18 @@
   "author": "7ylee",
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "^8.2.5",
-    "browserslist": "^4.0.2",
+    "babel-eslint": "^8.2.6",
     "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-config-prettier-standard": "^2.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-prettier": "^2.6.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
     "node-sass": "^4.9.3",
     "parcel": "^1.9.7",
-    "prettier": "^1.13.4",
-    "sass": "^1.13.0",
-    "standard": "^11.0.1"
+    "prettier": "^1.14.2",
+    "sass": "^1.13.0"
   },
   "dependencies": {
     "jquery": "^3.3.1"

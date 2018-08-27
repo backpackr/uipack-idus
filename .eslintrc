@@ -1,18 +1,18 @@
+// npm i -D eslint prettier babel-eslint eslint-config-airbnb@^15.0.1 eslint-config-prettier eslint-plugin-prettier eslint-plugin-react eslint-plugin-import eslint-plugin-jsx-a11y@^5.1.1
+
 {
-    "extends": [
-        "standard",
-        "prettier",
-        "prettier/standard"
-    ],
-    "plugins": [
-        "prettier"
-    ],
+    "extends": ["airbnb", "prettier", "prettier/react"],
+    "plugins": ["prettier"],
     "parser": "babel-eslint",
     "parserOptions": {
-        "ecmaVersion": 5,
-        "sourceType": "module"
+        "ecmaVersion": 2016,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
     "env": {
+        "es6": true,
         "browser": true,
         "node": true,
         "jquery": true
@@ -21,17 +21,9 @@
         "uipack": true
     },
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ]
+        "indent": ["error", 4, {"SwitchCase": 1}],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "single"],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }

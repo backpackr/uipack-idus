@@ -1,7 +1,4 @@
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
-![dependencies](https://david-dm.org/7ylee/uipack-idus.svg)
-
 ## Install
 ```
 npm install uipack-idus

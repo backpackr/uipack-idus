@@ -6,7 +6,7 @@ import selectbox from './modules/ui-selectbox';
 import { alert, confirm } from './modules/ui-modal';
 
 // style
-import '../style/uipack';
+import '../style/uipack.scss';
 
 // ui modules
 const ui = {
@@ -20,37 +20,37 @@ const ui = {
 // uipack global object
 const defineUipack = () => {
     const uipack = window.uipack || {};
+    uipack.events = {};
 
     // event emitter
-    uipack.events = {};
-    uipack.on = function (eventName, fn) {
-        this.events[eventName] = this.events[eventName] || [];
-        this.events[eventName].push(fn);
+    uipack.eventOn = (eventName, fn) => {
+        uipack.events[eventName] = uipack.events[eventName] || [];
+        uipack.events[eventName].push(fn);
     }
-    uipack.off = function (eventName, fn) {
+
+    uipack.eventOff = (eventName, fn) => {
         let i;
 
-        if (this.events[eventName]) {
-            for (i = 0; i < this.events[eventName].length; i++) {
-                if (this.events[eventName][i] === fn) {
-                    this.events[eventName].splice(i, 1);
+        if (uipack.events[eventName]) {
+            for (i = 0; i < uipack.events[eventName].length; i += 1) {
+                if (uipack.events[eventName][i] === fn) {
+                    uipack.events[eventName].splice(i, 1);
                     break;
                 }
             }
         }
     }
-    uipack.emit = function (eventName, data) {
-        if (this.events[eventName]) {
-            this.events[eventName].forEach(function (fn) {
+
+    uipack.eventEmit = (eventName, data) => {
+        if (uipack.events[eventName]) {
+            uipack.events[eventName].forEach((fn) => {
                 fn(data);
             });
         }
     }
 
     // add ui modules
-    for (let x in ui) {
-        uipack[x] = ui[x];
-    }
+    Object.keys(ui).map(key => { uipack[key] = ui[key]; return false });
 
     return uipack;
 }
@@ -66,19 +66,19 @@ if (typeof window === 'undefined') {
     }
 
     // auto ui init via element attribute
-    $(document).ready(function () {
+    $(document).ready(() => {
         // img-loader
         // uipack.imgloader($('[data-uipack="imgloader"]'));
 
         // numberinput
         uipack.numberinput($('[data-uipack="numberinput"]'));
-        uipack.on(INIT_INPUTNUMBER, function () {
+        uipack.eventOn(INIT_INPUTNUMBER, () => {
             uipack.numberinput($('[data-uipack="numberinput"]'));
         });
 
         // selectbox
         uipack.selectbox($('[data-uipack="selectbox"]'));
-        uipack.on(INIT_SELECTBOX, function () {
+        uipack.eventOn(INIT_SELECTBOX, () => {
             uipack.selectbox($('[data-uipack="selectbox"]'));
         });
 

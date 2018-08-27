@@ -10,7 +10,7 @@ class Modal {
         this.href = options.href || undefined; // ok 버튼
         this.href0 = options.href0 || undefined; // 취소 버튼
         this.html = options.html || undefined;
-        this.id = options.id || 'alert_' + randomHash();
+        this.id = options.id || `alert_${randomHash()}`;
         this.message = options.message || undefined;
         this.title = options.title || undefined;
         this.template = `
@@ -27,7 +27,7 @@ class Modal {
     }
 
     close() {
-        $('#' + this.id).remove();
+        $(`#${this.id}`).remove();
         $('.curtain').remove();
     }
 
@@ -37,29 +37,27 @@ class Modal {
     }
 
     bindEvent() {
-        const _this = this;
-
-        $('#' + _this.id).find('[data-action]').on('click', function (event) {
-            if (_this.href === undefined) {
+        $(`#${this.id}`).find('[data-action]').on('click', (event) => {
+            if (this.href === undefined) {
                 event.preventDefault();
             }
 
-            if ($(this).data('action') === 'confirm') {
-                _this.confirmed = true;
+            if ($(event.target).data('action') === 'confirm') {
+                this.confirmed = true;
 
-                if (_this.callback) {
-                    _this.callback();
+                if (this.callback) {
+                    this.callback();
                     return;
                 }
 
                 // skip btn close() before redirect
-                if (_this.href !== undefined) {
+                if (this.href !== undefined) {
                     return;
                 }
             }
 
-            if (!_this.href0) {
-                _this.close();
+            if (!this.href0) {
+                this.close();
             }
         });
     }
