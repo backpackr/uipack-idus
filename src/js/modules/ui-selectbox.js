@@ -117,7 +117,7 @@ function selectbox($element) {
         $(element).on('click', toggleActive);
         $(element).find('select').on(customEvent, handleCustomEvents);
         $(element).data('isListening', true);
-    })
+    });
 }
 
 export default selectbox;

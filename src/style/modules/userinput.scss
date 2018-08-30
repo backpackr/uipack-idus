@@ -82,7 +82,7 @@ input[type=number] {
     }
 }
 
-.userinput {
+.#{$namespace}userinput {
     display: inline-block;
     font-size: 14px;
     position: relative;
@@ -101,7 +101,7 @@ input[type=number] {
         cursor: pointer;
 
         &--block {
-            @extend .userinput__label;
+            @extend .#{$namespace}userinput__label;
             display: block;
         }
     }
@@ -157,7 +157,7 @@ input[type=number] {
         // style modifiers
         // override radiobox to checkbox style
         &--checkbox {
-            @extend .userinput__input;
+            @extend .#{$namespace}userinput__input;
             &[type=radio] {
                 @extend %checkbox-style;
                 &:before {
@@ -173,7 +173,7 @@ input[type=number] {
     // style modifiers
     // add boxed background
     &--boxed {
-        @extend .userinput;
+        @extend .#{$namespace}userinput;
         padding: 0 18px;
         border: 1px solid #d9d9d9;
         background: #fff;
@@ -219,6 +219,32 @@ input[type=number] {
             width: 36px;
             font-size: 14px;
             appearance: none;
+        }
+    }
+
+    &--multiline {
+        @extend .#{$namespace}userinput__input;
+        margin: 0;
+        box-sizing: border-box;
+        display: inline-block;
+        border: 1px solid #b4b4b4;
+        vertical-align: middle;
+        resize: none;
+        padding: 4px 12px;
+        line-height: 1.5;
+        // overflow: hidden;
+        text-indent: 0;
+        font-size: inherit;
+        // transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:focus {
+            outline: none;
+        }
+
+        &[data-state=clone] {
+            // opacity: 0;
+            // position: absolute;
+            // left: 0;
+            // top: 0;
         }
     }
 }

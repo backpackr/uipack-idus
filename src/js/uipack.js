@@ -1,8 +1,9 @@
 import $ from 'jquery';
-import { INIT_INPUTNUMBER, INIT_SELECTBOX } from './modules/events';
+import { INIT_INPUTNUMBER, INIT_SELECTBOX, INIT_MULTILINE } from './modules/events';
 import imgloader from './modules/ui-imgloader';
 import numberinput from './modules/ui-numberinput';
 import selectbox from './modules/ui-selectbox';
+import multiline from './modules/ui-multiline';
 import { alert, confirm } from './modules/ui-modal';
 
 // style
@@ -10,10 +11,12 @@ import '../style/uipack.scss';
 
 // ui modules
 const ui = {
+    // event binders
     imgloader,
     selectbox,
     numberinput,
     confirm,
+    multiline,
     alert
 }
 
@@ -68,7 +71,9 @@ if (typeof window === 'undefined') {
     // auto ui init via element attribute
     $(document).ready(() => {
         // img-loader
-        // uipack.imgloader($('[data-uipack="imgloader"]'));
+        if ($('[data-uipack="imgloader"]').length) {
+            uipack.imgloader($('[data-uipack="imgloader"]'));
+        }
 
         // numberinput
         uipack.numberinput($('[data-uipack="numberinput"]'));
@@ -82,6 +87,11 @@ if (typeof window === 'undefined') {
             uipack.selectbox($('[data-uipack="selectbox"]'));
         });
 
+        // multiline input
+        uipack.multiline($('[data-uipack="multiline"]'));
+        uipack.eventOn(INIT_MULTILINE, () => {
+            uipack.multiline($('[data-uipack="multiline"]'));
+        });
         // uipack.alert({ title: 'Greetings 👋', message: 'How u doing?' });
     });
 }
