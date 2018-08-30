@@ -57,16 +57,9 @@
 
 <form action="#">
     <fieldset>
-        <legend>MULTILINE</legend>
-        <textarea class="userinput--multiline" name="comment" data-uipack="multiline" data-max="5" rows="1"></textarea>
+        <legend>AUTORESIZE</legend>
+        <textarea class="userinput--autoresize" data-uipack="autoresize" rows="1" max="5" placeholder="autoresizing textarea"></textarea>
     </fieldset>
-
-    <!-- <fieldset>
-        <legend>MULTILINE</legend>
-        <div class="userinput--multiline" data-uipack="multiline" data-max="5">
-            <textarea name="comment" rows="1"></textarea>
-        </div>
-    </fieldset> -->
 
     <fieldset>
         <legend>SELECTBOX</legend>
@@ -196,5 +189,5 @@
 <script>
     uipack.eventEmit('INIT_SELECTBOX');
     uipack.eventEmit('INIT_INPUTNUMBER');
-    uipack.eventEmit('INIT_MULTILINE');
+    uipack.eventEmit('INIT_AUTORESIZE');
 </script>

@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import { INIT_INPUTNUMBER, INIT_SELECTBOX, INIT_MULTILINE } from './modules/events';
+import { INIT_INPUTNUMBER, INIT_SELECTBOX, INIT_AUTORESIZE } from './modules/events';
 import imgloader from './modules/ui-imgloader';
 import numberinput from './modules/ui-numberinput';
 import selectbox from './modules/ui-selectbox';
-import multiline from './modules/ui-multiline';
+import autoresize from './modules/ui-autoresize';
 import { alert, confirm } from './modules/ui-modal';
 
 // style
@@ -12,11 +12,11 @@ import '../style/uipack.scss';
 // ui modules
 const ui = {
     // event binders
+    autoresize,
     imgloader,
     selectbox,
     numberinput,
     confirm,
-    multiline,
     alert
 }
 
@@ -87,10 +87,10 @@ if (typeof window === 'undefined') {
             uipack.selectbox($('[data-uipack="selectbox"]'));
         });
 
-        // multiline input
-        uipack.multiline($('[data-uipack="multiline"]'));
-        uipack.eventOn(INIT_MULTILINE, () => {
-            uipack.multiline($('[data-uipack="multiline"]'));
+        // autoresize input
+        uipack.autoresize($('[data-uipack="autoresize"]'));
+        uipack.eventOn(INIT_AUTORESIZE, () => {
+            uipack.autoresize($('[data-uipack="autoresize"]'));
         });
         // uipack.alert({ title: 'Greetings 👋', message: 'How u doing?' });
     });
