@@ -10,7 +10,7 @@ $z-index: 101;
     overflow: hidden;
 }
 
-.selectbox {
+.#{$namespace}selectbox {
     min-width: 160px;
     box-sizing: border-box;
     font-size: 14px;
