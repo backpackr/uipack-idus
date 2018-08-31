@@ -122,19 +122,6 @@ $animation-duration: 0.3s;
     @content;
 }
 
-// grid spacing
-@mixin grid-spacing($mt, $ml) {
-    .grid-row {
-        margin-left: - $ml;
-        margin-top: - $mt;
-    }
-
-    .grid-inner {
-        margin-left: $ml;
-        margin-top: $mt;
-    }
-}
-
 // box-ratio ratio
 @mixin box-ratio($x, $y) {
     $height: (100% / $x) * $y;
