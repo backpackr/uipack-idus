@@ -31,11 +31,11 @@
         // 비동기로 마크업 로드시
         uiPack.events.emit('INIT_SELECTBOX');
     </code>
-    <h3>USERINPUT</h3>
+    <h3>ui_field</h3>
     <code class="html">
         &lt;!--
         //  마트업은 동일
-        // .userinput__label 위치만 필요에따라 변경
+        // .ui_field__label 위치만 필요에따라 변경
 
         type=text
         type=password
@@ -43,14 +43,14 @@
         type=checkbox
 
         --스타일 변형 옵션
-        * .userinput__label--block : 블록 스타일 레이블
-        * [type="radio"]인풋일시 .userinput__input--checkbox 모드 가능
+        * .ui_field__label--block : 블록 스타일 레이블
+        * [type="radio"]인풋일시 .ui_field__input--checkbox 모드 가능
 
         --&gt;
 
-        &lt;label class="userinput"&gt;
-            &lt;input class="userinput__input" type="{}" name="{}" value="{}"&gt;
-            &lt;span class="userinput__label"&gt;{}&lt;/span&gt;
+        &lt;label class="ui_field"&gt;
+            &lt;input class="ui_field__input" type="{}" name="{}" value="{}"&gt;
+            &lt;span class="ui_field__label"&gt;{}&lt;/span&gt;
         &lt;/label&gt;
     </code>
 </pre>
@@ -58,7 +58,7 @@
 <form action="#">
     <fieldset>
         <legend>AUTORESIZE</legend>
-        <textarea class="userinput--autoresize" data-uipack="autoresize" data-max="4" cols="30" rows="1" placeholder="Textarea"></textarea>
+        <textarea class="ui_field--autoresize" data-uipack="autoresize" data-max="4" cols="30" rows="1" placeholder="Textarea"></textarea>
     </fieldset>
 
     <fieldset>
@@ -105,80 +105,78 @@
 
     <fieldset>
         <legend>NUMBER</legend>
-        <label class="userinput" data-uipack="numberinput">
-            <span class="userinput__label">counter</span>
+        <label class="ui_field" data-uipack="numberinput">
             <button type="button" class="nbtn-white" data-action="decrement">-</button>
-            <input class="userinput__input" name="count" type="number" value="0" min="0" max="999" autocomplete="off">
+            <input class="ui_field__input" name="count" type="number" value="0" min="0" max="999" autocomplete="off">
             <button type="button" class="nbtn-white" data-action="increment">+</button>
         </label>
-        <label class="userinput" data-uipack="numberinput">
-            <span class="userinput__label">counter</span>
+        <label class="ui_field" data-uipack="numberinput">
             <button type="button" class="nbtn-white" data-action="decrement">-</button>
-            <input class="userinput__input" name="count" type="number" value="0" min="0" max="999" autocomplete="off">
+            <input class="ui_field__input" name="count" type="number" value="0" min="0" max="999" autocomplete="off">
             <button type="button" class="nbtn-white" data-action="increment">+</button>
         </label>
     </fieldset>
 
     <fieldset>
         <legend>INPUTFIELD</legend>
-        <div class="userinput">
-            <label for="textinput2" class="userinput__label">textinput2</label>
-            <input class="userinput__input" type="text" name="textinput2" placeholder="Textinput2" autocomplete="off">
+        <div class="ui_field">
+            <label for="textinput2" class="ui_field__label">textinput2</label>
+            <input class="ui_field__input" type="text" name="textinput2" placeholder="Textinput2" autocomplete="off">
         </div>
-        <label class="userinput">
-            <span class="userinput__label">textinput</span>
-            <input class="userinput__input" type="text" name="textinput" placeholder="Textinput" autocomplete="off">
+        <label class="ui_field">
+            <span class="ui_field__label">textinput</span>
+            <input class="ui_field__input" type="text" name="textinput" placeholder="Textinput" autocomplete="off">
         </label>
-        <label class="userinput">
-            <span class="userinput__label">password</span>
-            <input class="userinput__input" type="password" name="password" placeholder="Password" autocomplete="off">
+        <label class="ui_field">
+            <span class="ui_field__label">password</span>
+            <input class="ui_field__input" type="password" name="password" placeholder="Password" autocomplete="off">
         </label>
     </fieldset>
 
     <fieldset>
         <legend>CHECKBOX</legend>
-        <label class="userinput">
-            <input class="userinput__input" type="checkbox" name="checkinput1">
-            <span class="userinput__label">checkinput1</span>
+        <label class="ui_field">
+            <input class="ui_field__input" type="checkbox" name="checkinput1">
+            <span class="ui_field__label">checkinput1</span>
         </label>
-        <label class="userinput">
-            <input class="userinput__input" type="checkbox" name="checkinput2">
-            <span class="userinput__label">checkinput2</span>
+        <label class="ui_field">
+            <input class="ui_field__input" type="checkbox" name="checkinput2">
+            <span class="ui_field__label">checkinput2</span>
         </label>
-        <label class="userinput">
-            <input class="userinput__input" type="checkbox" name="checkinput3">
-            <span class="userinput__label">checkinput3</span>
+        <label class="ui_field">
+            <input class="ui_field__input" type="checkbox" name="checkinput3">
+            <span class="ui_field__label">checkinput3</span>
         </label>
     </fieldset>
 
     <fieldset>
         <legend>RADIO</legend>
         <div>
-            <label class="userinput">
-                <input class="userinput__input" type="radio" name="radioinput" value="radio1" checked>
-                <span class="userinput__label">radio1</span>
+            <label class="ui_field">
+                <input class="ui_field__input" type="radio" name="radioinput" value="radio1" checked>
+                <span class="ui_field__label">radio1</span>
             </label>
-            <label class="userinput">
-                <input class="userinput__input" type="radio" name="radioinput" value="radio2">
-                <span class="userinput__label">radio2</span>
+            <label class="ui_field">
+                <input class="ui_field__input" type="radio" name="radioinput" value="radio2">
+                <span class="ui_field__label">radio2</span>
             </label>
-            <label class="userinput">
-                <input class="userinput__input" type="radio" name="radioinput" value="radio3">
-                <span class="userinput__label">radio3</span>
+            <label class="ui_field">
+                <input class="ui_field__input" type="radio" name="radioinput" value="radio3">
+                <span class="ui_field__label">radio3</span>
             </label>
         </div>
         <div>
-            <label class="userinput">
-                <input class="userinput__input--checkbox" type="radio" name="forceCheckbox" value="forceCheckbox1" checked>
-                <span class="userinput__label">checkbox style radio</span>
+            <label class="ui_field">
+                <input class="ui_field__input--checkbox" type="radio" name="forceCheckbox" value="forceCheckbox1" checked>
+                <span class="ui_field__label">checkbox style radio</span>
             </label>
-            <label class="userinput">
-                <input class="userinput__input--checkbox" type="radio" name="forceCheckbox" value="forceCheckbox2">
-                <span class="userinput__label">checkbox style radio</span>
+            <label class="ui_field">
+                <input class="ui_field__input--checkbox" type="radio" name="forceCheckbox" value="forceCheckbox2">
+                <span class="ui_field__label">checkbox style radio</span>
             </label>
-            <label class="userinput">
-                <input class="userinput__input--checkbox" type="radio" name="forceCheckbox" value="forceCheckbox3">
-                <span class="userinput__label">checkbox style radio</span>
+            <label class="ui_field">
+                <input class="ui_field__input--checkbox" type="radio" name="forceCheckbox" value="forceCheckbox3">
+                <span class="ui_field__label">checkbox style radio</span>
             </label>
         </div>
     </fieldset>

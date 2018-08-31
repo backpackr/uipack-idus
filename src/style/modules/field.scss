@@ -1,4 +1,4 @@
-/* userinput.scss */
+/* field.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -10,25 +10,22 @@ input[type=number] {
 }
 
 %styled-input-base {
-    position: relative;
-    padding: 0;
-    margin: 0 3px;
-    display: inline-block;
-    width: 18px;
-
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 1px 3px;
+    margin: 0;
     -moz-appearance: none;
     -ms-progress-appearance: none;
     -webkit-appearance: none;
+    border: 0 none;
+    position: relative;
+    width: 18px;
+    height: 18px;
 
     &:before {
         content:'';
-        position: absolute;
-        left: 0;
-        top: 50%;
-        margin-top: -9px;
         box-sizing: border-box;
+        position: relative;
         display: inline-block;
+        vertical-align: middle;
         width: 18px;
         height: 18px;
         border: 1px solid #888;
@@ -36,11 +33,14 @@ input[type=number] {
         font-size: 16px;
         font-weight: bold;
         color: #fff;
-        line-height: 18px;
+        line-height: 19px;
         text-align: center;
         transition: background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-        cursor: pointer;
+
         border-radius: 2px;
+        position: absolute;
+        left: 0;
+        top: 0;
     }
 }
 
@@ -82,7 +82,7 @@ input[type=number] {
     }
 }
 
-.#{$namespace}userinput {
+.#{$namespace}field {
     display: inline-block;
     font-size: 14px;
     position: relative;
@@ -101,17 +101,19 @@ input[type=number] {
         cursor: pointer;
 
         &--block {
-            @extend .#{$namespace}userinput__label;
+            @extend .#{$namespace}field__label;
             display: block;
         }
     }
 
     &__input {
+        appearance: none;
+        -webkit-appearance: none;
         color: $c-font3;
         transition: border-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        line-height: 30px;
+        padding: 0 12px;
         position: relative;
-        min-height: 32px;
-        border-radius: 2px;
 
         &[type=text],
         &[type=password],
@@ -119,8 +121,8 @@ input[type=number] {
             box-sizing: border-box;
             display: inline-block;
             border: 1px solid #b4b4b4;
-            text-indent: 12px;
             min-width: 160px;
+            border-radius: 2px;
         }
 
         &[type=checkbox] {
@@ -132,8 +134,8 @@ input[type=number] {
         }
 
         &[type=number] {
-            // line-height: 22px;
-            // min-height: 20px;
+            line-height: 22px;
+            min-height: 20px;
             padding: 0;
             margin: 0;
             border: 1px solid #b4b4b4;
@@ -154,10 +156,9 @@ input[type=number] {
             }
         }
 
-        // style modifiers
-        // override radiobox to checkbox style
+        // mods force radiobox to checkbox style
         &--checkbox {
-            @extend .#{$namespace}userinput__input;
+            @extend .#{$namespace}field__input;
             &[type=radio] {
                 @extend %checkbox-style;
                 &:before {
@@ -173,7 +174,7 @@ input[type=number] {
     // style modifiers
     // add boxed background
     &--boxed {
-        @extend .#{$namespace}userinput;
+        @extend .#{$namespace}field;
         padding: 0 18px;
         border: 1px solid #d9d9d9;
         background: #fff;
@@ -184,6 +185,7 @@ input[type=number] {
         }
     }
 
+    // number input
     &[data-uipack=numberinput]  {
         font-size: 0;
         vertical-align: middle;
@@ -222,8 +224,9 @@ input[type=number] {
         }
     }
 
+    // textarea
     &--autoresize {
-        @extend .#{$namespace}userinput__input;
+        @extend .#{$namespace}field__input;
         transition: all, 0.3s, cubic-bezier(0.075, 0.82, 0.165, 1);
         box-sizing: border-box;
         display: inline-block;
@@ -239,4 +242,4 @@ input[type=number] {
         }
     }
 }
-/* userinput.scss end */
+/* field.scss end */
