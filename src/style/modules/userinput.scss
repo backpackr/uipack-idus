@@ -224,17 +224,16 @@ input[type=number] {
 
     &--autoresize {
         @extend .#{$namespace}userinput__input;
+        transition: all, 0.3s, cubic-bezier(0.075, 0.82, 0.165, 1);
         box-sizing: border-box;
         display: inline-block;
         border: 1px solid #b4b4b4;
         vertical-align: middle;
         resize: none;
-        padding: 0 12px;
-        line-height: 1.5;
-        overflow-y: hidden;
+        padding: 4px 12px;
+        line-height: 22px;
         text-indent: 0;
-        font-size: inherit;
-        transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        font-size: 12px;
         &:focus {
             outline: none;
         }

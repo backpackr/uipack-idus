@@ -8,10 +8,11 @@
     "url": "https://github.com/backpackr/uipack-idus.git"
   },
   "scripts": {
-    "start": "parcel src/index.html --open --out-dir dev",
-    "lint": "eslint src",
+    "start": "parcel src/index.html --open --out-dir dev & npm run browsersync",
     "build": "npm run lint && parcel build src/js/uipack.js --no-source-maps",
-    "docs": "parcel build src/index.html --no-source-maps --out-dir docs --public-url '/uipack-idus/'"
+    "docs": "parcel build src/index.html --no-source-maps --out-dir docs --public-url '/uipack-idus/'",
+    "lint": "eslint src",
+    "browsersync": "node browsersync.js"
   },
   "keywords": [
     "CSS Framework",
@@ -21,6 +22,7 @@
   "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^8.2.6",
+    "browser-sync": "^2.24.7",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-prettier": "^3.0.1",
