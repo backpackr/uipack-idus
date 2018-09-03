@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { INIT_INPUTNUMBER, INIT_SELECTBOX, INIT_AUTORESIZE } from './modules/events';
-import imgloader from './modules/ui-imgloader';
+// import imgloader from './modules/ui-imgloader';
 import numberinput from './modules/ui-numberinput';
 import selectbox from './modules/ui-selectbox';
 import autoresize from './modules/ui-autoresize';

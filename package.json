@@ -1,6 +1,6 @@
 {
   "name": "uipack-idus",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "UI Pack for idus.com",
   "main": "README.md",
   "repository": {
@@ -19,7 +19,7 @@
     "UI"
   ],
   "author": "7ylee",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "browser-sync": "^2.24.7",
