@@ -1,48 +1,24 @@
-// grid spacing
-@mixin grid-spacing($mt, $ml) {
-    .#{$namespace}grid__items {
-        margin-left: - $ml;
-        margin-top: - $mt;
-    }
-
-    .#{$namespace}grid__item > * {
-        margin-left: $ml;
-        margin-top: $mt;
-    }
-}
-
-.grid {
-    &__grid__items {
-
-    }
-
-    &__grid__item {
-
-    }
-}
-
-
-
+// default
+$marginTop: 16px;
+$marginLeft: 16px;
 
 .#{$namespace}grid {
-    // default
-    $marginTop: 16px;
-    $marginLeft: 16px;
-
     @include grid-spacing($marginTop, $marginLeft);
 
     position: relative;
     overflow: hidden;
 
-    &__items {
+    &__cols {
         height: 100%;
         overflow: hidden;
         &--2,
         &--3,
         &--4,
         &--5,
-        &--6 {
-            @extend .#{$namespace}grid__items;
+        &--6,
+        &--7,
+        &--8 {
+            @extend .#{$namespace}grid__cols;
         }
     }
 
@@ -56,33 +32,58 @@
         }
     }
 
-    &__items--2 &__item {
+    // modifiers
+    // spacing
+    &--spacing0 {
+        @extend .#{$namespace}grid;
+        @include grid-spacing(0px, 0px);
+    }
+    &--spacing2 {
+        @extend .#{$namespace}grid;
+        @include grid-spacing(2px, 2px);
+    }
+    &--spacing4 {
+        @extend .#{$namespace}grid;
+        @include grid-spacing(4px, 4px);
+    }
+    &--spacing8 {
+        @extend .#{$namespace}grid;
+        @include grid-spacing(8px, 8px);
+    }
+
+    // cols
+    &__cols--2 &__item {
         width: (100%)/2;
     }
-    &__items--3 &__item {
+    &__cols--3 &__item {
         width: (100%)/3;
     }
-    &__items--4 &__item {
+    &__cols--4 &__item {
         width: (100%)/4;
     }
-    &__items--5 &__item {
+    &__cols--5 &__item {
         width: (100%)/5;
     }
-    &__items--6 &__item {
+    &__cols--6 &__item {
         width: (100%)/6;
     }
-}
+    &__cols--7 &__item {
+        width: (100%)/6;
+    }
+    &__cols--8 &__item {
+        width: (100%)/6;
+    }
 
-@include mobile {
-    .grid-item {
-        width: 50% !important;
-
-        .m-col1 & {
-            width: 100% !important
+    // mobile
+    @include mobile {
+        &__cols--m1 &__item {
+            width: (100%)/1 !important;
         }
-
-        .m-col3 & {
-            width: (100%/3) !important;
+        &__cols--m2 &__item {
+            width: (100%)/2 !important;
+        }
+        &__cols--m3 &__item {
+            width: (100%)/3 !important;
         }
     }
 }

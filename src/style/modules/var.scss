@@ -1,9 +1,6 @@
 // uipack namespace
 $namespace: 'ui_';
 
-// colors
-$test-color: #eee;
-
 $c-point: #dd5850;
 $c-point-active: #c74f48;
 $c-point-focus: #dd5850;
@@ -27,14 +24,6 @@ $content-spacing: 48px;
 // mobile view contents spacing
 $m-spacing: 12px;
 
-// z-index
-$z-footer: 100;
-$z-modal: 110;
-$z-modal-overlay: 120;
-$z-modal-wrap: 130;
-$z-bottom-ribbon: 190;
-$z-downloadmask: 200;
-
 // input state
 $c-input-focus: $c-sub;
 
@@ -42,46 +31,21 @@ $c-input-focus: $c-sub;
 $lh: 1.5;
 $browser-context: 16;
 
-// common animation options
-$animation-easing: cubic-bezier(0.075, 0.82, 0.165, 1);
-$animation-duration: 0.3s;
-
-// animations
-@mixin motionHeight($name, $from, $to) {
-    @keyframes #{$name} {
-        from {
-            height: $from;
-        }
-        to {
-            height: $to;
-        }
-    }
-
-    animation-name: $name;
-    animation-duration: $animation-duration;
-    animation-timing-function: $animation-easing;
-    @content;
-}
-
-@mixin motionWidth($name, $from, $to) {
-    @keyframes #{$name} {
-        from {
-            width: $from;
-        }
-        to {
-            width: $to;
-        }
-    }
-
-    animation-name: $name;
-    animation-duration: $animation-duration;
-    animation-timing-function: $animation-easing;
-    @content;
-}
-
 // px to em;
 @function em($pixels, $context: $browser-context) {
     @return #{$pixels/$context}em;
+}
+
+// grid spacing
+@mixin grid-spacing($mt, $ml) {
+    .#{$namespace}grid__cols {
+        margin-left: - $ml;
+        margin-top: - $mt;
+    }
+    .#{$namespace}grid__item > * {
+        margin-left: $ml;
+        margin-top: $mt;
+    }
 }
 
 @mixin ellipsis {
@@ -100,26 +64,6 @@ $animation-duration: 0.3s;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-// coupon modifier
-@mixin modifyCoupon ($width, $height, $bg) {
-    $decoWidth: $width * 0.04; // 4%
-    $decoHeight: $decoWidth / 2;
-
-    margin: 0;
-    width: $width;
-    height: $height;
-
-    &:before,
-    &:after {
-        background: $bg;
-        width: $decoWidth;
-        height: $decoHeight;
-        left: 18%;
-    }
-
-    @content;
 }
 
 // box-ratio ratio
@@ -142,34 +86,6 @@ $animation-duration: 0.3s;
         width: 100%;
         height: 100%;
     }
-}
-
-/*
-* default browser scrollbar override
-* @include scrollbars(.5em, slategray);
-*/
-@mixin css-scrollbar {
-    &::-webkit-scrollbar {
-        width:  4px;
-        height: 2em;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #efefef;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    // For Internet Explorer
-    scrollbar-track-color: #000;
-    scrollbar-arrow-color: #000;
-    scrollbar-face-color: #444444;
-    scrollbar-shadow-color:#444444;
-    scrollbar-highlight-color:#444444;
-    scrollbar-3dlight-color: #444444;
-    scrollbar-darkshadow-Color:#444444;
 }
 
 /**
@@ -208,7 +124,7 @@ $iPhone4: 320px;
 }
 
 @mixin limDesktop {
-  @media (min-width: #{$desktop-max}) {
-    @content;
-  }
+    @media (min-width: #{$desktop-max}) {
+        @content;
+    }
 }

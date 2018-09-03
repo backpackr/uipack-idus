@@ -7,12 +7,7 @@
     padding-top: 40px;
     margin-bottom: 24px;
     padding-bottom: 4px;
-    border-bottom: 2px solid #555;
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
+    border-bottom: 1px solid #d9d9d9;
 
     &__txt {
         font-size: 24px;
@@ -22,6 +17,8 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         width: 75%;
+        color: $c-font3;
+        text-decoration: none;
 
         @include mobile {
             font-size: 16px;
@@ -39,6 +36,7 @@
         text-align: right;
         font-size: 16px;
         color: $c-font3;
+        text-decoration: none;
 
         @include mobile {
             font-size: 14px;
@@ -56,21 +54,21 @@
         vertical-align: middle;
     }
 
-    // --sizedown mod
-    &--sizedown {
+    // --sub mod
+    &--sub {
         @extend .#{$namespace}title;
     }
 
-    &--sizedown &__txt {
+    &--sub &__txt {
         font-size: 16px;
     }
 
-    &--sizedown &__txtright {
+    &--sub &__txtright {
         font-size: 12px;
     }
 
-    // --block mod
-    &--block {
+    // --bg mod
+    &--bg {
         @extend .#{$namespace}title;
         padding: 15px 16px 14px;
         margin-top: 40px;
@@ -80,7 +78,7 @@
         border-radius: 4px;
     }
 
-    &--block &__txt {
+    &--bg &__txt {
         font-size: 16px;
 
         @include mobile {
@@ -88,9 +86,8 @@
         }
     }
 
-    &--block &__txtright {
-        font-size: 16px;
+    &--bg &__txtright {
+        font-size: 14px;
     }
-
 }
 /* title end */
