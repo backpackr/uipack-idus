@@ -6,6 +6,9 @@ import selectbox from './modules/ui-selectbox';
 import autoresize from './modules/ui-autoresize';
 import { alert, confirm } from './modules/ui-modal';
 
+// svg icons
+import '../iconpack-idus/style.css';
+
 // style
 import '../style/uipack.scss';
 
@@ -13,7 +16,7 @@ import '../style/uipack.scss';
 const ui = {
     // event binders
     autoresize,
-    imgloader,
+    // imgloader,
     selectbox,
     numberinput,
     confirm,
@@ -71,9 +74,9 @@ if (typeof window === 'undefined') {
     // auto ui init via element attribute
     $(document).ready(() => {
         // img-loader
-        if ($('[data-uipack="imgloader"]').length) {
-            uipack.imgloader($('[data-uipack="imgloader"]'));
-        }
+        // if ($('[data-uipack="imgloader"]').length) {
+        //     uipack.imgloader($('[data-uipack="imgloader"]'));
+        // }
 
         // numberinput
         uipack.numberinput($('[data-uipack="numberinput"]'));

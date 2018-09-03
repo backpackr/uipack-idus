@@ -28,7 +28,6 @@ $marginLeft: 16px;
         width: 100%;
         > * {
             display: block;
-            background: #efefef;
         }
     }
 
@@ -68,10 +67,10 @@ $marginLeft: 16px;
         width: (100%)/6;
     }
     &__cols--7 &__item {
-        width: (100%)/6;
+        width: (100%)/7;
     }
     &__cols--8 &__item {
-        width: (100%)/6;
+        width: (100%)/8;
     }
 
     // mobile

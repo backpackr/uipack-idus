@@ -66,7 +66,8 @@ $z-index: 101;
             position: absolute;
             overflow: hidden;
             right: 13px;
-            top: 0px;
+            top: 50%;
+            margin-top: -8px;
             font-style: normal;
 
             &:before {
