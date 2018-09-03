@@ -7,7 +7,7 @@ import autoresize from './modules/ui-autoresize';
 import { alert, confirm } from './modules/ui-modal';
 
 // svg icons
-import '../iconpack-idus/style.css';
+// import '../iconpack-idus/style.css';
 
 // style
 import '../style/uipack.scss';
