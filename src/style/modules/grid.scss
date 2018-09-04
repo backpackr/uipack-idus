@@ -29,6 +29,7 @@ $marginLeft: 16px;
         > * {
             display: block;
         }
+
     }
 
     // modifiers
@@ -75,6 +76,9 @@ $marginLeft: 16px;
 
     // mobile
     @include mobile {
+        &__cols &__item {
+            width: 50%;
+        }
         &__cols--m1 &__item {
             width: (100%)/1 !important;
         }
