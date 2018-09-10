@@ -1,0 +1,189 @@
+
+// card style
+.ui_card {
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    background: #f8f9fb;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    font-size: 12px;
+
+    &__overlay {
+        z-index: 100;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    &__imgarea {
+        overflow: hidden;
+    }
+
+    &__image {
+        overflow: hidden;
+        @include box-ratio(1, 1);
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        transition: transform 0.5s ease-in-out;
+
+        &:hover {
+            transform: scale(1.08);
+            -moz-transform: scale(1.08);
+            -webkit-transform: scale(1.08);
+            -o-transform: scale(1.08);
+            -ms-transform: scale(1.08); /* IE 9 */
+            -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.08, M12=0, M21=0, M22=1.08, SizingMethod='auto expand')"; /* IE8 */
+            filter: progid:DXImageTransform.Microsoft.Matrix(M11=1.08, M12=0, M21=0, M22=1.08, SizingMethod='auto expand'); /* IE6 and 7 */
+        }
+    }
+
+    &__info  {
+        padding: 8px 10px;
+        height: 96px;
+
+    }
+
+    &__rating {
+        padding: 0 10px;
+        border-top: 1px solid #d9d9d9;
+        height: 55px;
+        display: table;
+        width: 100%;
+        vertical-align: middle;
+
+        .ui-rating {
+            display: table-row;
+            width: 100%;
+            margin-bottom: 0;
+            > * {
+                display: table-cell;
+                vertical-align: middle;
+                font-size: 12px;
+            }
+
+            .fa {
+                font-size: 16px;
+                vertical-align: top;
+            }
+            span {
+                font-size: 12px;
+                color: #999;
+            }
+        }
+    }
+
+    // text style
+    &__title {
+        font-size: 14px;
+        color: $c-font3;
+        @include multiline(14px, 1.5, 2);
+    }
+
+    &__comment {
+        color: $c-font6;
+        @include multiline(12px, 1.5, 1);
+    }
+
+    &__label {
+        display: block;
+        width: 100%;
+        height: 15px;
+        font-size: 12px;
+        color: $c-font9;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-bottom: 4px;
+    }
+
+    &__cost {
+        @extend .ui_card__label;
+
+        margin-bottom: 0;
+        margin-top: 4px;
+
+        b {
+            color: $c-point;
+        }
+
+        em {
+            font-size: 9px;
+            text-decoration: line-through;
+        }
+    }
+}
+
+// review card extension
+.ui_card {
+    &--side {
+        @extend .ui_card;
+    }
+
+    &--side > * {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    &--side &__txtarea {
+        position: relative;
+        padding-bottom: 46px;
+
+        @include mobile {
+            padding-bottom: 28px;
+        }
+    }
+
+    &--side &__imgarea {
+        width: 40%;
+
+        @include mobile {
+            min-width: 120px;
+        }
+    }
+
+    &--side &__info {
+        height: auto;
+        padding: 0 20px;
+    }
+
+    &--side &__rating {
+        border: 0 none;
+        height: auto;
+        padding: 14px 20px;
+        position: absolute;
+        bottom: 0;
+
+        @include mobile {
+            padding: 4px 20px;
+        }
+    }
+
+    &--side &__title {
+        @include multiline(14px, 1.5, 1);
+        margin: 15px 0;
+        font-weight: bold;
+
+        @include mobile {
+            margin: 8px 0;
+            font-size: 12px;
+            @include multiline(12px, 1.5, 1);
+        }
+    }
+
+    &--side &__para {
+        color: $c-font6;
+        @include multiline(14px, 1.5, 5);
+        white-space: pre-line;
+        font-size: 14px;
+
+        @include mobile {
+            @include multiline(12px, 1.5, 3);
+            font-size: 12px;
+        }
+
+    }
+}

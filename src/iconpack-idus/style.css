@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconpack-idus';
-  src:  url('fonts/iconpack-idus.eot?7mhc3p');
-  src:  url('fonts/iconpack-idus.eot?7mhc3p#iefix') format('embedded-opentype'),
-    url('fonts/iconpack-idus.ttf?7mhc3p') format('truetype'),
-    url('fonts/iconpack-idus.woff?7mhc3p') format('woff'),
-    url('fonts/iconpack-idus.svg?7mhc3p#iconpack-idus') format('svg');
+  src:  url('fonts/iconpack-idus.eot?u0y09h');
+  src:  url('fonts/iconpack-idus.eot?u0y09h#iefix') format('embedded-opentype'),
+    url('fonts/iconpack-idus.ttf?u0y09h') format('truetype'),
+    url('fonts/iconpack-idus.woff?u0y09h') format('woff'),
+    url('fonts/iconpack-idus.svg?u0y09h#iconpack-idus') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -26,6 +26,18 @@ i {
 
 .ui_icon--advert:before {
   content: "\e900";
+}
+.ui_icon--arrow-down:before {
+  content: "\e91d";
+}
+.ui_icon--arrow-left:before {
+  content: "\e91e";
+}
+.ui_icon--arrow-right:before {
+  content: "\e91f";
+}
+.ui_icon--arrow-up:before {
+  content: "\e920";
 }
 .ui_icon--bubble-left:before {
   content: "\e901";
@@ -92,6 +104,16 @@ i {
 }
 .ui_icon--share:before {
   content: "\e916";
+}
+.ui_icon--star:before {
+  content: "\e91c";
+  color: #666;
+}
+.ui_icon--star-fill:before {
+  content: "\e921";
+}
+.ui_icon--start-half:before {
+  content: "\e917";
 }
 .ui_icon--story:before {
   content: "\e918";
