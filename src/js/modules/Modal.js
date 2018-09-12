@@ -15,11 +15,11 @@ class Modal {
         this.title = options.title || undefined;
         this.template = `
         <div class="curtain"></div>
-        <div id="${this.id}" class="modal" data-ui="alert">
-            ${this.title ? `<b class="modal__title">${this.title}</b>` : ''}
-            ${this.html ? `<div class="modal__html">${this.html}</div>` : ''}
-            ${this.message ? `<p class="modal__message">${this.message}</p>` : ''}
-            <div class="modal__btngroup${this.buttonMod}">
+        <div id="${this.id}" class="ui_modal" data-ui="alert">
+            ${this.title ? `<b class="ui_modal__title">${this.title}</b>` : ''}
+            ${this.html ? `<div class="ui_modal__html">${this.html}</div>` : ''}
+            ${this.message ? `<p class="ui_modal__message">${this.message}</p>` : ''}
+            <div class="ui_modal__btngroup${this.buttonMod}">
                 <a href="${this.href0}" class="ui_btn-redline--large" data-action="close">취소</a>
                 <a href="${this.href}" class="ui_btn-red--large" data-action="confirm">${this.btnText}</a>
             </div>

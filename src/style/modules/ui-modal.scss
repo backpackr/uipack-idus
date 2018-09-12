@@ -7,7 +7,7 @@
     z-index: 1000;
 }
 
-.modal {
+.#{$namespace}modal {
     box-sizing: border-box;
     z-index: 1000;
     position: fixed;
@@ -64,7 +64,7 @@
         }
 
         &--single {
-            @extend .modal__btngroup;
+            @extend .#{$namespace}modal__btngroup;
             > * {
                 &:first-child {
                     display: none;
