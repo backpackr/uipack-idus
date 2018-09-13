@@ -1,4 +1,8 @@
 
+## UI GUIDE
+`https://github.com/backpackr/uipack-idus`
+
+
 ## Install
 ```
 npm install uipack-idus

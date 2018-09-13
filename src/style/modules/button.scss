@@ -8,7 +8,8 @@ $c-font-default: $c-font3;
     box-sizing: border-box;
     display: inline-block;
     border-radius: 2px;
-    border: 1px solid transparent;
+    background: #fff;
+    border: 1px solid #d9d9d9;
     vertical-align: middle;
     transition: background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -17,6 +18,7 @@ $c-font-default: $c-font3;
     line-height: 1.5;
     text-align: center;
     text-decoration: none;
+    color: $c-font3;
     cursor: pointer;
 
     > * {
@@ -86,28 +88,21 @@ $c-font-default: $c-font3;
 // color-theme
 .#{$namespace}btn {
     @extend %btn-common;
-
-    &-white {
-        @include btn-sizing {
-            border-color: #d9d9d9;
-            background: #fff;
-            color: $c-font3;
-
-            @include desktop {
-                &:hover{
-                    outline: none;
-                    background: #f5f5f5;
-                    border-color: #d9d9d9;
-                }
-
-                &:focus {
-                    border-color: $c-font9;
-                }
+    @include btn-sizing {
+        @include desktop {
+            &:hover{
+                outline: none;
+                background: #f5f5f5;
+                border-color: #d9d9d9;
             }
-        };
-    }
 
-    &-red {
+            &:focus {
+                border-color: $c-font9;
+            }
+        }
+    };
+
+    &--red {
         @include btn-sizing {
             border-color: transparent;
             background: $c-point;
@@ -125,7 +120,7 @@ $c-font-default: $c-font3;
         };
     }
 
-    &-redline {
+    &--redline {
         @include btn-sizing {
             border-color: $c-point;
             background: #fff;

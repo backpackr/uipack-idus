@@ -1,3 +1,13 @@
+@import '../style/uipack.scss';
+
+.ui_btn--blue {
+
+    @include btn-sizing {
+        background: #efefef;
+
+    }
+}
+
 body {
     margin: 0;
     overflow-x: hidden;
@@ -20,11 +30,11 @@ code {
     }
 }
 .thisPage .ui_grid__item > * {
-    // background: var(--colorMain);
-    // text-align: center;
-    // color: #666;
-    // padding: 3px 0;
-    // font-size: 12px;
+    background: var(--colorMain);
+    text-align: center;
+    color: #666;
+    padding: 3px 0;
+    font-size: 12px;
 }
 .thisPage .ui_grid__item:nth-child(odd) > * {
     background: #efefef

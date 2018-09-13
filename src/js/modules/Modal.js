@@ -20,8 +20,8 @@ class Modal {
             ${this.html ? `<div class="ui_modal__html">${this.html}</div>` : ''}
             ${this.message ? `<p class="ui_modal__message">${this.message}</p>` : ''}
             <div class="ui_modal__btngroup${this.buttonMod}">
-                <a href="${this.href0}" class="ui_btn-redline--large" data-action="close">취소</a>
-                <a href="${this.href}" class="ui_btn-red--large" data-action="confirm">${this.btnText}</a>
+                <a href="${this.href0}" class="ui_btn--redline--large" data-action="close">취소</a>
+                <a href="${this.href}" class="ui_btn--red--large" data-action="confirm">${this.btnText}</a>
             </div>
         </div>`
     }

@@ -3,15 +3,34 @@
         ## 버튼 클래스 확장 X
         - 스타일 조정이 필요할땐 부모 컴포넌트에서 .ui_btn-* 수정
 
-        ## ui_btn-theme
-        - themes: ui_btn-white, ui_btn-red, ui_btn-redline
+        ## ui_btn--theme
+        - themes: ui_btn, ui_btn--red, ui_btn--redline
         - 추가시 &-theme {} 으로 작성
 
         ## ui_btn sizing modifiers
         - 3 modifiers: *--mini, *--small & *--large
 
-        ## ui_btn state
-        - active: (.active)js단에서 addClass()로 활용하는게 많아서...
-        - disabled: (&lt;button ... disabled&gt;) 속성 활용
+        ```
     </code>
-</pre><fiedset class="btn-group"> <button type="button" class="ui_btn-white--large" data-state="active">주문하기</button> <button type="button" class="ui_btn-white">주문하기</button> <button type="button" class="ui_btn-white--small">주문하기</button> <button type="button" class="ui_btn-white--mini">주문하기</button> </fiedset><fiedset class="btn-group"> <button type="button" class="ui_btn-red--large">주문하기</button> <button type="button" class="ui_btn-red">주문하기</button> <button type="button" class="ui_btn-red--small">주문하기</button> <button type="button" class="ui_btn-red--mini">주문하기</button> </fiedset><fiedset class="btn-group"> <button type="button" class="ui_btn-redline--large">주문하기</button> <button type="button" class="ui_btn-redline">주문하기</button> <button type="button" class="ui_btn-redline--small">주문하기</button> <button type="button" class="ui_btn-redline--mini">주문하기</button> </fiedset><button type="button" class="ui_btn-white" data-ui="fav-btn" data-state=""> <svg class="icon-star" width="20" height="20"><path fill="none" stroke="#666" stroke-width="2" d="M5.791 18.33l4.21-2.308 4.211 2.308c1.012.555 1.493.215 1.305-.928l-.814-4.946 3.405-3.46c.825-.838.624-1.45-.527-1.625L12.9 6.662 10.773 2.17c-.494-1.044-1.048-1.045-1.543 0L7.104 6.662l-4.682.71c-1.152.174-1.352.785-.527 1.624l3.405 3.46-.814 4.946c-.189 1.149.287 1.486 1.305.928z"/></svg> <span>좋아요</span> </button>
+
+    <code class="stylus">
+        ## 스타일 확장
+        ## scss
+        @import'../../../node_modules/uipack-idus/src/style/uipack.scss';
+        ...
+
+        ## extending ui_btn to ui_btn--mod
+
+        .ui_btn--mod {
+            @extend .ui_btn--large;
+
+            // mod style
+        }
+
+        .ui_btn--mod {
+            @include btn-sizing {
+                // mod style
+            }
+        }
+    </code>
+</pre><fiedset class="btn-group"> <button type="button" class="ui_btn--large" data-state="active">주문하기</button> <button type="button" class="ui_btn">주문하기</button> <button type="button" class="ui_btn--small">주문하기</button> <button type="button" class="ui_btn--mini">주문하기</button> </fiedset><fiedset class="btn-group"> <button type="button" class="ui_btn--red--large">주문하기</button> <button type="button" class="ui_btn--red">주문하기</button> <button type="button" class="ui_btn--red--small">주문하기</button> <button type="button" class="ui_btn--red--mini">주문하기</button> </fiedset><fiedset class="btn-group"> <button type="button" class="ui_btn--redline--large">주문하기</button> <button type="button" class="ui_btn--redline">주문하기</button> <button type="button" class="ui_btn--redline--small">주문하기</button> <button type="button" class="ui_btn--redline--mini">주문하기</button> </fiedset>
