@@ -1,6 +1,6 @@
 
 ## UI GUIDE
-`https://github.com/backpackr/uipack-idus`
+https://github.com/backpackr/uipack-idus
 
 
 ## Install
