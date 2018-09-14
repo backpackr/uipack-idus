@@ -1,17 +1,13 @@
 // [hidden] { display: none; }
 // variables
 @import './modules/var';
-// @import './modules/svgfont';
 
 // core ui
 @import './modules/layout';
-@import './modules/icons';
-@import './modules/button';
-@import './modules/field';
-@import './modules/titles';
-@import './modules/grid';
-@import './modules/imgloader';
-@import './modules/ui-modal';
-@import './modules/ui-card';
-
-@import './modules/ui-selectbox';
+@import './modules/ui_button';
+@import './modules/ui_field';
+@import './modules/ui_titles';
+@import './modules/ui_grid';
+@import './modules/ui_modal';
+@import './modules/ui_card';
+@import './modules/ui_selectbox';

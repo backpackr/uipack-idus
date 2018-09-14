@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import { INIT_INPUTNUMBER, INIT_SELECTBOX, INIT_AUTORESIZE } from './modules/events';
 // import imgloader from './modules/ui-imgloader';
-import numberinput from './modules/ui-numberinput';
-import selectbox from './modules/ui-selectbox';
-import autoresize from './modules/ui-autoresize';
-import { alert, confirm } from './modules/ui-modal';
+import numberinput from './modules/ui_numberinput';
+import selectbox from './modules/ui_selectbox';
+import autoresize from './modules/ui_autoresize';
+import { alert, confirm } from './modules/ui_modal';
 
 // svg icons
 // import '../iconpack-idus/style.css';
