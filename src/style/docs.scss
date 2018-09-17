@@ -23,19 +23,22 @@ code {
     font-size: 12px;
     font-family: 'Menlo';
 }
+
 .thispage .ui_grid  {
     margin-top: 8px;
     &:first-child {
         margin-top: 0;
     }
 }
-.thisPage .ui_grid__item > * {
+
+.thisPage .dummystyle .ui_grid__item > * {
     background: var(--colorMain);
     text-align: center;
     color: #666;
     padding: 3px 0;
     font-size: 12px;
 }
+
 .thisPage .ui_grid__item:nth-child(odd) > * {
     background: #efefef
 }

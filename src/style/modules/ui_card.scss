@@ -1,19 +1,34 @@
 
 // card style
-.ui_card {
-    box-sizing: border-box;
+.#{$namespace}card {
     overflow: hidden;
     position: relative;
+    display: inline-block;
     background: #f8f9fb;
     border-radius: 4px;
     border: 1px solid #d9d9d9;
     font-size: 12px;
+
+    > * {
+        text-align: left;
+        box-sizing: border-box;
+    }
+
+    a {
+        text-decoration: none;
+    }
 
     &__overlay {
         z-index: 100;
         position: absolute;
         right: 10px;
         top: 10px;
+    }
+
+    &__inner {
+        width: 100%;
+        display: block;
+        position: relative;
     }
 
     &__imgarea {
@@ -44,13 +59,12 @@
     &__info  {
         padding: 8px 10px;
         height: 96px;
-
     }
 
     &__rating {
         padding: 0 10px;
         border-top: 1px solid #d9d9d9;
-        height: 55px;
+        height: 56px;
         display: table;
         width: 100%;
         vertical-align: middle;
@@ -63,15 +77,19 @@
                 display: table-cell;
                 vertical-align: middle;
                 font-size: 12px;
+                padding: 6px 0 4px;
             }
 
-            .fa {
-                font-size: 16px;
+            i {
+                font-size: 15px;
                 vertical-align: top;
+                display: inline-block;
             }
+
             span {
-                font-size: 12px;
                 color: #999;
+                display: inline-block;
+                margin-top: 1px;
             }
         }
     }
@@ -115,22 +133,31 @@
             text-decoration: line-through;
         }
     }
+
+    &--w200 {
+        @extend .#{$namespace}card;
+        width: 200px;
+    }
 }
 
 // review card extension
-.ui_card {
+.#{$namespace}card {
     &--side {
-        @extend .ui_card;
+        @extend .#{$namespace}card;
     }
 
-    &--side > * {
-        display: table-cell;
-        vertical-align: top;
+    &--side &__inner {
+        display: table;
+
+        > * {
+            display: table-cell;
+            vertical-align: top;
+        }
     }
 
     &--side &__txtarea {
         position: relative;
-        padding-bottom: 46px;
+        padding-bottom: 45px;
 
         @include mobile {
             padding-bottom: 28px;
@@ -156,6 +183,20 @@
         padding: 14px 20px;
         position: absolute;
         bottom: 0;
+        display: initial;
+
+        > * {
+            display: initial;
+            vertical-align: baseline;
+        }
+
+        .ui-rating  {
+            > * {
+                display: inline-block;
+                vertical-align: baseline;
+                padding: 0;
+            }
+        }
 
         @include mobile {
             padding: 4px 20px;
@@ -184,6 +225,5 @@
             @include multiline(12px, 1.5, 3);
             font-size: 12px;
         }
-
     }
 }
