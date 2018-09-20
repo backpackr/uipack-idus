@@ -68,29 +68,32 @@
         display: table;
         width: 100%;
         vertical-align: middle;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
 
-        .ui-rating {
-            display: table-row;
-            width: 100%;
-            margin-bottom: 0;
-            > * {
-                display: table-cell;
-                vertical-align: middle;
-                font-size: 12px;
-                padding: 6px 0 4px;
-            }
+    &__vcenter {
+        display: table-row;
+        width: 100%;
+        margin-bottom: 0;
+        line-height: 1.5;
+        > * {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 12px;
+            padding: 6px 0 4px;
+        }
 
-            i {
-                font-size: 15px;
-                vertical-align: top;
-                display: inline-block;
-            }
+        i {
+            font-size: 15px;
+            vertical-align: top;
+            display: inline-block;
+        }
 
-            span {
-                color: #999;
-                display: inline-block;
-                margin-top: 1px;
-            }
+        span {
+            color: #999;
+            display: inline-block;
+            margin-top: 1px;
         }
     }
 
@@ -190,16 +193,16 @@
             vertical-align: baseline;
         }
 
-        .ui-rating  {
-            > * {
-                display: inline-block;
-                vertical-align: baseline;
-                padding: 0;
-            }
-        }
-
         @include mobile {
             padding: 4px 20px;
+        }
+    }
+
+    &--side &__vcenter {
+        > * {
+            display: inline-block;
+            vertical-align: baseline;
+            padding: 0;
         }
     }
 

@@ -1,13 +1,11 @@
 import $ from 'jquery';
-import { INIT_INPUTNUMBER, INIT_SELECTBOX, INIT_AUTORESIZE } from './modules/events';
+import { INIT_INPUTNUMBER, INIT_SELECTBOX, INIT_AUTORESIZE, INIT_RATING } from './modules/events';
 // import imgloader from './modules/ui-imgloader';
 import numberinput from './modules/ui_numberinput';
 import selectbox from './modules/ui_selectbox';
 import autoresize from './modules/ui_autoresize';
 import { alert, confirm } from './modules/ui_modal';
-
-// svg icons
-// import '../iconpack-idus/style.css';
+import rating from './modules/ui_rating';
 
 // style
 import '../style/uipack.scss';
@@ -15,12 +13,13 @@ import '../style/uipack.scss';
 // ui modules
 const ui = {
     // event binders
-    autoresize,
     // imgloader,
-    selectbox,
-    numberinput,
+    alert,
+    autoresize,
     confirm,
-    alert
+    numberinput,
+    rating,
+    selectbox,
 }
 
 // uipack global object
@@ -95,6 +94,13 @@ if (typeof window === 'undefined') {
         uipack.eventOn(INIT_AUTORESIZE, () => {
             uipack.autoresize($('[data-uipack="autoresize"]'));
         });
+
+        // rating
+        uipack.rating($('[data-uipack="rating"]'));
+        uipack.eventOn(INIT_RATING, () => {
+            uipack.rating($('[data-uipack="rating"]'));
+        });
+
         // uipack.alert({ title: 'Greetings 👋', message: 'How u doing?' });
     });
 }

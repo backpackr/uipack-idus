@@ -1,0 +1,22 @@
+.#{$namespace}rating {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5;
+
+    &__icon {
+        display: inline-block;
+        vertical-align: middle;
+        font-style: normal;
+        color: red;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #d9d9d9;
+        text-align: center;
+
+        &[data-state=active] {
+            background: #ffc801;
+        }
+    }
+}
