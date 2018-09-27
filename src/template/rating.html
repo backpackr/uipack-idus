@@ -1,6 +1,43 @@
+<pre data-code="rating">
+    <code class="html">
+&lt;div class="ui_rating" data-uipack="rating" data-value="2.5"&gt;
+    &lt;i class="ui_rating__icon"&gt;&lt;/i&gt;
+    &lt;i class="ui_rating__icon"&gt;&lt;/i&gt;
+    &lt;i class="ui_rating__icon"&gt;&lt;/i&gt;
+    &lt;i class="ui_rating__icon"&gt;&lt;/i&gt;
+    &lt;i class="ui_rating__icon"&gt;&lt;/i&gt;
+&lt;/div&gt;
+    </code>
+    <code class="sass">
+
+# default icon = .ui_rating__icon;
+
+## overriding default icon
+
+## .ui_rating__icon => .fa.fa-star;
+
+.ui_rating {
+    /* font-awsome example */
+    .fa-star {
+        color: #d9d9d9;
+        &[data-state=active] {
+            color: #ffc801;
+        }
+
+        &[data-state=half] {
+            color: #ffc801;
+            &:before {
+                content:'\f089'
+            }
+        }
+    }
+}
+    </code>
+</pre>
+
 <div class="ui_rating" data-uipack="rating" data-value="2.5">
-    <i class="ui_rating__icon"></i>
-    <i class="ui_rating__icon"></i>
+    <i class="ui_rating__icon" data-state="active"></i>
+    <i class="ui_rating__icon" data-state="half"></i>
     <i class="ui_rating__icon"></i>
     <i class="ui_rating__icon"></i>
     <i class="ui_rating__icon"></i>

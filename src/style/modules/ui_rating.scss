@@ -18,5 +18,25 @@
         &[data-state=active] {
             background: #ffc801;
         }
+
+        &[data-state=half] {
+            background: lighten(#ffc801, 25%);
+        }
+    }
+}
+
+.ui_rating {
+    .fa-star {
+        color: #d9d9d9;
+        &[data-state=active] {
+            color: #ffc801;
+        }
+
+        &[data-state=half] {
+            color: #ffc801;
+            &:before {
+                content:'\f089'
+            }
+        }
     }
 }
