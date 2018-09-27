@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/styles/github.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js"></script>
+
     <!-- uipack src -->
     <script src="./js/uipack.js"></script>
 </head>
@@ -50,7 +52,8 @@
         <div class="ui_title">
             <a href="#" class="ui_title__txt">UI_CARD</a>
             <span class="ui_title__txtright">
-                <button type="button" class="ui_btn--small" data-show="card">RULES</button>
+                <button type="button" class="ui_btn--red--small" data-clipboard="markup_card">COPY HTML</button>
+                <!-- <button type="button" class="ui_btn--small" data-show="card">RULES</button> -->
             </span>
         </div>
         <a href="./template/card.html" hidden></a>
@@ -60,6 +63,7 @@
         <div class="ui_title">
             <a href="#" class="ui_title__txt">UI_RATING</a>
             <span class="ui_title__txtright">
+                <button type="button" class="ui_btn--red--small" data-clipboard="markup_rating">COPY HTML</button>
                 <button type="button" class="ui_btn--small" data-show="rating">RULES</button>
             </span>
         </div>
@@ -80,7 +84,7 @@
         <div class="ui_title">
             <a href="#" class="ui_title__txt">BUTTONS</a>
             <span class="ui_title__txtright">
-                <button type="button" class="ui_btn--red--small" data-copy="button">COPY HTML</button>
+                <button type="button" class="ui_btn--red--small" data-clipboard="markup_btn">COPY HTML</button>
                 <button type="button" class="ui_btn--small" data-show="button">RULES</button>
             </span>
         </div>
