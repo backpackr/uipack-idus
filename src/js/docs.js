@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import template from './modules/template';
 import '../style/docs.scss';
 
 const $template = $('[data-template]');
@@ -28,7 +29,6 @@ $(document).ready(() => {
         });
     });
 
-
     // markup clipboard
     const clipboard = new ClipboardJS('[data-clipboard]', {
         text: function (trigger) {
@@ -36,48 +36,22 @@ $(document).ready(() => {
 
             switch (selector) {
                 case 'markup_btn':
-                    return `<button type="button" class="ui_btn">ui_btn</button>`;
+                    return template.btn;
 
                 case 'markup_card':
-                    return `
-<div class="ui_card">
-    <button type="button" class="ui_card__overlay">i</button>
-    <div class="ui_card__imgarea">
-        <a href="#link1" class="ui_card__image" style="background-image: url();"></a>
-    </div>
-    <div class="ui_card__info">
-        <a href="#link2" class="ui_card__label">label</a>
-        <a href="#link3" class="ui_card__title">title</a>
-        <span class="ui_card__cost">
-            <b>RED</b>
-            <em>crossout</em>
-        </span>
-    </div>
-    <div class="ui_card__rating">
-        <div class="ui_card__vcenter">
-            <div class="ui_rating" data-uipack="rating" data-value="3">
-                <i class="ui_rating__icon"></i>
-                <i class="ui_rating__icon"></i>
-                <i class="ui_rating__icon"></i>
-                <i class="ui_rating__icon"></i>
-                <i class="ui_rating__icon"></i>
-            </div>
-        </div>
-        <span class="ui_card__comment">ellipsis</span>
-    </div>
-</div>
-                `
+                    return template.card;
+
+                case 'markup_card_side':
+                    return template.cardSide;
 
                 case 'markup_rating':
-                    return `
-<div class="ui_rating" data-uipack="rating" data-value="2.5">
-    <i class="ui_rating__icon"></i>
-    <i class="ui_rating__icon"></i>
-    <i class="ui_rating__icon"></i>
-    <i class="ui_rating__icon"></i>
-    <i class="ui_rating__icon"></i>
-</div>
-                `
+                    return template.rating;
+
+                case 'markup_grid':
+                    return template.grid;
+
+                case 'markup_title':
+                    return template.title;
 
                 default:
                     break;

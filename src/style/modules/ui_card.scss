@@ -31,11 +31,11 @@
         position: relative;
     }
 
-    &__imgarea {
+    &__imgcover {
         overflow: hidden;
     }
 
-    &__image {
+    &__img {
         overflow: hidden;
         @include box-ratio(1, 1);
 
@@ -126,15 +126,15 @@
 
         margin-bottom: 0;
         margin-top: 4px;
+    }
 
-        b {
-            color: $c-point;
-        }
+    &__hilight {
+        color: $c-point;
+    }
 
-        em {
-            font-size: 9px;
-            text-decoration: line-through;
-        }
+    &__crossout {
+        font-size: 9px;
+        text-decoration: line-through;
     }
 
     &--w200 {
@@ -167,7 +167,7 @@
         }
     }
 
-    &--side &__imgarea {
+    &--side &__imgcover {
         width: 40%;
 
         @include mobile {
