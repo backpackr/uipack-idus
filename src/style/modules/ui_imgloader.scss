@@ -1,0 +1,77 @@
+.ui_imgloader {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+
+    &__thumb {
+        filter: blur(50px);
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        transform: scale(1);
+
+        [data-state=loaded] & {
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        &:after {
+            content:'';
+            display: block;
+            padding-bottom: 100%;
+        }
+    }
+
+
+
+    // &[data-state=loaded] {
+    //     &__thumb {
+
+    //     }
+    // }
+}
+
+.imgloader {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 0;
+
+    // > * {
+    //     height: 100%;
+    // }
+
+    // img {
+    //     position: absolute;
+    //     width: 100%;
+    //     left: 0;
+    //     top: 0;
+    //     &[data-state] {
+    //         opacity: 0;
+    //         transition: opacity 1s linear;
+    //     }
+
+    //     &[data-state=loaded] {
+    //         opacity: 1;
+    //     }
+    // }
+
+    &__thumbnail {
+        filter: blur(50px);
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        transform: scale(1);
+    }
+
+    &[data-ratio="1:1"] {
+        @include box-ratio(1, 1);
+    }
+
+    &[data-ratio="2:1"] {
+        @include box-ratio(2, 1);
+    }
+}

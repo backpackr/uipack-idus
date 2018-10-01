@@ -16,30 +16,22 @@ const getImgSrc = $element => {
 
 function imgloader($element) {
     const img = new Image();
-    const imgLarge = new Image();
+    const bigImg = new Image();
 
-    img.src = getImgSrc($element);
-    imgLarge.src = $element.attr('data-img');
-
-    $(imgLarge).attr('data-state', 'loading');
-
-    if (imgLarge.complete) {
-        $(imgLarge).removeAttr('data-state');
-
-        $element.append(imgLarge);
-
-        return;
-    }
+    img.src = $element.find('img').attr('src');
+    bigImg.src = $element.data('src');
 
     img.onload = () => {
-        $element.find('.imgloader__thumbnail').attr('data-state', 'loaded');
-    }
+        if (bigImg.complete) {
+            $element.attr('data-state', 'cached');
+            return;
+        }
+        $element.attr('data-state', 'loaded');
+    };
 
-    imgLarge.onload = () => {
-        $(imgLarge).attr('data-state', 'loaded');
+    bigImg.onload = () => {
+        $element.append(bigImg);
     }
-
-    $element.append(imgLarge);
 };
 
 export default imgloader;

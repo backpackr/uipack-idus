@@ -93,8 +93,7 @@ const template = {
                 <div>item</div>
             </div>
         </div>
-    </div>
-    `,
+    </div>`,
 
     title: `
     <div class="ui_title">

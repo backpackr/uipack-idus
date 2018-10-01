@@ -74,6 +74,19 @@ $marginLeft: 16px;
     }
     &__cols--5 > &__item {
         width: (100%)/5;
+        &--merge2 {
+            @extend .#{$namespace}grid__item;
+            width: ((100%)/5) * 2;
+
+            @include mobile {
+                width: 100% !important;
+            }
+        }
+
+        &--merge3 {
+            @extend .#{$namespace}grid__item;
+            width: ((100%)/5) * 3;
+        }
     }
     &__cols--6 > &__item {
         width: (100%)/6;
