@@ -24,14 +24,7 @@ code {
     font-family: 'Menlo';
 }
 
-.thispage .ui_grid  {
-    margin-top: 8px;
-    &:first-child {
-        margin-top: 0;
-    }
-}
-
-.thisPage .dummystyle .ui_grid__item > * {
+.dummystyle .ui_grid__item > * {
     background: var(--colorMain);
     text-align: center;
     color: #666;
@@ -39,7 +32,7 @@ code {
     font-size: 12px;
 }
 
-.thisPage .ui_grid__item:nth-child(odd) > * {
+.dummystyle .ui_grid__item:nth-child(odd) > * {
     background: #efefef
 }
 

@@ -4,7 +4,7 @@ $c-font-default: $c-font3;
 * new btn style
 */
 %btn-common {
-    box-shadow: 0 1px 3px 0 #dfdfdf80;
+    box-shadow: $box-shadow;
     font-weight: normal;
     box-sizing: border-box;
     display: inline-block;
