@@ -31,7 +31,7 @@ $c-input-focus: $c-sub;
 $lh: 1.5;
 $browser-context: 16;
 
-$box-shadow: 0 1px 3px 0 rgba(220, 220, 220, 0.6);
+$box-shadow: 0 1px 3px 0 rgba(220, 220, 220, 0.3);
 
 // px to em;
 @function em($pixels, $context: $browser-context) {

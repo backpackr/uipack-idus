@@ -116,8 +116,18 @@ $c-placeholder:rgba(230, 230, 230, 0.8);
     }
 
     &[data-state=loading] &__vcenter {
-        i {
-            background-color: $c-placeholder;
+        .ui_rating {
+            display: none;
+        }
+
+        &:after {
+            content: '';
+            display: inline-block;
+            text-align: left;
+            background: $c-placeholder;
+            height: 10px;
+            width: 90px;
+            margin-top: 12px;
             animation: pulse 1s infinite ease-in-out;
         }
     }
@@ -194,11 +204,6 @@ $c-placeholder:rgba(230, 230, 230, 0.8);
     &__crossout {
         font-size: 9px;
         text-decoration: line-through;
-    }
-
-    &--w200 {
-        @extend .#{$namespace}card;
-        width: 200px;
     }
 }
 
