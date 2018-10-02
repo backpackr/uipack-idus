@@ -100,6 +100,34 @@ const template = {
         <a href="#" class="ui_title__txt">ui_title__txt</a>
         <span class="ui_title__txtright">ui_title__txtright</span>
     </div>
+    `,
+
+    cardloading: `
+    <div class="ui_card" data-state="loading">
+        <div class="ui_card__imgcover">
+            <a href="#link1" class="ui_card__img" style="background-image: url();"></a>
+        </div>
+        <div class="ui_card__info">
+            <a href="#link2" class="ui_card__label"></a>
+            <a href="#link3" class="ui_card__title"></a>
+            <div class="ui_card__cost">
+                <span class="ui_card__hilight"></span>
+                <span class="ui_card__crossout"></span>
+            </div>
+        </div>
+        <div class="ui_card__rating">
+            <div class="ui_card__vcenter">
+                <div class="ui_rating" data-uipack="rating" data-value="">
+                    <i class="ui_rating__icon"></i>
+                    <i class="ui_rating__icon"></i>
+                    <i class="ui_rating__icon"></i>
+                    <i class="ui_rating__icon"></i>
+                    <i class="ui_rating__icon"></i>
+                </div>
+            </div>
+            <span class="ui_card__comment"></span>
+        </div>
+    </div>
     `
 };
 

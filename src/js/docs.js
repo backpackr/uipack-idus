@@ -53,6 +53,9 @@ $(document).ready(() => {
                 case 'markup_title':
                     return template.title;
 
+                case 'markup_cardloading':
+                    return template.cardloading;
+
                 default:
                     break;
             }
