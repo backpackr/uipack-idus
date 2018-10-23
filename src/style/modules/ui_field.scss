@@ -9,6 +9,24 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
+%textarea-base {
+    transition: all, 0.3s, cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid #b4b4b4;
+    vertical-align: middle;
+    resize: none;
+    padding: 4px 12px;
+    line-height: 22px;
+    text-indent: 0;
+    font-size: 12px;
+
+    &:focus {
+        outline: none;
+        border-color: $c-sub;
+    }
+}
+
 %styled-input-base {
     padding: 1px 3px;
     margin: 0;
@@ -93,6 +111,17 @@ input[type=number] {
         margin: 0;
         padding: 0;
         font-size: inherit;
+    }
+
+    // disabled
+    input,
+    textarea {
+        &:disabled,
+        &[data-state=disabled] {
+            opacity: 0.6;
+            background: #f5f5f5;
+            color: #acacac;
+        }
     }
 
     &__label {
@@ -227,19 +256,87 @@ input[type=number] {
     // textarea
     &--autoresize {
         @extend .#{$namespace}field__input;
-        transition: all, 0.3s, cubic-bezier(0.075, 0.82, 0.165, 1);
-        box-sizing: border-box;
-        display: inline-block;
-        border: 1px solid #b4b4b4;
-        vertical-align: middle;
-        resize: none;
-        padding: 4px 12px;
-        line-height: 22px;
-        text-indent: 0;
-        font-size: 12px;
-        &:focus {
-            outline: none;
+        @extend %textarea-base;
+    }
+
+    &--onchange {
+        @extend .#{$namespace}field;
+        position: relative;
+        width: 100%;
+        height: 80px;
+
+        textarea {
+            @extend %textarea-base;
         }
+
+        &[data-state=active] {
+            .ui_field__txtarea {
+                right: 75px;
+            }
+        }
+
+        &[data-state=disabled] {
+            .ui_btn {
+                display: none;
+            }
+        }
+    }
+
+    &--onchange &__btn {
+        @extend .#{$namespace}btn;
+        position: absolute;
+        color: $c-sub;
+        line-height: 78px;
+        width: 72px;
+        height: 80px;
+        right: 0;
+    }
+
+    &--onchange &__txtarea {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 80px;
+        transition: width, 0.3s, ease;
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            box-shadow: $box-shadow;
+            border-radius: 2px;
+            line-height: 1.5;
+
+            &[maxlength] {
+                padding-right: 30px;
+            }
+
+            &::placeholder {
+                color: $c-point;
+                opacity: 1;
+                font-weight: bold;
+            }
+
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $c-point;
+                opacity: 1;
+                font-weight: bold;
+            }
+
+            ::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $c-point;
+                opacity: 1;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &--onchange &__chars {
+        position: absolute;
+        bottom: 10px;
+        right: 8px;
+        font-size: 12px;
+        color: $c-font9;
+        font-style: normal;
     }
 }
 /* field.scss end */

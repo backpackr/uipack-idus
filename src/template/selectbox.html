@@ -56,6 +56,22 @@
 </pre>
 
 <form action="#">
+    <fieldset class="ui_field--onchange" data-uipack="textarea">
+        <button type="submit" class="ui_field__btn">Save</button>
+        <div class="ui_field__txtarea">
+            <textarea maxlength="500" placeholder="주문 요청사항을 입력해주세요"></textarea>
+            <em class="ui_field__chars">500</em>
+        </div>
+    </fieldset>
+
+    <fieldset class="ui_field--onchange" data-uipack="textarea" data-state="disabled">
+        <button type="submit" class="ui_field__btn">Save</button>
+        <div class="ui_field__txtarea">
+            <textarea maxlength="20" placeholder="주문 요청사항을 입력해주세요"></textarea>
+            <em class="ui_field__chars">20</em>
+        </div>
+    </fieldset>
+
     <fieldset>
         <legend>AUTORESIZE</legend>
         <textarea class="ui_field--autoresize" data-uipack="autoresize" data-max="4" cols="30" rows="1" placeholder="Textarea"></textarea>
@@ -189,4 +205,5 @@
     uipack.eventEmit('INIT_SELECTBOX');
     uipack.eventEmit('INIT_INPUTNUMBER');
     uipack.eventEmit('INIT_AUTORESIZE');
+    uipack.eventEmit('INIT_TEXTAREA');
 </script>
