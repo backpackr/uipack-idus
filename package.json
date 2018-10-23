@@ -1,6 +1,6 @@
 {
   "name": "uipack-idus",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "UI Pack for idus.com",
   "main": "README.md",
   "repository": {
@@ -10,6 +10,7 @@
   "scripts": {
     "start": "parcel src/index.html --open --out-dir dev",
     "build": "npm run lint && parcel build src/js/uipack.js --no-source-maps",
+    "deploy": "npm run build && npm publish",
     "docs": "rm -rf  docs && parcel build src/index.html --no-source-maps --out-dir docs --public-url '/uipack-idus/'",
     "lint": "eslint src",
     "browsersync": "npm start & node browsersync.js"
