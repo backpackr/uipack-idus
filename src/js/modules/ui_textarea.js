@@ -36,6 +36,11 @@ const handleChange = event => {
     const $textarea = $(target).find('textarea');
     const saved = $(target).data();
 
+    if ($textarea.val().length > saved.max) {
+        $textarea.val($textarea.val().slice(0, saved.max));
+        return;
+    }
+
     // characters left
     if (!isNaN(saved.max)) charsLeft(target);
 
