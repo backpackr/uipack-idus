@@ -21,10 +21,7 @@ const ui = {
     numberinput,
     rating,
     selectbox,
-    textarea,
-    logger(message) {
-        console.log(message)
-    }
+    textarea
 }
 
 module.exports = ui;
