@@ -1,1 +1,4 @@
 *.min.js
+dist
+dev
+node_modules

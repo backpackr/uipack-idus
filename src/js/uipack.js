@@ -21,8 +21,13 @@ const ui = {
     numberinput,
     rating,
     selectbox,
-    textarea
+    textarea,
+    logger(message) {
+        console.log(message)
+    }
 }
+
+module.exports = ui;
 
 // uipack global object
 const defineUipack = () => {
@@ -62,15 +67,9 @@ const defineUipack = () => {
     return uipack;
 }
 
-// check environment
-if (typeof window === 'undefined') {
-    // node envrironment
-    module.exports = ui;
-} else {
-    // browser
-    if (typeof (window.uipack) === 'undefined') {
-        window.uipack = defineUipack();
-    }
+// browser usage
+if (typeof (window.uipack) === 'undefined') {
+    window.uipack = defineUipack();
 
     // auto ui init via element attribute
     $(document).ready(() => {
@@ -111,4 +110,3 @@ if (typeof window === 'undefined') {
         // uipack.alert({ title: 'Greetings 👋', message: 'How u doing?' });
     });
 }
-

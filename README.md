@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/uipack-idus.svg)](https://badge.fury.io/js/uipack-idus)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 # UIPACK-IDUS
 UI used in https://www.idus.com/
