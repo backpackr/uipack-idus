@@ -14,6 +14,29 @@ const charsLeft = element => {
     $charCount.html(charsleft);
 }
 
+const handleChange = event => {
+    const target = event.currentTarget;
+    const $textarea = $(target).find('textarea');
+    const saved = $(target).data();
+
+    if ($textarea.val().length > saved.max) {
+        $textarea.val($textarea.val().slice(0, saved.max));
+        return;
+    };
+
+    // characters left
+    if (!isNaN(saved.max)) charsLeft(target);
+
+    // toggle active
+    if (saved.value !== $textarea.val()) {
+        $(target).attr('data-state', 'active');
+        $(target).find('button').prop('disabled', false).change();
+    } else {
+        $(target).removeAttr('data-state').find('button').prop('disabled', true);
+    }
+};
+
+
 const init = element => {
     $(element).each((i, item) => {
         const value = $(item).find('textarea').val() || '';
@@ -25,31 +48,12 @@ const init = element => {
 
         if (!isNaN(max)) charsLeft(item);
 
-        if (state === 'disabled') {
-            $(item).find('textarea').prop('disabled', true).change();
+        if (state === 'disabled' || state === 'readonly') {
+            $(item).find('textarea').prop(state, true).change();
+        } else {
+            $(item).on('keyup', handleChange);
         };
     });
-};
-
-const handleChange = event => {
-    const target = event.currentTarget;
-    const $textarea = $(target).find('textarea');
-    const saved = $(target).data();
-
-    if ($textarea.val().length > saved.max) {
-        $textarea.val($textarea.val().slice(0, saved.max));
-        return;
-    }
-
-    // characters left
-    if (!isNaN(saved.max)) charsLeft(target);
-
-    // toggle active
-    if (saved.value !== $textarea.val()) {
-        $(target).attr('data-state', 'active');
-    } else {
-        $(target).removeAttr('data-state');
-    }
 };
 
 function textarea($element) {
@@ -57,7 +61,7 @@ function textarea($element) {
         init(element);
     });
 
-    $element.on('keyup', handleChange);
+
 }
 
 export default textarea;

@@ -284,6 +284,13 @@ input[type=number] {
                 display: none;
             }
         }
+
+        &[data-state=readonly] {
+            textarea:focus {
+                outline: none;
+                border-color: #b4b4b4 !important;
+            }
+        }
     }
 
     &--onchange &__btn {
