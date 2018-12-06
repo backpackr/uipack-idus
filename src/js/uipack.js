@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import { INIT_INPUTNUMBER, INIT_SELECTBOX, INIT_AUTORESIZE, INIT_RATING, INIT_TEXTAREA } from './modules/events';
-// import imgloader from './modules/ui_imgloader';
 import numberinput from './modules/ui_numberinput';
 import selectbox from './modules/ui_selectbox';
 import autoresize from './modules/ui_autoresize';
@@ -13,8 +12,6 @@ import '../style/uipack.scss';
 
 // ui modules
 const ui = {
-    // event binders
-    // imgloader,
     alert,
     autoresize,
     confirm,
