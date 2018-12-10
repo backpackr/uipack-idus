@@ -13,13 +13,16 @@
     "deploy": "npm run build && npm publish",
     "docs": "rm -rf  docs && parcel build src/index.html --no-source-maps --out-dir docs --public-url '/uipack-idus/'",
     "lint": "eslint src",
-    "browsersync": "npm start & node browsersync.js"
+    "bs": "node browsersync.js"
   },
   "keywords": [
     "CSS Framework",
     "UI"
   ],
   "author": "https://github.com/7ylee",
+  "homepage": "https://backpackr.github.io/uipack-idus/",
+  "url": "https://github.com/backpackr/uipack-idus/issues",
+  "email": "taeyouklee@gmail.com",
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^8.2.6",

@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import template from './modules/template';
+import { INIT_INPUTNUMBER, INIT_SELECTBOX, INIT_AUTORESIZE, INIT_RATING, INIT_TEXTAREA } from './modules/eventNames';
 import '../style/docs.scss';
 
 const $template = $('[data-template]');
@@ -66,5 +67,35 @@ $(document).ready(() => {
         uipack.alert({
             title: 'Copied Markup'
         });
+    });
+
+    // auto ui init via element attribute
+    // numberinput
+    uipack.numberinput($('[data-uipack="numberinput"]'));
+    uipack.events.listen(INIT_INPUTNUMBER, () => {
+        uipack.numberinput($('[data-uipack="numberinput"]'));
+    });
+
+    // selectbox
+    uipack.selectbox($('[data-uipack="selectbox"]'));
+    uipack.events.listen(INIT_SELECTBOX, () => {
+        uipack.selectbox($('[data-uipack="selectbox"]'));
+    });
+
+    // autoresize input
+    uipack.autoresize($('[data-uipack="autoresize"]'));
+    uipack.events.listen(INIT_AUTORESIZE, () => {
+        uipack.autoresize($('[data-uipack="autoresize"]'));
+    });
+
+    // rating
+    uipack.rating($('[data-uipack="rating"]'));
+    uipack.events.listen(INIT_RATING, () => {
+        uipack.rating($('[data-uipack="rating"]'));
+    });
+
+    uipack.textarea($('[data-uipack="textarea"]'));
+    uipack.events.listen(INIT_TEXTAREA, () => {
+        uipack.textarea($('[data-uipack="textarea"]'));
     });
 });
