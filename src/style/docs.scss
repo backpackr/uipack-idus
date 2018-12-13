@@ -51,3 +51,11 @@ fieldset legend {
     color: var(--colorDarker);
     padding: 20px 0 5px;
 }
+
+.ui_title {
+    &__txt {
+        @include mobile{
+            width: 45%
+        }
+    }
+}
