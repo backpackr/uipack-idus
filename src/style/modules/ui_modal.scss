@@ -50,6 +50,13 @@
     &__btngroup {
         margin-top: 24px;
         text-align: center;
+
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
         > * {
             display: block;
             font-size: 14px;
@@ -74,5 +81,11 @@
             }
 
         }
+    }
+
+    .ui_field {
+        margin-top: 5px;
+        display: block;
+        text-align: left;
     }
 }

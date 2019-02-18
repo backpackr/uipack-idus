@@ -1,8 +1,9 @@
 import $ from 'jquery';
 import { randomHash } from './util';
 
-class Modal {
+export default class Modal {
     constructor(options) {
+        this.className = options.className || ''
         this.btnText = options.btnText || '확인';
         this.buttonMod = options.buttonMod || undefined;
         this.callback = options.callback || undefined;
@@ -13,9 +14,14 @@ class Modal {
         this.id = options.id || `alert_${randomHash()}`;
         this.message = options.message || undefined;
         this.title = options.title || undefined;
-        this.template = `
+        this.cookie = options.cookie;
+        this.markup = this.template();
+    }
+
+    template() {
+        return `
         <div class="curtain"></div>
-        <div id="${this.id}" class="ui_modal" data-ui="alert">
+        <div id="${this.id}" class="ui_modal ${this.className}" data-ui="alert">
             ${this.title ? `<b class="ui_modal__title">${this.title}</b>` : ''}
             ${this.html ? `<div class="ui_modal__html">${this.html}</div>` : ''}
             ${this.message ? `<p class="ui_modal__message">${this.message}</p>` : ''}
@@ -23,6 +29,10 @@ class Modal {
                 <a href="${this.href0}" class="ui_btn--redline" data-action="close">취소</a>
                 <a href="${this.href}" class="ui_btn--red" data-action="confirm">${this.btnText}</a>
             </div>
+            ${this.cookie && this.cookie.label ? `<label class="ui_field">
+                <input class="ui_field__input" type="checkbox" name="modal_cookie">
+                <span class="ui_field__label">${this.cookie.label}</span>
+            </label>` : ''}
         </div>`
     }
 
@@ -32,7 +42,7 @@ class Modal {
     }
 
     show() {
-        $('body').prepend(this.template);
+        $('body').prepend(this.markup);
         this.bindEvent();
     }
 
@@ -62,5 +72,3 @@ class Modal {
         });
     }
 }
-
-export default Modal;

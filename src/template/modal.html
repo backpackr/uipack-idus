@@ -31,6 +31,7 @@
 <fieldset>
     <button class="trigger ui_btn" data-action="alert">open alert</button>
     <button class="trigger ui_btn--red" data-action="confirm">open confirm</button>
+    <button class="trigger ui_btn--red" data-action="cookied">open Cookied</button>
 </fieldset>
 
 <script>
@@ -39,6 +40,18 @@
     function eventHandler(event) {
         var type = event.target.dataset.action;
         switch (type) {
+            case 'cookied':
+                uipack.alert({
+                    title: 'Want 🍪🍪🍪?',
+                    className: 'someClassName',
+                    message: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi beatae facilis qui omnis, nihil atque inventore quibusdam dolorem quae nisi. Labore, doloremque corrupti quam dolor libero asperiores sunt harum eveniet!',
+                    cookie:{
+                        days: 7,
+                        label: `hide for 7days`
+                    }
+                });
+
+                break;
             case 'alert':
                 uipack.alert({
                     title: 'Greetings! 👋',
