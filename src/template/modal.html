@@ -31,7 +31,7 @@
 <fieldset>
     <button class="trigger ui_btn" data-action="alert">open alert</button>
     <button class="trigger ui_btn--red" data-action="confirm">open confirm</button>
-    <button class="trigger ui_btn--red" data-action="cookied">open Cookied</button>
+    <button class="trigger ui_btn--redline" data-action="cookied">open modal</button>
 </fieldset>
 
 <script>
@@ -41,33 +41,35 @@
         var type = event.target.dataset.action;
         switch (type) {
             case 'cookied':
-                uipack.alert({
+                uipack.modal({
                     title: 'Want 🍪🍪🍪?',
-                    className: 'someClassName',
-                    message: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi beatae facilis qui omnis, nihil atque inventore quibusdam dolorem quae nisi. Labore, doloremque corrupti quam dolor libero asperiores sunt harum eveniet!',
-                    cookie:{
+                    html: `<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi beatae facilis qui omnis, nihil atque inventore quibusdam dolorem quae nisi. Labore, doloremque corrupti quam dolor libero asperiores sunt harum eveniet!</p>`,
+                    cookies: [{
                         days: 7,
-                        label: `hide for 7days`
-                    }
-                });
-
+                        name: 'uipack_alert',
+                        label: 'Hide for 7days'
+                    }, {
+                        days: 1,
+                        name: 'uipack_alert',
+                        label: 'Hide for a day'
+                    }]
+                }).show();
                 break;
             case 'alert':
                 uipack.alert({
+                    buttonMod: '--single',
                     title: 'Greetings! 👋',
-                    message: 'All good?'
-                });
-
+                    message: 'Im Alerting Prompt',
+                    callback: () => console.log('alert callback')
+                }).show();
                 break;
-
             case 'confirm':
-                uipack.confirm({
-                    title: 'Are you sure? 😳',
-                    message: 'ARE YOU SURE??? 😳😳😳😳'
-                });
-
+                uipack.alert({
+                    title: 'Greetings! 👋',
+                    message: 'Hi im Confimation Prompt',
+                    callback: () => console.log('confirm callback!'),
+                }).show();
                 break;
-
             default:
                 break;
         }

@@ -2,23 +2,27 @@ import * as events from './modules/eventEmitter';
 import numberinput from './modules/ui_numberinput';
 import selectbox from './modules/ui_selectbox';
 import autoresize from './modules/ui_autoresize';
+import { Modal, Prompt } from './modules/Modal';
 import textarea from './modules/ui_textarea';
-import { alert, confirm } from './modules/ui_modal';
+import { modal, alert } from './modules/ui_modal';
 import rating from './modules/ui_rating';
-
+import uiCookie from './modules/uiCookie';
 // style
 import '../style/uipack.scss';
 
 // ui modules
 const ui = {
+    Modal,
+    Prompt,
     alert,
     autoresize,
-    confirm,
+    events,
+    modal,
     numberinput,
     rating,
     selectbox,
     textarea,
-    events,
+    uiCookie,
 }
 
 module.exports = ui;

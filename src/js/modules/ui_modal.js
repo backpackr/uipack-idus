@@ -1,9 +1,7 @@
-import Modal from './Modal';
+import { Modal, Prompt } from './Modal';
 
 // confirmation modal - two buttons
-export const confirm = options => new Modal(options).show();
+export const alert = options => new Prompt(options);
 
 // alert modal with one button
-export const alert = options => new Modal(Object.assign({
-    buttonMod: '--single'
-}, options)).show();
+export const modal = options => new Modal(options);
