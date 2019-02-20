@@ -24,11 +24,11 @@ export class Prompt {
     template() {
         return `
         <div class="curtain"></div>
-        <div id="${this.id}" class="ui_modal${this.modifier} ${this.className}">
-            ${this.title ? `<b class="ui_modal__title">${this.title}</b>` : ''}
-            ${this.html ? `<div class="ui_modal__html">${this.html}</div>` : ''}
-            ${this.message ? `<p class="ui_modal__message">${this.message}</p>` : ''}
-            <div class="ui_modal__btngroup${this.buttonMod}">
+        <div id="${this.id}" class="ui_prompt${this.modifier} ${this.className}">
+            ${this.title ? `<b class="ui_prompt__title">${this.title}</b>` : ''}
+            ${this.html ? `<div class="ui_prompt__html">${this.html}</div>` : ''}
+            ${this.message ? `<p class="ui_prompt__message">${this.message}</p>` : ''}
+            <div class="ui_prompt__btngroup${this.buttonMod}">
                 <a href="${this.href0}" class="ui_btn--redline" data-action="close">취소</a>
                 <a href="${this.href}" class="ui_btn--red" data-action="confirm">${this.btnText}</a>
             </div>
@@ -117,11 +117,11 @@ export class Modal extends Prompt {
         return `
         <div class="curtain"></div>
         <div id="${this.id}" class="ui_modal${this.modifier} ${this.className}">
-            <button class="ui_btn" type="button" data-action="close">&times;</button>
+            <button class="ui_modal__crossbtn" type="button" data-action="close">&times;</button>
             ${this.title ? `<b class="ui_modal__title">${this.title}</b>` : ''}
             ${this.html ? `<div class="ui_modal__html">${this.html}</div>` : ''}
             ${this.message ? `<p class="ui_modal__message">${this.message}</p>` : ''}
-            ${this.cookies ? this.inputTemplate() : ''}
+            ${this.cookies ? `<fieldset class="ui_modal__fieldset">${this.inputTemplate()}</fieldset>` : ''}
         </div>`
     }
 };

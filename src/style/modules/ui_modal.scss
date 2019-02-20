@@ -7,7 +7,8 @@
     z-index: 1000;
 }
 
-.#{$namespace}modal {
+.#{$namespace}modal,
+.#{$namespace}prompt {
     box-sizing: border-box;
     z-index: 1000;
     position: fixed;
@@ -22,6 +23,18 @@
     background-color: #fafafa;
     box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 12px 17px 2px rgba(0, 0, 0, 0.14);
 
+    > * {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &.#{$namespace}modal {
+        border-radius: 0;
+        width: 380px;
+        margin-left: -190px;
+    }
+
     &__title {
         display: inline-block;
         width: 100%;
@@ -29,6 +42,27 @@
         margin-top: 12px;
         padding-bottom: 4px;
         color: $c-font3;
+
+        .#{$namespace}modal & {
+            margin: 0;
+            padding-top: 0;
+            border-bottom: 1px solid #555;
+        }
+    }
+
+    &__crossbtn {
+        cursor:pointer;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        color: $c-point;
+        border: 0 none;
+        font-size: 30px;
+        padding: 0 10px;
+        &:focus,
+        &:active {
+            outline: none;
+        }
     }
 
     &__message {
@@ -83,9 +117,16 @@
         }
     }
 
+    &__fieldset {
+        text-align: left;
+        > *:first-child {
+            margin-right: 8px;
+        }
+    }
+
     .ui_field {
         margin-top: 5px;
-        display: block;
+        display: inline-block;
         text-align: left;
     }
 }
