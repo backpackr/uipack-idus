@@ -18,6 +18,7 @@ export class Prompt {
         this.id = options.id || `alert_${randomHash()}`;
         this.message = options.message || undefined;
         this.title = options.title || undefined;
+        this.cross = options.cross || undefined;
         this.markup = this.template();
     }
 
@@ -25,6 +26,7 @@ export class Prompt {
         return `
         <div class="curtain"></div>
         <div id="${this.id}" class="ui_prompt${this.modifier} ${this.className}">
+            ${this.cross ? `<button class="ui_prompt__crossbtn" type="button" data-action="close">&times;</button>` : ''}
             ${this.title ? `<b class="ui_prompt__title">${this.title}</b>` : ''}
             ${this.html ? `<div class="ui_prompt__html">${this.html}</div>` : ''}
             ${this.message ? `<p class="ui_prompt__message">${this.message}</p>` : ''}
