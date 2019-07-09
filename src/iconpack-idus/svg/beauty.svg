@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g fill="none" fill-rule="evenodd">
+        <path d="M0 7h32v32H0z"/>
+        <path stroke="#666" stroke-width="1.5" d="M5.668 31.25h17.664a11.7 11.7 0 0 0 2.918-7.75c0-6.49-5.26-11.75-11.75-11.75S2.75 17.01 2.75 23.5a11.7 11.7 0 0 0 2.918 7.75z"/>
+        <path stroke="#666" stroke-width="1.5" d="M18.25 12.335V9a.25.25 0 0 0-.25-.25h-7a.25.25 0 0 0-.25.25v3.335c1.2-.386 2.461-.585 3.75-.585 1.289 0 2.55.2 3.75.585z"/>
+        <path stroke="#E6524B" stroke-linecap="round" stroke-width="1.5" d="M21.85 21.11c-.552-2.229-2.466-4.034-4.973-4.766a8.696 8.696 0 0 0-1.026-.233"/>
+        <path stroke="#666" stroke-width="1.5" d="M12 1.75a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25h5a.25.25 0 0 0 .25-.25V2a.25.25 0 0 0-.25-.25h-5z"/>
+        <rect width="4" height="1" x="17.5" y="4.5" fill="#D8D8D8" stroke="#666" rx=".5"/>
+        <rect width="3" height="1" x="2.5" y="4.854" fill="#D8D8D8" stroke="#666" rx=".5"/>
+        <rect width="2" height="1" x="5.591" y="2.341" fill="#D8D8D8" stroke="#666" rx=".5" transform="rotate(45 6.591 2.591)"/>
+        <rect width="2" height="1" x="5.5" y="7.5" fill="#D8D8D8" stroke="#666" rx=".5" transform="rotate(-45 6.5 7.75)"/>
+        <rect width="2" height="1" x="11.5" y="4.5" fill="#D8D8D8" stroke="#666" rx=".5"/>
+        <ellipse cx="26.5" cy="5" stroke="#666" stroke-width="1.5" rx="4.75" ry="3.25"/>
+    </g>
+</svg>
