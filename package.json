@@ -1,6 +1,6 @@
 {
   "name": "uipack-idus",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "UI Pack for idus.com",
   "main": "./dist/uipack.js",
   "repository": {
