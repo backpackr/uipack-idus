@@ -36,6 +36,18 @@ $c-placeholder:rgba(230, 230, 230, 0.8);
         position: absolute;
         right: 10px;
         top: 10px;
+
+        &--label {
+            @extend .ui_card__overlay;
+            left: 0;
+            right: initial;
+            padding: 8px;
+            border-radius: 2px;
+            background: rgba(51, 51, 51, 0.8);
+            color:#fff;
+            font-weight: bold;
+            left: 10px;
+        }
     }
 
     &__inner {
@@ -131,7 +143,6 @@ $c-placeholder:rgba(230, 230, 230, 0.8);
             animation: pulse 1s infinite ease-in-out;
         }
     }
-
 
     // text style
     &__title {
@@ -317,5 +328,50 @@ $c-placeholder:rgba(230, 230, 230, 0.8);
             margin-top: 8px;
             width: 70%;
         }
+    }
+}
+
+// moreinfo type
+.#{$namespace}card {
+    &--white {
+        @extend .#{$namespace}card;
+        background-color: rgba(255, 255, 255, 0);
+        border: 1px solid #f5f5f5;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    &--white &__rating {
+        border-top: 0 none;
+        height: auto;
+    }
+
+    &--white &__label {
+        color: $c-point;
+    }
+
+    &--white &__vcenter {
+        > * {
+            padding: 12px 0;
+        }
+
+        td, dd {
+            font-size: 12px;
+        }
+        dt {
+            color: #999;
+        }
+        dd {
+            color: #666;
+            font-weight: bold;
+        }
+    }
+
+    &--white &__img {
+        @include box-ratio(4.5, 3);
+    }
+
+    &--white &__info {
+        height: auto;
     }
 }

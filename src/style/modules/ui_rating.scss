@@ -23,6 +23,30 @@
             background: lighten(#ffc801, 25%);
         }
     }
+
+    &__label {
+        display: inline-block;
+        vertical-align: middle;
+        font-style: normal;
+        color: #999;
+        font-size: 12px;
+
+        &:first-child {
+            margin-right: 5px;
+        }
+
+        &:last-child {
+            margin-left: 5px;
+        }
+
+        &--blue {
+            @extend .ui_rating__label;
+
+            color: $c-sub;
+            font-weight: bold;
+            font-size: inherit;
+        }
+    }
 }
 
 .ui_rating {
