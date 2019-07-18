@@ -32,7 +32,7 @@ $c-placeholder:rgba(230, 230, 230, 0.8);
     }
 
     &__overlay {
-        z-index: 100;
+        z-index: 80;
         position: absolute;
         right: 10px;
         top: 10px;
@@ -47,6 +47,12 @@ $c-placeholder:rgba(230, 230, 230, 0.8);
             color:#fff;
             font-weight: bold;
             left: 10px;
+        }
+
+        &--left {
+            @extend .ui_card__overlay;
+            left: 10px;
+            right: initial;
         }
     }
 
@@ -216,6 +222,15 @@ $c-placeholder:rgba(230, 230, 230, 0.8);
         font-size: 9px;
         text-decoration: line-through;
     }
+
+    &__emphasize {
+        color: $c-point;
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 20px;
+        display: inline-block;
+        font-style: normal;
+    }
 }
 
 // review card extension
@@ -373,5 +388,36 @@ $c-placeholder:rgba(230, 230, 230, 0.8);
 
     &--white &__info {
         height: auto;
+    }
+}
+
+.#{$namespace}card {
+    &--flex-orientation {
+        @extend .#{$namespace}card--white;
+    }
+
+    @include mobile {
+        &--flex-orientation &__imgcover {
+            float: left;
+            width: 35%;
+        }
+        &--flex-orientation &__img {
+            @include box-ratio(3, 4);
+        }
+        &--flex-orientation &__txtarea {
+            float: right;
+            width: 65%;
+        }
+        &--flex-orientation &__label {
+            margin-top: 8px;
+        }
+        &--flex-orientation &__info {
+            padding-left: 16px;
+        }
+        &--flex-orientation &__rating {
+            position: absolute;
+            bottom: 0;
+            padding-left: 16px;
+        }
     }
 }
