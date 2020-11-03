@@ -1,21 +1,15 @@
 // uipack namespace
 $namespace: 'ui_';
 
-$c-point: #dd5850;
-$c-point-active: #c74f48;
-$c-point-focus: #dd5850;
-$c-point-hover: #c8352e;
-$c-sub: #22a7af;
+$main-color: #ff6e00;
+$main-color-active: #ff5e00;
+$sub-color: #22a7af;
 
-$c-uiblue: #579de0;
-$c-font3: #333;
-$c-font6: #666;
-$c-font9: #999;
-
-$c-error: #d8524a;
-
-$gray-l: #d9d9d9;
-$gray-m: #acacac;
+$gray-scale-100: #333333;
+$gray-scale-200: #666666;
+$gray-scale-300: #999999;
+$gray-scale-400: #b4b4b4;
+$gray-scale-500: #d9d9d9;
 
 // dimensions
 $wrap-width: 1056px;
@@ -23,9 +17,6 @@ $content-spacing: 48px;
 
 // mobile view contents spacing
 $m-spacing: 12px;
-
-// input state
-$c-input-focus: $c-sub;
 
 // global line-height;
 $lh: 1.5;
