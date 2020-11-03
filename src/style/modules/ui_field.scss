@@ -13,7 +13,7 @@ input[type=number] {
     transition: all, 0.3s, cubic-bezier(0.075, 0.82, 0.165, 1);
     box-sizing: border-box;
     display: inline-block;
-    border: 1px solid #b4b4b4;
+    border: 1px solid $gray-scale-400;
     vertical-align: middle;
     resize: none;
     padding: 4px 12px;
@@ -23,7 +23,7 @@ input[type=number] {
 
     &:focus {
         outline: none;
-        border-color: $c-sub;
+        border-color: $sub-color;
     }
 }
 
@@ -71,8 +71,8 @@ input[type=number] {
     &:checked:before {
         cursor: pointer;
         content: '\2713';
-        background: $c-point;
-        border-color: $c-point;
+        background: $main-color;
+        border-color: $main-color;
     }
 }
 
@@ -96,7 +96,7 @@ input[type=number] {
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: $c-point;
+        background: $main-color;
     }
 }
 
@@ -126,7 +126,7 @@ input[type=number] {
 
     &__label {
         font-size: 14px;
-        color: $c-font3;
+        color: $gray-scale-100;
         cursor: pointer;
 
         &--block {
@@ -138,7 +138,7 @@ input[type=number] {
     &__input {
         appearance: none;
         -webkit-appearance: none;
-        color: $c-font3;
+        color: $gray-scale-100;
         transition: border-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
         line-height: 30px;
         padding: 0 12px;
@@ -149,7 +149,7 @@ input[type=number] {
         &[type=phone] {
             box-sizing: border-box;
             display: inline-block;
-            border: 1px solid #b4b4b4;
+            border: 1px solid $gray-scale-400;
             min-width: 160px;
             border-radius: 2px;
         }
@@ -167,21 +167,21 @@ input[type=number] {
             min-height: 20px;
             padding: 0;
             margin: 0;
-            border: 1px solid #b4b4b4;
+            border: 1px solid $gray-scale-400;
             text-align: center;
         }
 
         // ui state
         &:focus {
             outline: 0 none;
-            border-color: $c-sub;
+            border-color: $sub-color;
 
             &:before {
-                border-color: $c-sub;
+                border-color: $sub-color;
             }
 
             &:checked:before {
-                border-color: darken($c-point, 25%);
+                border-color: darken($main-color, 25%);
             }
         }
 
@@ -205,7 +205,7 @@ input[type=number] {
     &--boxed {
         @extend .#{$namespace}field;
         padding: 0 18px;
-        border: 1px solid #d9d9d9;
+        border: 1px solid $gray-scale-500;
         background: #fff;
         text-align: left;
 
@@ -228,7 +228,7 @@ input[type=number] {
             font-size: 14px;
             height: 24px;
             width: 24px;
-            border-color: #b4b4b4;
+            border-color: $gray-scale-400;
             line-height: 22px;
 
             &[data-action=decrement] {
@@ -288,7 +288,7 @@ input[type=number] {
         &[data-state=readonly] {
             textarea:focus {
                 outline: none;
-                border-color: #b4b4b4 !important;
+                border-color: $gray-scale-400 !important;
             }
         }
     }
@@ -296,7 +296,7 @@ input[type=number] {
     &--onchange &__btn {
         @extend .#{$namespace}btn;
         position: absolute;
-        color: $c-sub;
+        color: $sub-color;
         line-height: 78px;
         width: 72px;
         height: 80px;
@@ -304,7 +304,7 @@ input[type=number] {
         margin-right: -72px;
 
         &:focus {
-            border-color: $c-sub;
+            border-color: $sub-color;
             box-shadow: $box-shadow;
         }
     }
@@ -328,19 +328,19 @@ input[type=number] {
             }
 
             &::placeholder {
-                color: $c-point;
+                color: $main-color;
                 opacity: 1;
                 font-weight: bold;
             }
 
             :-ms-input-placeholder { /* Internet Explorer 10-11 */
-                color: $c-point;
+                color: $main-color;
                 opacity: 1;
                 font-weight: bold;
             }
 
             ::-ms-input-placeholder { /* Internet Explorer 10-11 */
-                color: $c-point;
+                color: $main-color;
                 opacity: 1;
                 font-weight: bold;
             }
@@ -352,7 +352,7 @@ input[type=number] {
         bottom: 10px;
         right: 8px;
         font-size: 12px;
-        color: $c-font9;
+        color: $gray-scale-300;
         font-style: normal;
     }
 }

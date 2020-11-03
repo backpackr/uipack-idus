@@ -12,7 +12,7 @@
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        background: #d9d9d9;
+        background: $gray-scale-500;
         text-align: center;
 
         &[data-state=active] {
@@ -28,7 +28,7 @@
         display: inline-block;
         vertical-align: middle;
         font-style: normal;
-        color: #999;
+        color: $gray-scale-300;
         font-size: 12px;
 
         &:first-child {
@@ -42,7 +42,7 @@
         &--blue {
             @extend .ui_rating__label;
 
-            color: $c-sub;
+            color: $sub-color;
             font-weight: bold;
             font-size: inherit;
         }
@@ -51,7 +51,7 @@
 
 .ui_rating {
     .fa-star {
-        color: #d9d9d9;
+        color: $gray-scale-500;
         &[data-state=active] {
             color: #ffc801;
         }

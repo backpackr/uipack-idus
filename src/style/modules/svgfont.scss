@@ -29,15 +29,15 @@
   }
   .icon-bubble-left:before {
     content: "\e901";
-    color: #666;
+    color: $gray-scale-200;
   }
   .icon-bubble-plus:before {
     content: "\e902";
-    color: #999;
+    color: $gray-scale-300;
   }
   .icon-camera:before {
     content: "\e903";
-    color: #999;
+    color: $gray-scale-300;
   }
   .icon-cart:before {
     content: "\e904";
@@ -56,7 +56,7 @@
   }
   .icon-donation:before {
     content: "\e909";
-    color: #333;
+    color: $gray-scale-100;
   }
   .icon-fire:before {
     content: "\e90a";
@@ -75,7 +75,7 @@
   }
   .icon-idus-hexa:before {
     content: "\e90f";
-    color: #666;
+    color: $gray-scale-200;
   }
   .icon-medal:before {
     content: "\e910";
@@ -94,7 +94,7 @@
   }
   .icon-profile2:before {
     content: "\e915";
-    color: #666;
+    color: $gray-scale-200;
   }
   .icon-share:before {
     content: "\e916";

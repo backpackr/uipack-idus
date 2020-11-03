@@ -1,4 +1,4 @@
-@import '../style/uipack.scss';
+@import './uipack.scss';
 
 .ui_btn--blue {
 
@@ -27,7 +27,7 @@ code {
 .dummystyle .ui_grid__item > * {
     background: var(--colorMain);
     text-align: center;
-    color: #666;
+    color: $gray-scale-200;
     padding: 3px 0;
     font-size: 12px;
 }
