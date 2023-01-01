@@ -34,7 +34,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
-    "parcel": "^1.12.3",
+    "parcel": "^2.8.2",
     "prettier": "^1.17.1",
     "sass": "^1.20.1"
   },
